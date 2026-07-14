@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapia.ai — AI Sales Agent Team</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 11pt; line-height: 1.65; color: #1a1a2e; background: white; padding: 40px 60px; max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 24pt; font-weight: 700; color: #0f3460; border-bottom: 3px solid #e94560; padding-bottom: 12px; margin: 32px 0 20px 0; }
+  h2 { font-size: 15pt; font-weight: 600; color: #0f3460; border-left: 4px solid #e94560; padding-left: 12px; margin: 28px 0 14px 0; }
+  h3 { font-size: 12pt; font-weight: 600; color: #16213e; margin: 20px 0 10px 0; }
+  h4 { font-size: 11pt; font-weight: 600; color: #e94560; margin: 16px 0 8px 0; }
+  p { margin: 8px 0 12px 0; }
+  ul, ol { margin: 8px 0 12px 24px; }
+  li { margin: 4px 0; }
+  code { font-family: 'Courier New', Courier, monospace; font-size: 9.5pt; background: #f0f4ff; color: #0f3460; padding: 2px 6px; border-radius: 3px; }
+  pre { background: #0f1924; color: #e2e8f0; padding: 16px 20px; border-radius: 8px; margin: 12px 0 16px 0; overflow-x: auto; font-size: 9pt; line-height: 1.5; border-left: 4px solid #e94560; }
+  pre code { background: none; color: #e2e8f0; padding: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 10pt; }
+  th { background: #0f3460; color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 9.5pt; }
+  td { padding: 9px 14px; border-bottom: 1px solid #e8ecf4; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7f9ff; }
+  tr:hover td { background: #eef2ff; }
+  blockquote { border-left: 4px solid #e94560; background: #fff5f7; padding: 12px 18px; margin: 12px 0; border-radius: 0 6px 6px 0; color: #4a1530; font-style: italic; }
+  strong { color: #0f3460; font-weight: 600; }
+  em { color: #4a5568; }
+  a { color: #e94560; text-decoration: none; }
+  hr { border: none; border-top: 2px solid #e8ecf4; margin: 28px 0; }
+  .cover { text-align: center; padding: 80px 40px; background: linear-gradient(135deg, #0f3460 0%, #16213e 100%); color: white; border-radius: 12px; margin-bottom: 40px; }
+  .cover h1 { color: white; border-bottom: 2px solid rgba(233,69,96,0.6); font-size: 28pt; margin-bottom: 16px; padding-bottom: 20px; }
+  .cover p { font-size: 14pt; opacity: 0.9; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="cover">
+  <h1>Sapia.ai — AI Sales Agent Team</h1>
+  <p>Build Walkthrough & Setup Guide</p>
+  <div style="font-weight: 600; color: #e94560; margin-top: 10px;">July 2026</div>
+</div>
+<h1>Sapia.ai AI Agent Team — Build Complete ✅</h1>
+<h2>What Was Built</h2>
+<p>Everything is now in your <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent">Claude Sale Agent</a> folder — <strong>36 files</strong> across a complete, production-ready agent system.</p>
+<hr />
+<h2>Outbound Process Flowchart</h2>
+<pre><code class="language-mermaid">graph TD
+    A[Sourcing: HubSpot / Sales Nav / Lusha] --&gt; B[Research Analyst: Sells Trigger &amp; Target Cards]
+    B --&gt; C[ICP Scorer: Company Size, Industry, Title fit]
+    C --&gt;|Verdicts: Priority or Keep| D[Company Researcher: News, Funding, Tech ATS Org Structure]
+    C --&gt;|Verdict: Drop| X[Exclusion / Archive]
+    D --&gt; E[Sales Director: Weekly Plan Cap 100 Unique Companies]
+    E --&gt; G[Copywriter: Calibrate Voice, Draft Touches 1-4 based on Company Brief]
+    G --&gt; H[Slack Digest: Tuesday/Thursday post]
+    H --&gt;|Rep approves/edits in Slack| I[Sales Director reads approvals]
+    I --&gt; F[Prospect Hunter: Email-only Lusha, de-dupe, 90-day cooldown check]
+    F --&gt; J[SalesLoft Cadence activation]
+    J --&gt; K[Reply Handler: Monitor SalesLoft, BANT check, 12 classification buckets]
+    K --&gt;|Verdict: Book| L[AE Meeting prep brief to Slack]
+    K --&gt;|Verdict: Nurture| M[Nurture follow-up task]
+    K --&gt;|Verdict: DQ / Unsubscribe| N[Opt-out auto pause]
+</code></pre>
+<hr />
+<h2>Files Delivered</h2>
+<h3>8 Agent System Prompts → <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/agent_prompts"><code>agent_prompts/</code></a></h3>
+<p>Each file is ready to paste directly into a Claude Project's <strong>Custom Instructions</strong> field:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Claude Project Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/agent_prompts/00_sales_director.md">00_sales_director.md</a></td>
+<td><code>SAPIA-SD — Sales Director</code></td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/agent_prompts/01_research_analyst.md">01_research_analyst.md</a></td>
+<td><code>SAPIA-RA — Research Analyst</code></td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/agent_prompts/02_icp_scorer.md">02_icp_scorer.md</a></td>
+<td><code>SAPIA-ICP — ICP Scorer</code></td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/agent_prompts/03_copywriter.md">03_copywriter.md</a></td>
+<td><code>SAPIA-CW — Copywriter</code></td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/agent_prompts/04_prospect_hunter.md">04_prospect_hunter.md</a></td>
+<td><code>SAPIA-PH — Prospect Hunter</code></td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/agent_prompts/05_reply_handler.md">05_reply_handler.md</a></td>
+<td><code>SAPIA-RH — Reply Handler</code></td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/agent_prompts/06_company_researcher.md">06_company_researcher.md</a></td>
+<td><code>SAPIA-CR — Company Researcher</code></td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/agent_prompts/07_gtm_action_thinker.md">07_gtm_action_thinker.md</a></td>
+<td><code>SAPIA-GAT — GTM Action Thinker</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Knowledge Vault → <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault"><code>Sapia-Sales-Vault/</code></a></h3>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/00-ICP">00-ICP/</a></td>
+<td>ICP Master Profile, Scoring Rubric (7-dimension, weighted), Persona Maps (CHRO, Head of TA, COO, Head of People Systems, CEO, Head of People Services), <strong>Target Account Analysis (155 accounts, tiered)</strong>, Target Account List CSV</td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/01-Product">01-Product/</a></td>
+<td>Product Overview, Competitive Differentiators, ROI Data Points</td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/02-Case_Studies">02-Case_Studies/</a></td>
+<td>Case Study Template (with real outcomes reference for all 13 case studies), 13 customer case studies</td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/03-Outreach">03-Outreach/</a></td>
+<td>3 email sequences, Subject Line Library, Objection Library (7 objections), Email Winners files</td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/04-Brand_Voice">04-Brand_Voice/</a></td>
+<td>Brand Guidelines (tone, prohibited phrases, approved language), Voice Profile Template</td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/05-Signals">05-Signals/</a></td>
+<td>Job Movers Log, Newsletter Engagers Log, Trigger Events Log</td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/06-Performance">06-Performance/</a></td>
+<td>Email Performance Tracker, Campaign Learnings, A/B Test Log</td>
+</tr>
+</tbody>
+</table>
+<h3>Config &amp; Guides</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/claude_desktop_config_template.json">claude_desktop_config_template.json</a></td>
+<td>MCP server config — fill in credentials, copy to <code>~/Library/Application Support/Claude/</code></td>
+</tr>
+<tr>
+<td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/README.md">README.md</a></td>
+<td>Full team onboarding guide — share this with your peers</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>What You Need to Fill In</h2>
+<p>To ensure business-wide consistency, the central vault has already been fully pre-populated with your verified customer case studies, product overview, and approved ROI database. </p>
+<p>Individual Account Executives (AEs) only need to configure their personal outreach settings and API access:</p>
+<blockquote>
+<p>[!IMPORTANT]
+<strong>Do these before running your first agent session:</strong></p>
+</blockquote>
+<h3>High Priority (Day 1)</h3>
+<ol>
+<li><strong><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/03-Outreach/Email_Winners/Cold_Winners.md">Cold_Winners.md</a></strong> — AEs add 3–5 of their best-performing personal cold emails (remove prospect names).</li>
+<li><strong>Voice Profiles</strong> — Each rep fills in their <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/04-Brand_Voice/Sender_Voice_Profiles/Voice_Profile_Template.md">Voice_Profile_Template.md</a> and saves it as <code>[FirstName]_Voice.md</code> inside <code>Sender_Voice_Profiles/</code>.</li>
+<li><strong><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/claude_desktop_config_template.json">claude_desktop_config_template.json</a></strong> — Insert API credentials for the MCP servers and rename to <code>claude_desktop_config.json</code> in the Claude config folder.</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> The target account list is pre-populated for the team in <code>00-ICP/Target_Account_Analysis.md</code> (155 accounts, tiered). The Research Analyst will re-score accounts consistently against the ICP Scoring Rubric as it works through them.</p>
+</blockquote>
+<hr />
+<hr />
+<h2>GTM Agent Team Roster &amp; Roles</h2>
+<p>The Sapia GTM team comprises <strong>8 specialized agents</strong> operating in a coordinated workflow. Here is a summary of each agent's role and primary contribution:</p>
+<ol>
+<li><strong>🎯 Sales Director (SAPIA-SD):</strong> The orchestrator. Coordinates the weekly send schedule, runs the Monday signal harvests, audits Copywriter drafts against the <strong>8-Point Copywriting Checklist</strong>, posts the Slack Morning Digest for approval, and benchmarks Friday performance against real-world metrics.</li>
+<li><strong>🔍 Research Analyst (SAPIA-RA):</strong> The scout. Pulls HubSpot newsletter clicks, monitors job transitions, runs Brave Search lookalike scans to discover net-new companies, and flags triggers.</li>
+<li><strong>📊 ICP Scorer (SAPIA-ICP):</strong> The qualifier. Automatically scores and tiers prospect accounts (Tier 1/2/3/4) based on a custom 7-dimension rubric to filter out poor-fit leads. Re-scores existing accounts from the target list for consistency.</li>
+<li><strong>🔍 Company Researcher (SAPIA-CR):</strong> The profiler. Gathers deep target intel from open-web sources to build 1-page briefs mapping ATS/HRIS technologies, 4-layer pain points, and competitor positioning.</li>
+<li><strong>✍️ Copywriter (SAPIA-CW):</strong> The writer. Voice-matches to your reps' profiles and Gong call transcripts, drafting tailored email sequences (Touch 1-4) with high-reply PVP CTAs.</li>
+<li><strong>🏹 Prospect Hunter (SAPIA-PH):</strong> The loader. Enriches contacts with verified email and LinkedIn URLs using Lusha (strictly email-only to protect credit limits), checks 90-day cooldowns, and stages records.</li>
+<li><strong>💬 Reply Handler (SAPIA-RH):</strong> The closer. Monitors replies natively via SalesLoft, triages intent into 12 buckets, scores BANT criteria, and pushes AE Slack briefs for warm handoffs.</li>
+<li><strong>🧠 GTM Action Thinker (SAPIA-GAT):</strong> The strategist. Challenges, brainstorms, and deconstructs campaign ideas or angles, identifying blind spots and setting metrics-backed roadmaps.</li>
+</ol>
+<hr />
+<h2>Tuesday &amp; Thursday Cadence Schedule</h2>
+<p>To successfully run outbound cadences twice a week on Tuesdays and Thursdays, the team follows a structured operational rhythm. Below is the weekly timeline and the specific activities required:</p>
+<pre><code>[MON: Plan &amp; Score] ➔ [TUE: Outreach 1 (Slack Gate)] ➔ [WED: Deep Research] ➔ [THU: Outreach 2 (Slack Gate)] ➔ [FRI: Audit &amp; Learn]
+</code></pre>
+<h3>Monday: Sourcing &amp; Planning (Prep for the Week)</h3>
+<ul>
+<li><strong>Goal:</strong> Set the week's accounts and verify targets.</li>
+<li><strong>Activities:</strong></li>
+<li>Sales Director harvests new signals (newsletter opens, job changes).</li>
+<li>Research Analyst processes lookalikes and updates the signals logs.</li>
+<li>ICP Scorer qualifies all target accounts, keeping only Tier A &amp; B targets.</li>
+<li>Sales Director builds the <strong>Weekly Outreach Plan</strong> allocating targets to Tuesday and Thursday batches (cap: 100 unique companies per send day).</li>
+</ul>
+<h3>Tuesday: Outreach Day 1 (Send Session 1)</h3>
+<ul>
+<li><strong>Goal:</strong> Approve and send the first email batch.</li>
+<li><strong>Activities:</strong></li>
+<li><strong>7:30 AM:</strong> Copywriter drafts the Tuesday batch emails (run in 4 sessions of 25 emails to avoid token overload).</li>
+<li><strong>8:00 AM:</strong> Sales Director audits drafts and posts the <strong>Morning Digest</strong> (up to 100 emails) to Slack.</li>
+<li><strong>9:00 AM:</strong> Human rep reviews digest in Slack, replying <code>APPROVE</code> or <code>EDIT</code> directly in the thread.</li>
+<li><strong>9:30 AM:</strong> Prospect Hunter runs Lusha email-only lookup, de-dupes, and stages approved contacts in SalesLoft.</li>
+<li><strong>10:00 AM:</strong> Sales Director triggers the SalesLoft send sequence.</li>
+</ul>
+<h3>Wednesday: Deep Profiling (Prep for Thursday)</h3>
+<ul>
+<li><strong>Goal:</strong> Build rich briefings for the second send day.</li>
+<li><strong>Activities:</strong></li>
+<li>Company Researcher builds deep 1-page briefs for the Thursday targets (mapping 4-layer pain points, ATS tech stack, and competitor positioning).</li>
+<li>Rep reviews target list for Thursday and updates the vault's objection or case studies folders if needed.</li>
+</ul>
+<h3>Thursday: Outreach Day 2 (Send Session 2)</h3>
+<ul>
+<li><strong>Goal:</strong> Approve and send the second email batch.</li>
+<li><strong>Activities:</strong></li>
+<li><strong>7:30 AM:</strong> Copywriter drafts the Thursday batch emails (processed in subsets of 25).</li>
+<li><strong>8:00 AM:</strong> Sales Director audits drafts and posts the <strong>Morning Digest</strong> (up to 100 emails) to Slack.</li>
+<li><strong>9:00 AM:</strong> Human rep reviews and replies <code>APPROVE</code> or <code>EDIT</code> in the Slack thread.</li>
+<li><strong>9:30 AM:</strong> Prospect Hunter enriches via Lusha and stages approved contacts in SalesLoft.</li>
+<li><strong>10:00 AM:</strong> Sales Director triggers the SalesLoft send.</li>
+</ul>
+<h3>Friday: Audit, Learn &amp; Rubric Calibration</h3>
+<ul>
+<li><strong>Goal:</strong> Collect performance metrics and feed learnings back to the agents.</li>
+<li><strong>Activities:</strong></li>
+<li>Sales Director pulls SalesLoft stats (Sends, Opens, Replies, Bookings) and runs the <strong>Outbound Analyst Benchmark check</strong>.</li>
+<li>Sales Director posts the Diagnostic Verdict to <code>#sapia-performance</code> mapping root-cause fixes.</li>
+<li>Copywriter updates <code>Campaign_Learnings.md</code> with best-performing hooks.</li>
+<li>ICP Scorer calibrates scoring thresholds based on response signals.</li>
+</ul>
+<hr />
+<h2>Setup Sequence (Phased)</h2>
+<h3>Week 1–2: Foundation</h3>
+<ol>
+<li>Fill in knowledge vault (priority files above)</li>
+<li>Configure MCP servers (start: SalesLoft, Lusha, HubSpot, Slack)</li>
+<li>Create SAPIA-SD and SAPIA-RA Projects in Claude Desktop</li>
+<li>Run first Research Analyst session manually — validate output quality</li>
+<li>Run first ICP Scorer session — calibrate rubric against known customers</li>
+</ol>
+<h3>Week 3–4: First Live Run</h3>
+<ol start="6">
+<li>Create all remaining Projects (CW, PH, RH)</li>
+<li>Share all Projects with your 2 peers</li>
+<li>Each rep completes their Voice Profile</li>
+<li>Run first full batch: 5–10 emails through the full pipeline → human approval → SalesLoft send</li>
+<li>Review every output. Iterate system prompts and vault docs.</li>
+</ol>
+<h3>Week 5–6: Activate Signal Workflows</h3>
+<ol start="11">
+<li>Upload first LinkedIn Sales Nav CSV → activate Champion Mover workflow</li>
+<li>Run first HubSpot newsletter engagement pull → activate Warm Engagement workflow</li>
+<li>Connect Reply Handler → Slack alerts (monitors replies natively via SalesLoft MCP)</li>
+<li>First full week on 2-day send cadence (Tue + Thu)</li>
+</ol>
+<h3>Week 7+: Optimise</h3>
+<ol start="15">
+<li>Monthly: Review Campaign_Learnings.md; update prompts and vault</li>
+<li>Monthly: Calibrate ICP Scoring Rubric based on conversion data</li>
+<li>Begin A/B testing using the A_B_Test_Log.md</li>
+<li>Consider adding Wednesday as a third send day if quality and reply rates warrant</li>
+</ol>
+<hr />
+<h2>Key Design Decisions Applied</h2>
+<p>Based on your answers, these are the specific configurations built in:</p>
+<table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SalesLoft Agentic ✅</td>
+<td>Native MCP in config; all sends via SalesLoft cadences only</td>
+</tr>
+<tr>
+<td>No Salesforce</td>
+<td>Removed from all agent prompts and config; SalesLoft is the de-dupe source</td>
+</tr>
+<tr>
+<td>Gmail access ❌</td>
+<td>Excluded. SalesLoft handles all sending and reply tracking natively; Google OAuth setup skipped.</td>
+</tr>
+<tr>
+<td>Gong access ✅</td>
+<td>Included for voice matched calibration only. Prompts filter calls strictly by sender's email to ensure differentiation.</td>
+</tr>
+<tr>
+<td>Sales Nav: monthly CSV</td>
+<td>Prospect Hunter has full CSV processing workflow; Lusha fills the gaps daily</td>
+</tr>
+<tr>
+<td>HubSpot: fortnightly/monthly MCP query</td>
+<td>Research Analyst briefed to query on this cadence; Newsletter Engagers Log ready</td>
+</tr>
+<tr>
+<td>All outreach via SalesLoft</td>
+<td>Copywriter routes all drafts to Sales Director → Morning Digest → SalesLoft only</td>
+</tr>
+<tr>
+<td>3 reps, voice profiles TBD</td>
+<td>Voice Profile Template created; each rep self-populates</td>
+</tr>
+<tr>
+<td>Lead product: Chat Interview</td>
+<td>Product_Overview.md structured around Chat Interview as primary</td>
+</tr>
+<tr>
+<td>Secrets: TBC</td>
+<td>Config template uses environment variable placeholders; advise IT to choose 1Password or macOS Keychain</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Outbound Email Copywriting Standards</h2>
+<p>Every outbound email drafted by the Copywriter is audited against a strict, research-backed checklist to ensure it reads like a human-to-human note and maximizes reply rates:</p>
+<h3>1. The 8-Point Copywriting Checklist</h3>
+<ul>
+<li><strong>Em Dashes (— or –) Ban:</strong> Entirely banned. It makes copy read like a marketing brochure, not a personal email.</li>
+<li><strong>No Rhetorical Hooks:</strong> Cliches like "Are you struggling with X?" are banned. Opens directly on verifiable triggers.</li>
+<li><strong>No Generic Flattery:</strong> Empty compliments like "Love what you're building" or "Hope this finds you well" are removed.</li>
+<li><strong>No Pompous Jargon:</strong> Absolute ban on: <em>leverage, synergies, cutting-edge, robust, seamless, empower, streamline, unlock, next-level, paradigm, holistic, best-in-class, world-class</em>.</li>
+<li><strong>No "I" or "We" Openers:</strong> The email body must start with the prospect's context (e.g. <code>Given the Q4 hiring spike at [Company]...</code>).</li>
+<li><strong>No Meeting Ask in Email 1:</strong> Meeting requests are replaced with soft value CTAs.</li>
+<li><strong>Strict Word Limits:</strong> Email 1 is capped at 120 words; follow-up touches are capped at 150 words.</li>
+<li><strong>Sentence-Case Subject Lines:</strong> Capped at 6 words, lowercase, creating curiosity rather than pitching (e.g. <code>frontline turnover at [Company]</code>).</li>
+</ul>
+<h3>2. Permissionless Value Promise (PVP) CTAs</h3>
+<p>Generic "book a call" CTA requests are replaced with high-response <strong>Permissionless Value Promises</strong> (Insight, Benchmark, Playbook, or Diagnostic Questions) that offer standalone value in exchange for a simple "yes" reply:
+* <em>Insight CTA:</em> "Put together a quick one-pager showing how other retail TA teams automate first-round screening. Worth a send?"
+* <em>Benchmark CTA:</em> "Retailers like [Competitor] sit at a 12% candidate assessment drop-off rate. Curious how you compare — happy to share the benchmark data?"
+* <em>Diagnostic Question:</em> "Are you currently using manual resume screening or automated tests first? Reason I ask is that's where candidates usually drop off."</p>
+<hr />
+<h2>MCP Integration Directory</h2>
+<p>The agent system utilizes 7 Model Context Protocol (MCP) integrations to interface with your live GTM systems. The table below maps each integration to the specific agents that use it, their purpose, and when they run.</p>
+<table>
+<thead>
+<tr>
+<th>MCP Server</th>
+<th>Agent (Project Name)</th>
+<th>Purpose</th>
+<th>Operational Timing (When it runs)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SalesLoft</strong></td>
+<td><strong>Sales Director</strong> (<code>SAPIA-SD</code>) <br> <strong>Prospect Hunter</strong> (<code>SAPIA-PH</code>) <br> <strong>Reply Handler</strong> (<code>SAPIA-RH</code>)</td>
+<td>Checks weekly send volumes, validates existing leads/accounts for de-duplication, stages qualified contacts, checks cadence history, and monitors prospect replies natively (no Gmail access needed).</td>
+<td><strong>Monday:</strong> De-dupe check new prospects. <br><strong>Tue/Thu:</strong> Pre-send volume check + Reply monitoring. <br><strong>Friday:</strong> Performance reporting.</td>
+</tr>
+<tr>
+<td><strong>HubSpot</strong></td>
+<td><strong>Research Analyst</strong> (<code>SAPIA-RA</code>)</td>
+<td>Queries newsletter click/open analytics to capture warm intent signals from prospects in your specific regional territory.</td>
+<td><strong>Fortnightly / Monthly:</strong> Pulls newsletter engager lists to feed the outreach pipeline.</td>
+</tr>
+<tr>
+<td><strong>Lusha</strong></td>
+<td><strong>Research Analyst</strong> (<code>SAPIA-RA</code>) <br> <strong>Prospect Hunter</strong> (<code>SAPIA-PH</code>) <br> <strong>Company Researcher</strong> (<code>SAPIA-CR</code>)</td>
+<td>Lookalike company searches, company size validation, and <strong>email-only</strong> contact lookup (phone lookups are disabled to save credits).</td>
+<td><strong>Monday:</strong> Lookalike scans. <br><strong>Tue/Thu:</strong> Email-only contact enrichment.</td>
+</tr>
+<tr>
+<td><strong>Gong</strong></td>
+<td><strong>Copywriter</strong> (<code>SAPIA-CW</code>)</td>
+<td>Queries call transcripts strictly filtered by the sender's email address to extract your spoken vocabulary, value messaging, and customer objections.</td>
+<td><strong>On Demand:</strong> Calibrates voice profiles and drafts outbound messaging matches.</td>
+</tr>
+<tr>
+<td><strong>Slack</strong></td>
+<td><strong>Sales Director</strong> (<code>SAPIA-SD</code>) <br> <strong>Reply Handler</strong> (<code>SAPIA-RH</code>)</td>
+<td>Posts regional Morning Digests, weekly plans, Lusha credit alerts, and pushes instant positive reply / meeting AE briefs to reps.</td>
+<td><strong>Tue/Thu (8 AM):</strong> Pushes digest drafts. <br><strong>Real-time:</strong> Pushes meeting/reply notifications (within 5 min).</td>
+</tr>
+<tr>
+<td><strong>Brave Search</strong></td>
+<td><strong>Research Analyst</strong> (<code>SAPIA-RA</code>) <br> <strong>Company Researcher</strong> (<code>SAPIA-CR</code>)</td>
+<td>Web searches for target account news, executive interviews, hiring trends, and ATS keywords (e.g., successfactors logins) in public job postings.</td>
+<td><strong>Monday:</strong> Lookalike signal checks. <br><strong>Tue/Thu:</strong> Generates deep 1-page company research briefs.</td>
+</tr>
+<tr>
+<td><strong>Filesystem</strong></td>
+<td><strong>All Agents</strong></td>
+<td>Reads global ICP profiles, rubrics, persona templates, objection libraries, and brand tone rules. Writes signal logs, briefs, drafts, performance updates, and the outreach history cooldown logs.</td>
+<td><strong>Continuously:</strong> Interfaced during every active step of the pipeline.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Sharing with Your Peers</h2>
+<p>The entire <code>Claude Sale Agent</code> folder can be shared via your existing shared drive. The <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/README.md">README.md</a> is a complete standalone onboarding guide for new team members.</p>
+<p><strong>What each peer needs to do independently:</strong>
+- Set up their own Claude Desktop MCP config (credentials are personal)
+- Fill in their own Voice Profile</p>
+<p><strong>What they get from the shared folder:</strong>
+- All 7 agent system prompts (ready to paste)
+- The full Knowledge Vault
+- The README setup guide</p>
+<hr />
+<h2>Best Practice Guide: Ongoing Operations</h2>
+<p>This guide provides operational workflows, copy-paste prompts, and connection steps to run the agent team smoothly.</p>
+<h3>1. Starting &amp; Resuming Work Sessions</h3>
+<p>AI agents work best when given clear, contextual triggers to start their run. Copy and paste these exact prompts in your Claude Projects.</p>
+<h4>A. Starting the Weekly Cycle (Sales Director - Monday)</h4>
+<blockquote>
+<p>Paste into <code>SAPIA-[REGION]-SD</code> Project:
+<code>"Let's kick off our Monday planning session for the [APAC / MENA / UK] region. Sourcing from our signals logs (Newsletter Engagers, Job Movers, Trigger Events), please identify up to 100 unique companies to target this week. Do not exceed 100. Run Lusha lookalike scans via Lusha MCP if we need a pipeline buffer. Once target accounts are identified, generate the Weekly Outreach Plan."</code></p>
+</blockquote>
+<h4>B. Triggering Copywriter Calibration (Copywriter - Tuesday/Thursday)</h4>
+<blockquote>
+<p>Paste into <code>SAPIA-[REGION]-CW</code> Project:
+<code>"We are starting the email drafting session for rep [Your Name]. First, read [Your Name]_Voice.md in 04-Brand_Voice/Sender_Voice_Profiles/ and the winning email examples in 03-Outreach/Email_Winners/ to calibrate. Stop and output your Voice Calibration summary for my approval. Do not draft any emails until I approve this calibration."</code></p>
+</blockquote>
+<h4>C. Continuing After Calibration Approval</h4>
+<blockquote>
+<p>Paste into <code>SAPIA-[REGION]-CW</code> Project once calibration is approved:
+<code>"Calibration approved. Read the target account list for today's batch from our Sales Director's Weekly Outreach Plan. For each account, read the corresponding Company Brief generated by the Company Researcher. Draft the Touch [1/2/3/4] email in accordance with our word count and banned phrase rules. Output the table with the 'Reasoning for angle' column."</code></p>
+</blockquote>
+<h4>D. Resuming a Stuck Session</h4>
+<blockquote>
+<p>Paste into any agent Project if a connection fails, a token limit is hit, or the session restarts:
+<code>"We are resuming our session. Read the latest file status in Sapia-Sales-Vault/ via Filesystem MCP to determine where we left off. Output a brief status summary of completed tasks and tell me what the next step is before running any MCP tools."</code></p>
+</blockquote>
+<h3>2. Setting Up Slack Notifications &amp; Approvals</h3>
+<p>Reps do not need to check Claude Desktop constantly. The Sales Director and Reply Handler can push digests and alerts directly to your personal Slack DM or a dedicated regional channel, and read your response to continue.</p>
+<h4>Step 1: Authorize Slack in Claude Desktop</h4>
+<ol>
+<li>Open <strong>Claude Desktop</strong> and click the settings cog (or menu) in the bottom-left.</li>
+<li>Select <strong>Customize</strong> (or Connectors).</li>
+<li>Find <strong>Slack</strong> and click <strong>Connect / Authorize</strong>.</li>
+<li>Log into your company's Slack workspace and approve permissions.</li>
+</ol>
+<h4>Step 2: Retrieve your Channel or User ID</h4>
+<ul>
+<li><strong>For a channel:</strong> Open Slack, right-click the channel name (e.g. <code>#sapia-digest-apac</code>), select <strong>View channel details</strong>, and copy the <strong>Channel ID</strong> at the bottom (starts with <code>C</code>, e.g., <code>C1234567890</code>).</li>
+<li><strong>For personal DMs:</strong> Click your own profile picture in Slack, select <strong>Profile</strong>, click the three dots (<code>...</code>), select <strong>Copy member ID</strong> (starts with <code>U</code>, e.g., <code>U1234567890</code>).</li>
+</ul>
+<h4>Step 3: Map the ID in the Sales Director Prompt</h4>
+<p>Open your regional Sales Director prompt file (e.g. <code>agent_prompts/00_sales_director.md</code>) and edit the <code>Slack notifications</code> line under the Territory Configuration block:</p>
+<pre><code class="language-markdown">- Slack notifications: post to [Insert Channel ID here, e.g. C1234567890] and DM to [Insert Member ID here, e.g. U1234567890]
+</code></pre>
+<h4>Step 4: The Slack-First Approval Loop</h4>
+<p>Once you kick off a session in Claude Desktop:
+1. The Sales Director posts the <strong>Morning Digest</strong> (the 100 drafted emails) to your Slack channel.
+2. Review the drafts on your phone or Slack client.
+3. <strong>Approve directly in Slack:</strong>
+   - Reply <code>APPROVE</code> to send the whole batch.
+   - Reply <code>HOLD</code> to pause.
+   - Reply <code>3 EDIT: Change Woolworths hook to focus on retail growth</code> to revise individual emails.
+4. Back in Claude Desktop, simply type:</p>
+<blockquote>
+<p><code>"Check Slack approvals and run."</code>
+   The agent will read the Slack channel history using the Slack MCP, see your approval or edits, update the drafts, and instruct the Prospect Hunter to stage them in SalesLoft.</p>
+</blockquote>
+<h3>3. Active Guardrails &amp; Cost Protections</h3>
+<p>The agent system is equipped with multiple automated checks to protect your sender reputation, manage Lusha credit costs, and prevent Claude context limits from causing runaway token billing.</p>
+<table>
+<thead>
+<tr>
+<th>Guardrail Name</th>
+<th>Target Agent</th>
+<th>Rule / Action</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Human-in-the-Loop Gate</strong></td>
+<td>Sales Director</td>
+<td><strong>No email auto-sends.</strong> Rep must explicitly reply <code>APPROVE</code> via Slack to unlock cadence enrollment.</td>
+<td>Reputation &amp; quality control</td>
+</tr>
+<tr>
+<td><strong>90-Day Outreach Cooldown</strong></td>
+<td>Prospect Hunter</td>
+<td>Skip any contact emailed in the last <strong>90 days</strong> (checks SalesLoft and <code>Outreach_History_Log.csv</code>).</td>
+<td>Anti-spam and frequency protection</td>
+</tr>
+<tr>
+<td><strong>Unique Company Limit</strong></td>
+<td>Sales Director</td>
+<td>Outreach batches restricted to <strong>1 contact per company per batch</strong> (strictly different companies).</td>
+<td>Prevents spamming multiple people at one organization at the same time</td>
+</tr>
+<tr>
+<td><strong>Weekly Batch Cap</strong></td>
+<td>Sales Director</td>
+<td><strong>Capped at 100 contacts</strong> per rep per send day. Excess are rolled over to the next send session.</td>
+<td>Manageable inbox load &amp; deliverability safety</td>
+</tr>
+<tr>
+<td><strong>Score-Before-Enrich</strong></td>
+<td>Prospect Hunter</td>
+<td>Never look up a contact via Lusha unless company is qualified as <strong>Tier A or B</strong> by the ICP Scorer.</td>
+<td>Credit cost conservation</td>
+</tr>
+<tr>
+<td><strong>Email-Only Lusha Lookups</strong></td>
+<td>Prospect Hunter</td>
+<td>Strictly configure Lusha query to fetch <strong>email addresses only</strong>. Scrapes of phone numbers are forbidden.</td>
+<td>Phone scraping costs 6x extra credits (7 vs 1 credit)</td>
+</tr>
+<tr>
+<td><strong>Lusha Weekly Budget Alert</strong></td>
+<td>Sales Director</td>
+<td>Alert rep in Slack if projected weekly spend exceeds <strong>200 credits per rep</strong> (600 total).</td>
+<td>Keeps Lusha billing predictable</td>
+</tr>
+<tr>
+<td><strong>Token Session Limits</strong></td>
+<td>All Agents</td>
+<td>Discovery capped at 50 accounts; briefs at 10 companies; copywriter drafts at 25 emails per session.</td>
+<td>Avoids context/token overflow</td>
+</tr>
+<tr>
+<td><strong>Opt-Out Safety Trigger</strong></td>
+<td>Reply Handler</td>
+<td>Immediately remove contact from SalesLoft with zero delay if reply is classified <code>UNSUBSCRIBE</code> or <code>NEGATIVE</code>.</td>
+<td>Legal compliance &amp; domain reputation</td>
+</tr>
+<tr>
+<td><strong>Copywriter Calibration Gate</strong></td>
+<td>Copywriter</td>
+<td>Must output calibrated voice profile for human approval before drafting any emails.</td>
+<td>Guarantees authentic sender voice alignment</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>4. Daily Hygiene Checklist</h3>
+<ul>
+<li><strong>Check Slack first:</strong> Look at <code>#sapia-alerts</code> and <code>#sapia-digest-[region]</code> at 9:00 AM local time on Tuesdays and Thursdays.</li>
+<li><strong>Keep cadences clean:</strong> If a contact replies positively, double-check that the Reply Handler successfully paused their SalesLoft cadence.</li>
+<li><strong>Empty the spam traps:</strong> Review bounces or opt-outs flagged by the Reply Handler once a week to ensure your domain health remains high.</li>
+<li><strong>Log the wins:</strong> When an email books a meeting, copy the body text and paste it into <code>Sapia-Sales-Vault/03-Outreach/Email_Winners/Cold_Winners.md</code> so the Copywriter continually learns from what succeeds.</li>
+<li><strong>Clear cache weekly:</strong> If Claude Desktop runs slowly, close the app and restart to clear the filesystem and MCP connection logs.</li>
+<li><strong>Lusha Budget Lock:</strong> Respect the 200-credit weekly cap. If the Prospect Hunter triggers a warning alert, verify the target list quality before authorizing the override.</li>
+</ul>
+</body>
+</html>

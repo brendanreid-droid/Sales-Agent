@@ -1,0 +1,2 @@
+Company,Industry,Est_Employees,ATS,Buyer_In_Region,Champion_In_Region,ICP_Score,Tier,Status,Owner,Notes
+Example Corp,Retail,25000,Workday,Yes,Yes,,,,Prospect,[your name],Seed row - replace. Leave ICP_Score and Tier blank; the research-analyst fills them by scoring against the rubric.

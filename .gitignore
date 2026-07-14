@@ -1,0 +1,28 @@
+# === Secrets — NEVER commit ===
+# Real MCP credentials (the template with "..." placeholders is safe to commit)
+claude_desktop_config.json
+**/claude_desktop_config.json
+.claude/settings.local.json
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# === Per-rep / per-market runtime data ===
+# Each teammate maintains their own; do not share across markets.
+Sapia-Sales-Vault/05-Signals/*
+!Sapia-Sales-Vault/05-Signals/.gitkeep
+Sapia-Sales-Vault/06-Performance/*
+!Sapia-Sales-Vault/06-Performance/.gitkeep
+Sapia-Sales-Vault/04-Brand_Voice/Sender_Voice_Profiles/*
+!Sapia-Sales-Vault/04-Brand_Voice/Sender_Voice_Profiles/.gitkeep
+
+# Local Claude Code memory (session-specific)
+.claude/projects/
+
+# === Archives / cruft ===
+*.zip
+.DS_Store
+Thumbs.db
+node_modules/
