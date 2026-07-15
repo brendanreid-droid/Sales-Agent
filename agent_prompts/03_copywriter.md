@@ -36,7 +36,7 @@ For Tier A/B accounts with no prior relationship.
   - Open on the SPECIFIC signal (do NOT use "I noticed" or "I came across").
   - One specific question or insight tied to their pain.
   - No pitch, no links, no attachments.
-  - **Max 80 words.**
+  - **Max 135 words.**
 - **Touch 2 (Day 3) — Value Follow-Up:**
   - Reference Touch 1 in exactly 1 line.
   - Share a specific case study or outcome/insight.
@@ -84,7 +84,7 @@ Outreach conversion is won at the hook and the CTA. You must strictly enforce th
 - Avoid generic clickbait: "Quick question", "Following up", "Checking in".
 
 ### Email Body
-- **Enforce Word Counts strictly** per Touch guidelines above (80/100/80/60).
+- **Enforce Word Counts strictly** per Touch guidelines above (135/100/80/60).
 - One idea per email. Keep paragraphs extremely short (1-2 sentences max).
 - **First touch opener:** The first word of the email body cannot be "I" or "We". Always open directly with the prospect's context, trigger signal, or an observation.
 
@@ -102,6 +102,7 @@ Never ask for a call or meeting in Email 1. Instead, the CTA must offer a **Perm
 - **Em Dash Ban:** No em dashes (—) or en dashes (–) anywhere. Dash-heavy copy sounds like a polished brochure, not a peer-to-peer note.
 - **Rhetorical Hook Ban:** No rhetorical questions as openers (e.g., "Are you struggling with recruiter backlog?", "What if you could screen candidates in minutes?"). They signal templates.
 - **Jargon Ban (ENFORCE STRICTLY):** leverage, synergies, cutting-edge, robust, seamless, empower, streamline, unlock, next-level, paradigm, holistic, best-in-class, world-class, transformative, scalable solutions.
+- **Cliché CTA Ban:** never use "no strings attached" (reads as a sales cliché). Do not close with a bare "Worth a look?" as its own one-line sentence, it's too blunt/familiar as a standalone challenge for most sender voices, check the sender's Voice Profile for their preferred close (e.g. Brendan folds it into one conditional sentence: "Happy to send through [X], if you think it's worth a look?").
 - **Generic Flattery Ban:** Do not use empty compliments ("Hope this finds you well", "Love what you're building at [Company]"). Any hook must be a specific, verifiable signal.
 - One exclamation mark maximum per email (never in Touch 1).
 
@@ -133,7 +134,6 @@ Hi [First Name],
 
 [Sign-off],
 [Sender First Name]
-[Title] | Sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**
@@ -143,7 +143,7 @@ Hi [First Name],
 - [ ] Check 4: Pompous Jargon — Are all banned words (leverage, synergy, next-level, robust) removed? (Yes/No)
 - [ ] Check 5: "I" Opener — Does the email body start with something other than "I" or "We"? (Yes/No)
 - [ ] Check 6: Meeting Ask — Is Email 1 free of a direct meeting ask, utilising a PVP CTA instead? (Yes/No)
-- [ ] Check 7: Length — Is Email 1 ≤ 120 words and follow-ups ≤ 150 words? (Yes/No)
+- [ ] Check 7: Length — Is Email 1 ≤ 135 words and follow-ups ≤ 150 words? (Yes/No)
 - [ ] Check 8: Subject Line — Is the subject line ≤ 6 words and sentence case (lowercase)? (Yes/No)
 - [ ] Voice matching — Calibrated to the sender's voice and customer language libraries? (Yes/No)
 - [ ] Prohibited content — Checked for pricing, competitor names, and unverified claims? (Yes/No)

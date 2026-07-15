@@ -55,7 +55,7 @@ Query Lusha for companies matching these ICP firmographic signals:
 - Hiring volume: evidence of 400+ hires/year, continuous or seasonal high-volume recruitment
 
 Cross-reference results against:
-- `00-ICP/Target_Account_Analysis.md` (exclude companies already on our list)
+- `00-ICP/Target_Account_Analysis.md` — both the main 155-account tier tables **and** the "Lookalike Discoveries" table (exclude anything already logged in either)
 - `00-ICP/Target_Account_List.csv` (the raw CSV source)
 - SalesLoft (exclude companies already in an active cadence)
 
@@ -77,6 +77,15 @@ Output format:
 Route Tier A candidates to ICP Scorer for formal scoring.
 ```
 
+### ⛔ Mandatory write-back (do this before ending the session)
+A candidate that is only reported and not written to the vault has no protection against being "found" again next run — the exclusion check above only works if this step happens every time.
+
+Before finishing any Lookalike Discovery session, append **every candidate you are confident enough to report** (Tier A and Tier B both — not just the ones that go on to outreach) to:
+1. `00-ICP/Target_Account_Analysis.md` — add a row to the "Lookalike Discoveries" table (Company, Score, Tier, Industry, Geography, ATS, Date Added, Source, Brief). If no formal ICP score exists yet, use your own provisional score and note "(provisional, pending ICP Scorer)" in the Source column.
+2. `00-ICP/Target_Account_List.csv` — append a matching row (Company, Status=Prospect, Industry, blank Industry Rank, Employees_estimate, blank Estimated Hourly Population, Buyer in Region, Champion in Region, ATS, ATS Match, blank Vacancies Est, ICP Score, Owner=Brendan).
+
+If the ICP Scorer later re-scores the candidate, it should update these same rows rather than create duplicates.
+
 ---
 
 ### 3. Newsletter Engagement Identification (Fortnightly/Monthly via HubSpot MCP)
@@ -85,6 +94,8 @@ Query HubSpot for contacts who have opened or clicked a Sapia newsletter in the 
 - Confirm they are NOT already in an active SalesLoft cadence
 - Cross-reference their title and company against the ICP Master Profile
 - If they match a target persona (CHRO, Head of TA, CPO, COO, HR Director): flag them
+
+**⛔ Territory/ownership check (prevents two reps chasing the same contact):** HubSpot's newsletter list spans the whole company, not just your territory. Before flagging any engaged contact, confirm their company appears in **your own** `00-ICP/Target_Account_List.csv`. If it doesn't, that account belongs to a different rep's territory, do not flag it, even if the contact's title and company otherwise fit the ICP perfectly. Log it as `Excluded — outside my territory` rather than silently dropping it, so the gap is visible if the account genuinely has no owner yet.
 
 Output format:
 ```markdown
@@ -99,6 +110,7 @@ Source: HubSpot MCP pull
 - Total newsletter engagers reviewed: N
 - ICP-matched for warm outreach: N
 - Already in active SalesLoft cadence (excluded): N
+- Outside my territory (excluded, belongs to another rep): N
 ```
 
 ---
@@ -143,7 +155,7 @@ Output format per mover:
 
 ## Re-Scoring Existing Target Accounts
 
-The scores in `Target_Account_Analysis.md` were set using an earlier methodology. **Always re-score any account you research using the `ICP_Scoring_Rubric.md`** so that all scores are consistent across the vault.
+**The legacy scores in `Target_Account_Analysis.md` are historical only and must never be used to prioritise or tier an account.** They come from an earlier, inconsistent methodology (the original territory-planning CSV). The only authoritative score for any account is a current ICP Scorer pass against `ICP_Scoring_Rubric.md`. **Always re-score any account you research this way** so that every score in the vault traces back to one consistent rubric, never mix a legacy score into a prioritisation decision, even as a tiebreaker.
 
 When re-scoring an existing account:
 1. Read the account's current tier and score from `Target_Account_Analysis.md`

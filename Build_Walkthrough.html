@@ -37,29 +37,155 @@
 <div class="cover">
   <h1>Sapia.ai — AI Sales Agent Team</h1>
   <p>Build Walkthrough & Setup Guide</p>
-  <div style="font-weight: 600; color: #e94560; margin-top: 10px;">July 2026</div>
+  <div style="font-weight: 600; color: #e94560; margin-top: 10px;">Updated 15 July 2026</div>
 </div>
 <h1>Sapia.ai AI Agent Team — Build Complete ✅</h1>
+
+<div style="background:#f0f4ff; border:1.5px solid #0f3460; border-radius:10px; padding:18px 22px; margin:16px 0 24px 0;">
+<p style="margin-top:0;"><strong>Get the repo</strong> — two short steps, no memorising git commands.</p>
+<p><strong>Step 1: open Claude Code once, anywhere</strong> (e.g. Terminal → type <code>claude</code> from your home folder or Documents). If you already have a session open, skip to Step 2.</p>
+<p><strong>Step 2: prompt it to clone the repo for you:</strong></p>
+<blockquote style="margin:8px 0;"><p><em>"Clone https://github.com/brendanreid-droid/Sales-Agent.git into my Documents folder, then tell me exactly where it landed."</em></p></blockquote>
+<p style="margin-bottom:0;">Claude runs the clone and confirms the folder path. <strong>One thing this can't skip:</strong> a Claude Code session is tied to the folder it started in, so this session won't automatically "become" the Sales Director. Close it, then reopen Claude Code from inside the new folder, double-click <code>start.command</code> there, or type <code>claude</code> in a terminal opened to that folder. That second launch is what boots the Sales Director and wires up the 8 specialist agents.</p>
+</div>
+<p style="font-size:9.5pt; color:#4a5568; margin-top:-14px;">This is a private repo. If the clone fails with a permission error, ask Brendan to add you as a collaborator in GitHub first (repo → Settings → Collaborators).</p>
+
 <h2>What Was Built</h2>
-<p>Everything is now in your <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent">Claude Sale Agent</a> folder — <strong>36 files</strong> across a complete, production-ready agent system.</p>
+<p>Everything is now in your <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent">Claude Sale Agent</a> folder — a complete, production-ready outbound GTM agent system: 8 specialist agents, a 155-account tiered target list (plus a continually-growing Lookalike Discoveries table), and a full knowledge vault. Runs on <strong>Claude Code</strong>, that's what lets one orchestrator dispatch all 8 specialists automatically.</p>
 <hr />
 <h2>Outbound Process Flowchart</h2>
-<pre><code class="language-mermaid">graph TD
-    A[Sourcing: HubSpot / Sales Nav / Lusha] --&gt; B[Research Analyst: Sells Trigger &amp; Target Cards]
-    B --&gt; C[ICP Scorer: Company Size, Industry, Title fit]
-    C --&gt;|Verdicts: Priority or Keep| D[Company Researcher: News, Funding, Tech ATS Org Structure]
-    C --&gt;|Verdict: Drop| X[Exclusion / Archive]
-    D --&gt; E[Sales Director: Weekly Plan Cap 100 Unique Companies]
-    E --&gt; G[Copywriter: Calibrate Voice, Draft Touches 1-4 based on Company Brief]
-    G --&gt; H[Slack Digest: Tuesday/Thursday post]
-    H --&gt;|Rep approves/edits in Slack| I[Sales Director reads approvals]
-    I --&gt; F[Prospect Hunter: Email-only Lusha, de-dupe, 90-day cooldown check]
-    F --&gt; J[SalesLoft Cadence activation]
-    J --&gt; K[Reply Handler: Monitor SalesLoft, BANT check, 12 classification buckets]
-    K --&gt;|Verdict: Book| L[AE Meeting prep brief to Slack]
-    K --&gt;|Verdict: Nurture| M[Nurture follow-up task]
-    K --&gt;|Verdict: DQ / Unsubscribe| N[Opt-out auto pause]
-</code></pre>
+<p>End-to-end flow, from new research through to a booked meeting. Blue boxes are agent steps that run on a prompt, pink boxes are the two human checkpoints, nothing crosses either without you.</p>
+<div style="overflow-x:auto; margin: 12px 0 20px 0;">
+<svg viewBox="0 0 820 1170" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%; max-width:820px; height:auto; display:block; margin:0 auto;">
+<title>Sapia outbound GTM process flow</title>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#0f3460"/>
+</marker>
+<marker id="arrowMuted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+</marker>
+<marker id="arrowAccent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#e94560"/>
+</marker>
+</defs>
+
+<style>
+.node-title{font-family:Inter,Arial,sans-serif;font-size:14px;font-weight:700;}
+.node-sub{font-family:Inter,Arial,sans-serif;font-size:11.5px;font-weight:400;}
+.edge-label{font-family:Inter,Arial,sans-serif;font-size:11px;font-weight:600;}
+.start-label{font-family:Inter,Arial,sans-serif;font-size:11.5px;font-weight:600;fill:#ffffff;}
+</style>
+
+<rect x="20" y="10" width="14" height="14" rx="3" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="40" y="21" class="node-sub" fill="#4a5568">Agent step</text>
+<rect x="140" y="10" width="14" height="14" rx="3" fill="#fff5f7" stroke="#e94560" stroke-width="2"/>
+<text x="160" y="21" class="node-sub" fill="#4a5568">Human checkpoint</text>
+<rect x="300" y="10" width="14" height="14" rx="3" fill="#f7f9ff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,2"/>
+<text x="320" y="21" class="node-sub" fill="#4a5568">Exit / no further action</text>
+
+<rect x="120" y="46" width="230" height="34" rx="17" fill="#0f3460"/>
+<text x="235" y="67" text-anchor="middle" class="start-label">Mon/Wed: New Research</text>
+
+<rect x="450" y="46" width="250" height="34" rx="17" fill="#16213e"/>
+<text x="575" y="61" text-anchor="middle" class="start-label">2x Monthly: Signal Review</text>
+<text x="575" y="74" text-anchor="middle" class="start-label" style="font-weight:400;font-size:10px;">HubSpot + Sales Nav, territory-filtered</text>
+
+<line x1="235" y1="80" x2="360" y2="120" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="575" y1="80" x2="460" y2="120" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowMuted)"/>
+
+<rect x="200" y="124" width="420" height="54" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="410" y="146" text-anchor="middle" class="node-title" fill="#0f3460">Research Analyst</text>
+<text x="410" y="164" text-anchor="middle" class="node-sub" fill="#334155">Lookalike discovery + trigger events</text>
+
+<line x1="410" y1="178" x2="410" y2="204" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<polygon points="410,204 500,254 410,304 320,254" fill="#ffffff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="410" y="249" text-anchor="middle" class="node-title" fill="#0f3460" font-size="13">ICP Scorer</text>
+<text x="410" y="265" text-anchor="middle" class="node-sub" fill="#334155">Tier A/B?</text>
+
+<line x1="500" y1="254" x2="600" y2="254" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowMuted)"/>
+<text x="510" y="246" class="edge-label" fill="#64748b">Tier C / Exclude</text>
+<rect x="600" y="228" width="180" height="52" rx="8" fill="#f7f9ff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,2"/>
+<text x="690" y="250" text-anchor="middle" class="node-title" fill="#64748b" font-size="13">Archived</text>
+<text x="690" y="266" text-anchor="middle" class="node-sub" fill="#64748b">Monitor for 90 days</text>
+
+<line x1="410" y1="304" x2="410" y2="330" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="424" y="322" class="edge-label" fill="#0f3460">Tier A/B</text>
+
+<rect x="200" y="334" width="420" height="54" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="410" y="356" text-anchor="middle" class="node-title" fill="#0f3460">Company Researcher</text>
+<text x="410" y="374" text-anchor="middle" class="node-sub" fill="#334155">1-page brief: pain points, ATS, org map</text>
+
+<line x1="410" y1="388" x2="410" y2="414" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="200" y="418" width="420" height="54" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="410" y="440" text-anchor="middle" class="node-title" fill="#0f3460">Sales Director</text>
+<text x="410" y="458" text-anchor="middle" class="node-sub" fill="#334155">Weekly plan, capped at 100 companies/day</text>
+
+<line x1="410" y1="472" x2="410" y2="498" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="200" y="502" width="420" height="54" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="410" y="524" text-anchor="middle" class="node-title" fill="#0f3460">Copywriter</text>
+<text x="410" y="542" text-anchor="middle" class="node-sub" fill="#334155">Calibrated voice, drafts full 4-touch sequence</text>
+
+<line x1="410" y1="556" x2="410" y2="582" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="230" y="586" width="360" height="46" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="410" y="614" text-anchor="middle" class="node-title" fill="#0f3460" font-size="13">Morning Digest posted to Slack (Tue/Thu)</text>
+
+<line x1="410" y1="632" x2="410" y2="658" stroke="#e94560" stroke-width="2" marker-end="url(#arrowAccent)"/>
+
+<rect x="170" y="662" width="480" height="58" rx="8" fill="#fff5f7" stroke="#e94560" stroke-width="2.5"/>
+<text x="410" y="686" text-anchor="middle" class="node-title" fill="#4a1530">Rep reviews in Slack</text>
+<text x="410" y="704" text-anchor="middle" class="node-sub" fill="#4a1530">Replies APPROVE, HOLD, or an EDIT note</text>
+
+<path d="M170,691 C90,691 90,529 200,529" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowMuted)"/>
+
+<rect x="660" y="666" width="150" height="46" rx="8" fill="#f7f9ff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,2"/>
+<text x="735" y="686" text-anchor="middle" class="node-sub" fill="#64748b" font-weight="600">HOLD</text>
+<text x="735" y="702" text-anchor="middle" class="node-sub" fill="#64748b" font-size="10.5">Paused, awaiting rep</text>
+<line x1="650" y1="691" x2="659" y2="689" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowMuted)"/>
+
+<line x1="410" y1="720" x2="410" y2="746" stroke="#e94560" stroke-width="2" marker-end="url(#arrowAccent)"/>
+<text x="424" y="738" class="edge-label" fill="#e94560">APPROVE</text>
+
+<rect x="200" y="750" width="420" height="62" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="410" y="772" text-anchor="middle" class="node-title" fill="#0f3460">Prospect Hunter</text>
+<text x="410" y="789" text-anchor="middle" class="node-sub" fill="#334155">Cooldown checks, Lusha enrich,</text>
+<text x="410" y="803" text-anchor="middle" class="node-sub" fill="#334155">auto-enrols into SalesLoft cadence</text>
+
+<line x1="410" y1="812" x2="410" y2="838" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="170" y="842" width="480" height="58" rx="8" fill="#fff5f7" stroke="#e94560" stroke-width="2.5"/>
+<text x="410" y="866" text-anchor="middle" class="node-title" fill="#4a1530">AE sends the cadence in SalesLoft</text>
+<text x="410" y="884" text-anchor="middle" class="node-sub" fill="#4a1530">Final gate. No agent ever calls send.</text>
+
+<line x1="410" y1="900" x2="410" y2="926" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="200" y="930" width="420" height="54" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="410" y="952" text-anchor="middle" class="node-title" fill="#0f3460">Reply Handler</text>
+<text x="410" y="970" text-anchor="middle" class="node-sub" fill="#334155">Classifies replies (12 buckets), runs BANT check</text>
+
+<line x1="330" y1="984" x2="145" y2="1020" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="410" y1="984" x2="410" y2="1020" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="490" y1="984" x2="675" y2="1020" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="30" y="1024" width="230" height="58" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="145" y="1048" text-anchor="middle" class="node-title" fill="#0f3460" font-size="13">Book</text>
+<text x="145" y="1066" text-anchor="middle" class="node-sub" fill="#334155">AE meeting brief to Slack</text>
+
+<rect x="295" y="1024" width="230" height="58" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
+<text x="410" y="1048" text-anchor="middle" class="node-title" fill="#0f3460" font-size="13">Nurture</text>
+<text x="410" y="1066" text-anchor="middle" class="node-sub" fill="#334155">Follow-up task scheduled</text>
+
+<rect x="560" y="1024" width="230" height="58" rx="8" fill="#f7f9ff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,2"/>
+<text x="675" y="1048" text-anchor="middle" class="node-title" fill="#64748b" font-size="13">DQ / Unsubscribe</text>
+<text x="675" y="1066" text-anchor="middle" class="node-sub" fill="#64748b">Auto-paused, no reply sent</text>
+
+</svg>
+</div>
+<p style="font-size:9.5pt; color:#4a5568; margin-top:-8px;">The dashed line from "Rep reviews in Slack" back to Copywriter is the EDIT path, revise and re-post to the digest.</p>
 <hr />
 <h2>Files Delivered</h2>
 <h3>8 Agent System Prompts → <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/agent_prompts"><code>agent_prompts/</code></a></h3>
@@ -117,7 +243,7 @@
 <tbody>
 <tr>
 <td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/00-ICP">00-ICP/</a></td>
-<td>ICP Master Profile, Scoring Rubric (7-dimension, weighted), Persona Maps (CHRO, Head of TA, COO, Head of People Systems, CEO, Head of People Services), <strong>Target Account Analysis (155 accounts, tiered)</strong>, Target Account List CSV</td>
+<td>ICP Master Profile, Scoring Rubric (7-dimension, weighted), Persona Maps (CHRO, Head of TA, COO, Head of People Systems, CEO, Head of People Services), <strong>Target Account Analysis</strong> (currently one rep's 155-account territory, each rep replaces with their own, see below), Target Account List CSV</td>
 </tr>
 <tr>
 <td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/01-Product">01-Product/</a></td>
@@ -155,8 +281,20 @@
 </thead>
 <tbody>
 <tr>
+<td><code>start.command</code></td>
+<td>Double-click to launch Claude Code (Mac). The only "terminal" step most reps ever need, and this reduces it to one click.</td>
+</tr>
+<tr>
+<td><code>.mcp.json.example</code></td>
+<td>MCP server template, no secrets, checked into git, shared automatically when the team clones the repo.</td>
+</tr>
+<tr>
+<td><code>.mcp.json</code></td>
+<td>Your personal copy with real keys pasted in. Gitignored, never committed, never shared. You create this by duplicating the file above.</td>
+</tr>
+<tr>
 <td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/claude_desktop_config_template.json">claude_desktop_config_template.json</a></td>
-<td>MCP server config — fill in credentials, copy to <code>~/Library/Application Support/Claude/</code></td>
+<td>Only relevant if you're using Claude Desktop instead, see "Why not Claude Desktop?" below. Not needed for Claude Code.</td>
 </tr>
 <tr>
 <td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/README.md">README.md</a></td>
@@ -174,12 +312,13 @@
 </blockquote>
 <h3>High Priority (Day 1)</h3>
 <ol>
+<li><strong>Replace the target list with your own</strong> — <code>00-ICP/Target_Account_Analysis.md</code> and <code>Target_Account_List.csv</code> currently hold one rep's personal 155-account territory, not shared company data. Swap in your own accounts, same file format, before running anything.</li>
 <li><strong><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/03-Outreach/Email_Winners/Cold_Winners.md">Cold_Winners.md</a></strong> — AEs add 3–5 of their best-performing personal cold emails (remove prospect names).</li>
 <li><strong>Voice Profiles</strong> — Each rep fills in their <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/04-Brand_Voice/Sender_Voice_Profiles/Voice_Profile_Template.md">Voice_Profile_Template.md</a> and saves it as <code>[FirstName]_Voice.md</code> inside <code>Sender_Voice_Profiles/</code>.</li>
-<li><strong><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/claude_desktop_config_template.json">claude_desktop_config_template.json</a></strong> — Insert API credentials for the MCP servers and rename to <code>claude_desktop_config.json</code> in the Claude config folder.</li>
+<li><strong>Connect your MCP servers</strong> — duplicate <code>.mcp.json.example</code>, rename the copy to <code>.mcp.json</code>, paste in your real keys, save. No terminal needed. Full step-by-step below in <strong>"Detailed MCP Connection Setup."</strong></li>
 </ol>
 <blockquote>
-<p><strong>Note:</strong> The target account list is pre-populated for the team in <code>00-ICP/Target_Account_Analysis.md</code> (155 accounts, tiered). The Research Analyst will re-score accounts consistently against the ICP Scoring Rubric as it works through them.</p>
+<p><strong>On scoring:</strong> whatever ICP score sits in your target list spreadsheet is historical only, ignore it from here on. The only score that counts is what the ICP Scorer agent produces against <code>00-ICP/ICP_Scoring_Rubric.md</code>. This keeps every account's priority traceable to one consistent rubric instead of mixing old spreadsheet math with the current one, an account with no ICP Scorer pass yet is unscored, not "whatever the old sheet said."</p>
 </blockquote>
 <hr />
 <hr />
@@ -197,86 +336,86 @@
 </ol>
 <hr />
 <h2>Tuesday &amp; Thursday Cadence Schedule</h2>
-<p>To successfully run outbound cadences twice a week on Tuesdays and Thursdays, the team follows a structured operational rhythm. Below is the weekly timeline and the specific activities required:</p>
+<blockquote>
+<p><strong>Nothing on this page runs by itself.</strong> There is no background job, no scheduler, no cron. Every single line below happens because you, the AE, open Claude Code and type a prompt at that point in the day. The clock times are a suggested rhythm to aim for, not a timer the system keeps on its own, if you don't open Claude Code and prompt it on Monday morning, Monday's planning simply doesn't happen. Each step below now shows the exact prompt to send.</p>
+</blockquote>
 <pre><code>[MON: Plan &amp; Score] ➔ [TUE: Outreach 1 (Slack Gate)] ➔ [WED: Deep Research] ➔ [THU: Outreach 2 (Slack Gate)] ➔ [FRI: Audit &amp; Learn]
 </code></pre>
-<h3>Monday: Sourcing &amp; Planning (Prep for the Week)</h3>
-<ul>
-<li><strong>Goal:</strong> Set the week's accounts and verify targets.</li>
-<li><strong>Activities:</strong></li>
-<li>Sales Director harvests new signals (newsletter opens, job changes).</li>
-<li>Research Analyst processes lookalikes and updates the signals logs.</li>
-<li>ICP Scorer qualifies all target accounts, keeping only Tier A &amp; B targets.</li>
-<li>Sales Director builds the <strong>Weekly Outreach Plan</strong> allocating targets to Tuesday and Thursday batches (cap: 100 unique companies per send day).</li>
-</ul>
-<h3>Tuesday: Outreach Day 1 (Send Session 1)</h3>
-<ul>
-<li><strong>Goal:</strong> Approve and send the first email batch.</li>
-<li><strong>Activities:</strong></li>
-<li><strong>7:30 AM:</strong> Copywriter drafts the Tuesday batch emails (run in 4 sessions of 25 emails to avoid token overload).</li>
-<li><strong>8:00 AM:</strong> Sales Director audits drafts and posts the <strong>Morning Digest</strong> (up to 100 emails) to Slack.</li>
-<li><strong>9:00 AM:</strong> Human rep reviews digest in Slack, replying <code>APPROVE</code> or <code>EDIT</code> directly in the thread.</li>
-<li><strong>9:30 AM:</strong> Prospect Hunter runs Lusha email-only lookup, de-dupes, and stages approved contacts in SalesLoft.</li>
-<li><strong>10:00 AM:</strong> Sales Director triggers the SalesLoft send sequence.</li>
-</ul>
-<h3>Wednesday: Deep Profiling (Prep for Thursday)</h3>
-<ul>
-<li><strong>Goal:</strong> Build rich briefings for the second send day.</li>
-<li><strong>Activities:</strong></li>
-<li>Company Researcher builds deep 1-page briefs for the Thursday targets (mapping 4-layer pain points, ATS tech stack, and competitor positioning).</li>
-<li>Rep reviews target list for Thursday and updates the vault's objection or case studies folders if needed.</li>
-</ul>
-<h3>Thursday: Outreach Day 2 (Send Session 2)</h3>
-<ul>
-<li><strong>Goal:</strong> Approve and send the second email batch.</li>
-<li><strong>Activities:</strong></li>
-<li><strong>7:30 AM:</strong> Copywriter drafts the Thursday batch emails (processed in subsets of 25).</li>
-<li><strong>8:00 AM:</strong> Sales Director audits drafts and posts the <strong>Morning Digest</strong> (up to 100 emails) to Slack.</li>
-<li><strong>9:00 AM:</strong> Human rep reviews and replies <code>APPROVE</code> or <code>EDIT</code> in the Slack thread.</li>
-<li><strong>9:30 AM:</strong> Prospect Hunter enriches via Lusha and stages approved contacts in SalesLoft.</li>
-<li><strong>10:00 AM:</strong> Sales Director triggers the SalesLoft send.</li>
-</ul>
+
+<h3>Monday: New Research &amp; Planning</h3>
+<p><strong>Goal:</strong> Set the week's accounts and verify targets.</p>
+<p><strong>You open Claude Code and send:</strong></p>
+<blockquote><p><em>"Let's kick off new research. Review the Trigger Events log, run any lookalike discovery we need, and get every candidate account through the ICP Scorer, don't use any legacy score from the target list, only your own current score. Then build the week's outreach plan, capped at 100 unique companies per send day, split across Tuesday and Thursday."</em></p></blockquote>
+<p>This single prompt is what triggers the Sales Director to dispatch Research Analyst (new lookalikes only, no newsletter/job-mover pull) and ICP Scorer (qualify every candidate) in sequence, then assemble the Weekly Outreach Plan. Deliberately kept simple, newsletter engagers and job movers are handled separately (see "Twice Monthly" below), not bundled into every run. It won't happen from a shorter prompt like "good morning", be explicit about what you want done.</p>
+
+<h3>Tuesday: Outreach Day 1</h3>
+<p><strong>Goal:</strong> Approve and enrol the first email batch. (Sending itself is a separate, final step you do in SalesLoft, see below.)</p>
+<p><strong>You open Claude Code and send:</strong></p>
+<blockquote><p><em>"Draft today's Tuesday batch. Use the accounts from Monday's plan, run the Copywriter in sessions of 25, and post the Morning Digest to Slack once every email passes the 8-point audit."</em></p></blockquote>
+<p>Once the digest is in Slack, you review and reply <code>APPROVE</code>, <code>HOLD</code>, or an edit note directly in the thread, same as always. Then, back in Claude Code:</p>
+<blockquote><p><em>"Check Slack for my approval on today's digest and stage the approved contacts in SalesLoft."</em></p></blockquote>
+<p>That second prompt is what triggers Prospect Hunter to de-dupe, stage, and now also <strong>automatically enrol</strong> the approved contacts into their SalesLoft cadence, your Slack <code>APPROVE</code> is what authorises that, no extra confirmation needed. Claude doesn't poll Slack on its own, you're telling it when to go check. <strong>Enrolling is not sending</strong>, no agent ever clicks send, you still open SalesLoft and start the cadence yourself, that's the final gate.</p>
+<blockquote><p><strong>One-time check before you rely on this:</strong> in SalesLoft, confirm your cadence's email steps are set to <strong>Manual</strong> send type, not <strong>Automatic</strong>. On an Automatic step, SalesLoft sends the instant a contact is enrolled, which would remove your final manual gate entirely. This is a SalesLoft cadence setting, not something Claude Code controls.</p></blockquote>
+
+<h3>Wednesday: Deep Profiling (and New Research, if running it twice a week)</h3>
+<p>Two different things can happen on a Wednesday, don't confuse them:</p>
+<p><strong>1. New Research (optional repeat of Monday), if you want the pipeline topped up mid-week:</strong> exactly the same prompt as Monday's "New Research & Planning" above, word for word, same trigger events / lookalike discovery / ICP scoring step. It's not a different activity that happens to fall on a Wednesday, it's literally Monday's step run again.</p>
+<p><strong>2. Deep Profiling (the actual Wednesday-specific step, always runs):</strong></p>
+<p><strong>Goal:</strong> Build rich briefings for the second send day.</p>
+<blockquote><p><em>"Build 1-page briefs for Thursday's accounts, 4-layer pain points, ATS/tech stack, org map, the works. Flag any account where the research is too thin for a genuinely personalised email rather than forcing a generic draft."</em></p></blockquote>
+<p>If you're doing both, run New Research first, then Deep Profiling on whatever the Weekly Outreach Plan now includes for Thursday.</p>
+
+<h3>Thursday: Outreach Day 2</h3>
+<p>Same two prompts as Tuesday, swap "Tuesday" for "Thursday" in the first one.</p>
+
 <h3>Friday: Audit, Learn &amp; Rubric Calibration</h3>
-<ul>
-<li><strong>Goal:</strong> Collect performance metrics and feed learnings back to the agents.</li>
-<li><strong>Activities:</strong></li>
-<li>Sales Director pulls SalesLoft stats (Sends, Opens, Replies, Bookings) and runs the <strong>Outbound Analyst Benchmark check</strong>.</li>
-<li>Sales Director posts the Diagnostic Verdict to <code>#sapia-performance</code> mapping root-cause fixes.</li>
-<li>Copywriter updates <code>Campaign_Learnings.md</code> with best-performing hooks.</li>
-<li>ICP Scorer calibrates scoring thresholds based on response signals.</li>
-</ul>
+<p><strong>Goal:</strong> Collect performance metrics and feed learnings back to the agents.</p>
+<blockquote><p><em>"Pull this week's SalesLoft stats, sends, opens, replies, bookings, run the Outbound Analyst Benchmark check, and post the diagnostic verdict to #sapia-performance. Then update Campaign_Learnings.md with what worked and what didn't."</em></p></blockquote>
 <hr />
-<h2>Setup Sequence (Phased)</h2>
-<h3>Week 1–2: Foundation</h3>
+<h2>Setup Sequence</h2>
+<p>No "create a Project per agent" step here, the 8 specialists are already wired as native Claude Code subagents in <code>.claude/agents/</code>. This is meant to move fast, a rep with their vault populated and MCP servers connected can be running a real batch the same week, most of this is a single afternoon of setup plus one validation pass. No fixed week numbers below, just do them in order.</p>
+
+<h3>Core Setup (do these first, in order)</h3>
 <ol>
-<li>Fill in knowledge vault (priority files above)</li>
-<li>Configure MCP servers (start: SalesLoft, Lusha, HubSpot, Slack)</li>
-<li>Create SAPIA-SD and SAPIA-RA Projects in Claude Desktop</li>
-<li>Run first Research Analyst session manually — validate output quality</li>
-<li>Run first ICP Scorer session — calibrate rubric against known customers</li>
+<li>Replace the target list with your own territory (<code>00-ICP/Target_Account_Analysis.md</code> + <code>Target_Account_List.csv</code>)</li>
+<li>Fill in the rest of the knowledge vault (Cold_Winners.md, other priority files above)</li>
+<li>Connect MCP servers, SalesLoft and Lusha first since those two matter most to get a batch moving, see Detailed MCP Connection Setup below</li>
+<li>Fill in your Voice Profile</li>
+<li>Validate: ask the Sales Director to dispatch Research Analyst, then ICP Scorer, on 1-2 accounts you already know well, check the output quality before trusting it on the full list</li>
+<li>Run your first full batch: 5-10 emails through the full pipeline → human approval → SalesLoft send</li>
+<li>Connect Reply Handler / Slack alerts so replies get triaged automatically once you're sending regularly</li>
+<li>Settle into the Tuesday/Thursday send cadence</li>
 </ol>
-<h3>Week 3–4: First Live Run</h3>
-<ol start="6">
-<li>Create all remaining Projects (CW, PH, RH)</li>
-<li>Share all Projects with your 2 peers</li>
-<li>Each rep completes their Voice Profile</li>
-<li>Run first full batch: 5–10 emails through the full pipeline → human approval → SalesLoft send</li>
-<li>Review every output. Iterate system prompts and vault docs.</li>
-</ol>
-<h3>Week 5–6: Activate Signal Workflows</h3>
-<ol start="11">
-<li>Upload first LinkedIn Sales Nav CSV → activate Champion Mover workflow</li>
-<li>Run first HubSpot newsletter engagement pull → activate Warm Engagement workflow</li>
-<li>Connect Reply Handler → Slack alerts (monitors replies natively via SalesLoft MCP)</li>
-<li>First full week on 2-day send cadence (Tue + Thu)</li>
-</ol>
-<h3>Week 7+: Optimise</h3>
-<ol start="15">
-<li>Monthly: Review Campaign_Learnings.md; update prompts and vault</li>
-<li>Monthly: Calibrate ICP Scoring Rubric based on conversion data</li>
-<li>Begin A/B testing using the A_B_Test_Log.md</li>
-<li>Consider adding Wednesday as a third send day if quality and reply rates warrant</li>
-</ol>
+<p>Share the repo with the rest of your team any time after Step 3, each rep repeats Steps 1-4 with their own territory, keys, and Voice Profile, this doesn't block anyone else.</p>
+
+<h3>Lower Priority (don't block your first send on these)</h3>
+<p>These two signal sources run on a set cadence, not continuously, get your core send cycle working first and layer these in once you're comfortable.</p>
+<ul>
+<li><strong>HubSpot newsletter engagement pull — fortnightly or monthly.</strong> Feeds the Warm Engagement workflow. See the HubSpot row in the MCP Integration Directory above for how territory de-duplication works.</li>
+<li><strong>LinkedIn Sales Nav CSV upload — monthly.</strong> Feeds the Champion Mover workflow.</li>
+</ul>
+
+<h3>Ongoing (once the core cycle is running)</h3>
+<ul>
+<li>Weekly: review <code>Campaign_Learnings.md</code>, update prompts and vault docs based on what's actually landing</li>
+<li>Monthly: calibrate the ICP Scoring Rubric against conversion data</li>
+<li>Begin A/B testing using <code>A_B_Test_Log.md</code></li>
+<li>Consider a third send day if quality and reply rates support it</li>
+</ul>
+
+<h3>Optional: Automate the Monday/Wednesday Research Kickoff</h3>
+<p>You don't have to open Claude Code and type the research prompt yourself every Monday and Wednesday, Claude Code can schedule a recurring cloud routine that does it for you. This isn't a settings panel to click through, you set it up by asking Claude to do it in a normal chat message.</p>
+<p><strong>What it does:</strong> runs the "new research" step (Trigger Events review, Lookalike Discovery, ICP Scorer on every candidate) automatically at a set time, writes the results straight into your vault, then posts a short summary to Slack so you know it's ready.</p>
+<p><strong>What it deliberately does not do:</strong> draft any emails, post a Morning Digest, enrol anyone in SalesLoft, or send anything. Those all still need you to open Claude Code and give an explicit prompt, per "Nothing on this page runs by itself" above. This routine only feeds the pipeline, it doesn't act on it.</p>
+<h4>How to set it up</h4>
+<p>Open a Claude Code session in this repo and send a prompt like:</p>
+<blockquote><p><em>"Schedule a recurring routine that runs every Monday and Wednesday at 9am Sydney time. It should act as the Sales Director and do the 'new research' step only: review the Trigger Events log, run Lookalike Discovery, and get every new or existing candidate through the ICP Scorer, ignoring any legacy score in the target list. Do not draft emails, do not post a Morning Digest, do not touch SalesLoft. When it's done, post a short summary to [your Slack channel, e.g. #sapia-alerts or a DM] with how many new lookalikes were found and how many accounts were scored."</em></p></blockquote>
+<p>Claude Code will confirm the schedule back to you before it's active. A few things worth knowing:</p>
+<ul>
+<li><strong>This is per-rep.</strong> Each rep sets up their own routine pointing at their own vault and territory, there's no shared/central schedule.</li>
+<li><strong>To check, pause, or change it later</strong>, just ask: <em>"List my scheduled tasks"</em> or <em>"Pause the Monday/Wednesday research routine."</em></li>
+<li><strong>It still respects every guardrail</strong> (territory dedup, legacy-score ban, lookalike write-back), it's running the exact same "new research" step you'd trigger manually, just on a timer instead of a typed prompt.</li>
+</ul>
 <hr />
 <h2>Key Design Decisions Applied</h2>
 <p>Based on your answers, these are the specific configurations built in:</p>
@@ -317,16 +456,16 @@
 <td>Copywriter routes all drafts to Sales Director → Morning Digest → SalesLoft only</td>
 </tr>
 <tr>
-<td>3 reps, voice profiles TBD</td>
-<td>Voice Profile Template created; each rep self-populates</td>
+<td>Voice profiles, per-rep</td>
+<td>Voice Profile Template created; each rep self-populates. Brendan's is live (<code>04-Brand_Voice/Sender_Voice_Profiles/Brendan_Reid.md</code>), add more as the team grows</td>
 </tr>
 <tr>
 <td>Lead product: Chat Interview</td>
 <td>Product_Overview.md structured around Chat Interview as primary</td>
 </tr>
 <tr>
-<td>Secrets: TBC</td>
-<td>Config template uses environment variable placeholders; advise IT to choose 1Password or macOS Keychain</td>
+<td>Secrets management</td>
+<td><code>.mcp.json.example</code> holds only placeholder values and is safe to commit; each rep's real <code>.mcp.json</code> is gitignored and stays local, no secrets ever touch git</td>
 </tr>
 </tbody>
 </table>
@@ -341,8 +480,10 @@
 <li><strong>No Pompous Jargon:</strong> Absolute ban on: <em>leverage, synergies, cutting-edge, robust, seamless, empower, streamline, unlock, next-level, paradigm, holistic, best-in-class, world-class</em>.</li>
 <li><strong>No "I" or "We" Openers:</strong> The email body must start with the prospect's context (e.g. <code>Given the Q4 hiring spike at [Company]...</code>).</li>
 <li><strong>No Meeting Ask in Email 1:</strong> Meeting requests are replaced with soft value CTAs.</li>
-<li><strong>Strict Word Limits:</strong> Email 1 is capped at 120 words; follow-up touches are capped at 150 words.</li>
+<li><strong>Strict Word Limits:</strong> Email 1 is capped at 135 words; follow-up touches are capped at 150 words.</li>
 <li><strong>Sentence-Case Subject Lines:</strong> Capped at 6 words, lowercase, creating curiosity rather than pitching (e.g. <code>frontline turnover at [Company]</code>).</li>
+<li><strong>No Cliché CTAs:</strong> Never "no strings attached." Never a bare "Worth a look?" as its own sentence, fold it into the offer instead: <em>"Happy to send through [X], if you think it's worth a look?"</em> Check the sender's Voice Profile for their specific preferred close.</li>
+<li><strong>Sign-off is name only:</strong> No company name or title line under the sender's name in the email body, SalesLoft's own signature block handles that. Adding one reads as templated.</li>
 </ul>
 <h3>2. Permissionless Value Promise (PVP) CTAs</h3>
 <p>Generic "book a call" CTA requests are replaced with high-response <strong>Permissionless Value Promises</strong> (Insight, Benchmark, Playbook, or Diagnostic Questions) that offer standalone value in exchange for a simple "yes" reply:
@@ -371,7 +512,7 @@
 <tr>
 <td><strong>HubSpot</strong></td>
 <td><strong>Research Analyst</strong> (<code>SAPIA-RA</code>)</td>
-<td>Queries newsletter click/open analytics to capture warm intent signals from prospects in your specific regional territory.</td>
+<td>Queries newsletter click/open analytics for warm intent signals. Every engaged contact is checked against <strong>your own</strong> <code>Target_Account_List.csv</code> before being flagged, if their company isn't in your territory, it's excluded rather than surfaced, so two reps never chase the same engaged contact off one shared HubSpot list.</td>
 <td><strong>Fortnightly / Monthly:</strong> Pulls newsletter engager lists to feed the outreach pipeline.</td>
 </tr>
 <tr>
@@ -407,143 +548,264 @@
 </tbody>
 </table>
 <hr />
-<h2>Sharing with Your Peers</h2>
-<p>The entire <code>Claude Sale Agent</code> folder can be shared via your existing shared drive. The <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/README.md">README.md</a> is a complete standalone onboarding guide for new team members.</p>
-<p><strong>What each peer needs to do independently:</strong>
-- Set up their own Claude Desktop MCP config (credentials are personal)
-- Fill in their own Voice Profile</p>
-<p><strong>What they get from the shared folder:</strong>
-- All 7 agent system prompts (ready to paste)
-- The full Knowledge Vault
-- The README setup guide</p>
-<hr />
-<h2>Best Practice Guide: Ongoing Operations</h2>
-<p>This guide provides operational workflows, copy-paste prompts, and connection steps to run the agent team smoothly.</p>
-<h3>1. Starting &amp; Resuming Work Sessions</h3>
-<p>AI agents work best when given clear, contextual triggers to start their run. Copy and paste these exact prompts in your Claude Projects.</p>
-<h4>A. Starting the Weekly Cycle (Sales Director - Monday)</h4>
+<h2>Detailed MCP Connection Setup</h2>
+<p>This is the step-by-step guide to connecting all 7 MCP servers on Claude Code. No terminal commands anywhere in it except opening the app itself, everything else is editing one file and sending one chat message.</p>
 <blockquote>
-<p>Paste into <code>SAPIA-[REGION]-SD</code> Project:
-<code>"Let's kick off our Monday planning session for the [APAC / MENA / UK] region. Sourcing from our signals logs (Newsletter Engagers, Job Movers, Trigger Events), please identify up to 100 unique companies to target this week. Do not exceed 100. Run Lusha lookalike scans via Lusha MCP if we need a pipeline buffer. Once target accounts are identified, generate the Weekly Outreach Plan."</code></p>
+<p><strong>One thing to get right before you start:</strong> never paste a real API key into <code>.mcp.json.example</code> or commit it to git. Real keys only ever go in your own <code>.mcp.json</code> (no ".example"), which is gitignored, stays on your machine, and is never shared with the team.</p>
 </blockquote>
-<h4>B. Triggering Copywriter Calibration (Copywriter - Tuesday/Thursday)</h4>
-<blockquote>
-<p>Paste into <code>SAPIA-[REGION]-CW</code> Project:
-<code>"We are starting the email drafting session for rep [Your Name]. First, read [Your Name]_Voice.md in 04-Brand_Voice/Sender_Voice_Profiles/ and the winning email examples in 03-Outreach/Email_Winners/ to calibrate. Stop and output your Voice Calibration summary for my approval. Do not draft any emails until I approve this calibration."</code></p>
-</blockquote>
-<h4>C. Continuing After Calibration Approval</h4>
-<blockquote>
-<p>Paste into <code>SAPIA-[REGION]-CW</code> Project once calibration is approved:
-<code>"Calibration approved. Read the target account list for today's batch from our Sales Director's Weekly Outreach Plan. For each account, read the corresponding Company Brief generated by the Company Researcher. Draft the Touch [1/2/3/4] email in accordance with our word count and banned phrase rules. Output the table with the 'Reasoning for angle' column."</code></p>
-</blockquote>
-<h4>D. Resuming a Stuck Session</h4>
-<blockquote>
-<p>Paste into any agent Project if a connection fails, a token limit is hit, or the session restarts:
-<code>"We are resuming our session. Read the latest file status in Sapia-Sales-Vault/ via Filesystem MCP to determine where we left off. Output a brief status summary of completed tasks and tell me what the next step is before running any MCP tools."</code></p>
-</blockquote>
-<h3>2. Setting Up Slack Notifications &amp; Approvals</h3>
-<p>Reps do not need to check Claude Desktop constantly. The Sales Director and Reply Handler can push digests and alerts directly to your personal Slack DM or a dedicated regional channel, and read your response to continue.</p>
-<h4>Step 1: Authorize Slack in Claude Desktop</h4>
-<ol>
-<li>Open <strong>Claude Desktop</strong> and click the settings cog (or menu) in the bottom-left.</li>
-<li>Select <strong>Customize</strong> (or Connectors).</li>
-<li>Find <strong>Slack</strong> and click <strong>Connect / Authorize</strong>.</li>
-<li>Log into your company's Slack workspace and approve permissions.</li>
-</ol>
-<h4>Step 2: Retrieve your Channel or User ID</h4>
-<ul>
-<li><strong>For a channel:</strong> Open Slack, right-click the channel name (e.g. <code>#sapia-digest-apac</code>), select <strong>View channel details</strong>, and copy the <strong>Channel ID</strong> at the bottom (starts with <code>C</code>, e.g., <code>C1234567890</code>).</li>
-<li><strong>For personal DMs:</strong> Click your own profile picture in Slack, select <strong>Profile</strong>, click the three dots (<code>...</code>), select <strong>Copy member ID</strong> (starts with <code>U</code>, e.g., <code>U1234567890</code>).</li>
-</ul>
-<h4>Step 3: Map the ID in the Sales Director Prompt</h4>
-<p>Open your regional Sales Director prompt file (e.g. <code>agent_prompts/00_sales_director.md</code>) and edit the <code>Slack notifications</code> line under the Territory Configuration block:</p>
-<pre><code class="language-markdown">- Slack notifications: post to [Insert Channel ID here, e.g. C1234567890] and DM to [Insert Member ID here, e.g. U1234567890]
-</code></pre>
-<h4>Step 4: The Slack-First Approval Loop</h4>
-<p>Once you kick off a session in Claude Desktop:
-1. The Sales Director posts the <strong>Morning Digest</strong> (the 100 drafted emails) to your Slack channel.
-2. Review the drafts on your phone or Slack client.
-3. <strong>Approve directly in Slack:</strong>
-   - Reply <code>APPROVE</code> to send the whole batch.
-   - Reply <code>HOLD</code> to pause.
-   - Reply <code>3 EDIT: Change Woolworths hook to focus on retail growth</code> to revise individual emails.
-4. Back in Claude Desktop, simply type:</p>
-<blockquote>
-<p><code>"Check Slack approvals and run."</code>
-   The agent will read the Slack channel history using the Slack MCP, see your approval or edits, update the drafts, and instruct the Prospect Hunter to stage them in SalesLoft.</p>
-</blockquote>
-<h3>3. Active Guardrails &amp; Cost Protections</h3>
-<p>The agent system is equipped with multiple automated checks to protect your sender reputation, manage Lusha credit costs, and prevent Claude context limits from causing runaway token billing.</p>
+
+<h4>Step 1 — Open Claude Code</h4>
+<p>Double-click <code>start.command</code> in the repo root. A terminal window opens by itself and Claude Code starts. (First time only: macOS may show a security prompt, right-click <code>start.command</code> and choose <strong>Open</strong> instead of double-clicking, then it'll never ask again.) If you'd rather not use <code>start.command</code>, opening a terminal yourself and typing <code>claude</code> from this folder does the same thing.</p>
+
+<h4>Step 2 — Create your personal credentials file</h4>
+<p>In Finder (or your file browser), find <code>.mcp.json.example</code> in the repo root. Duplicate it (right-click → Duplicate, or copy/paste), and rename the copy to exactly <code>.mcp.json</code> (drop the ".example"). That's it, no command needed. This new file is already listed in <code>.gitignore</code>, so it will never be committed or shared, it's yours alone.</p>
+
+<h4>Step 3 — Get each API key</h4>
+<p>Work through this list. You don't need all 7 on day one, SalesLoft and Lusha are the two that matter most to get an outbound batch moving, the rest can follow.</p>
 <table>
-<thead>
-<tr>
-<th>Guardrail Name</th>
-<th>Target Agent</th>
-<th>Rule / Action</th>
-<th>Reason</th>
-</tr>
-</thead>
+<thead><tr><th>Service</th><th>Where to get your key</th><th>Notes</th></tr></thead>
 <tbody>
 <tr>
-<td><strong>Human-in-the-Loop Gate</strong></td>
-<td>Sales Director</td>
-<td><strong>No email auto-sends.</strong> Rep must explicitly reply <code>APPROVE</code> via Slack to unlock cadence enrollment.</td>
-<td>Reputation &amp; quality control</td>
+<td><strong>SalesLoft</strong></td>
+<td>Your SalesLoft <strong>Admin</strong> must first enable the <strong>Agentic package</strong> (Settings → Agentic → Enable). This is an org-wide, one-time step, ask your SalesLoft admin to do this before anyone on the team tries to connect. Once enabled, each rep generates their own key: <strong>Settings → API → Create API Key</strong>.</td>
+<td>Org-level prerequisite. Without it, the key you generate won't authenticate.</td>
 </tr>
 <tr>
-<td><strong>90-Day Outreach Cooldown</strong></td>
-<td>Prospect Hunter</td>
-<td>Skip any contact emailed in the last <strong>90 days</strong> (checks SalesLoft and <code>Outreach_History_Log.csv</code>).</td>
-<td>Anti-spam and frequency protection</td>
+<td><strong>HubSpot</strong></td>
+<td><strong>Settings → Integrations → Private Apps → Create a private app.</strong> Name it something like "Sapia GTM Agent." Under Scopes, grant read access to Marketing Email and Contacts (for newsletter engagement data). Copy the generated Access Token.</td>
+<td>Needs a HubSpot admin if you don't have private-app creation rights.</td>
 </tr>
 <tr>
-<td><strong>Unique Company Limit</strong></td>
-<td>Sales Director</td>
-<td>Outreach batches restricted to <strong>1 contact per company per batch</strong> (strictly different companies).</td>
-<td>Prevents spamming multiple people at one organization at the same time</td>
+<td><strong>Lusha</strong></td>
+<td><strong>Lusha API Hub → API → Manage API Keys → Generate New Key.</strong></td>
+<td>Track your own usage, 200-credit/week budget per rep is enforced by the Prospect Hunter agent, not by Lusha itself.</td>
 </tr>
 <tr>
-<td><strong>Weekly Batch Cap</strong></td>
-<td>Sales Director</td>
-<td><strong>Capped at 100 contacts</strong> per rep per send day. Excess are rolled over to the next send session.</td>
-<td>Manageable inbox load &amp; deliverability safety</td>
+<td><strong>Gong</strong></td>
+<td><strong>Gong → Company Settings → API → Create API Key</strong> (generates both an Access Key and a Secret, you need both).</td>
+<td>Optional. Only used by the Copywriter for voice calibration against your own past calls, calls are filtered strictly by your own email.</td>
 </tr>
 <tr>
-<td><strong>Score-Before-Enrich</strong></td>
-<td>Prospect Hunter</td>
-<td>Never look up a contact via Lusha unless company is qualified as <strong>Tier A or B</strong> by the ICP Scorer.</td>
-<td>Credit cost conservation</td>
+<td><strong>Brave Search</strong></td>
+<td><a href="https://brave.com/search/api">brave.com/search/api</a> → sign up → API key on your dashboard.</td>
+<td>Optional. Web search still works without it via Claude's built-in search, this just adds Brave as an extra source.</td>
 </tr>
 <tr>
-<td><strong>Email-Only Lusha Lookups</strong></td>
-<td>Prospect Hunter</td>
-<td>Strictly configure Lusha query to fetch <strong>email addresses only</strong>. Scrapes of phone numbers are forbidden.</td>
-<td>Phone scraping costs 6x extra credits (7 vs 1 credit)</td>
+<td><strong>Slack</strong></td>
+<td>No key needed. You'll authenticate via an OAuth popup the first time an agent tries to use Slack, see Step 5 below.</td>
+<td>Nothing to fill in for this one.</td>
 </tr>
 <tr>
-<td><strong>Lusha Weekly Budget Alert</strong></td>
-<td>Sales Director</td>
-<td>Alert rep in Slack if projected weekly spend exceeds <strong>200 credits per rep</strong> (600 total).</td>
-<td>Keeps Lusha billing predictable</td>
+<td><strong>Filesystem</strong></td>
+<td>Not an API key, it's the absolute path to your local copy of <code>Sapia-Sales-Vault</code>, e.g. <code>/Users/yourname/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault</code>.</td>
+<td>Find it by right-clicking the folder → Get Info (Mac) or Properties (Windows) and copying the path.</td>
 </tr>
-<tr>
-<td><strong>Token Session Limits</strong></td>
-<td>All Agents</td>
-<td>Discovery capped at 50 accounts; briefs at 10 companies; copywriter drafts at 25 emails per session.</td>
-<td>Avoids context/token overflow</td>
-</tr>
-<tr>
-<td><strong>Opt-Out Safety Trigger</strong></td>
-<td>Reply Handler</td>
-<td>Immediately remove contact from SalesLoft with zero delay if reply is classified <code>UNSUBSCRIBE</code> or <code>NEGATIVE</code>.</td>
-<td>Legal compliance &amp; domain reputation</td>
-</tr>
-<tr>
-<td><strong>Copywriter Calibration Gate</strong></td>
-<td>Copywriter</td>
-<td>Must output calibrated voice profile for human approval before drafting any emails.</td>
-<td>Guarantees authentic sender voice alignment</td>
-</tr>
+</tbody>
+</table>
+
+<h4>Step 4 — Fill in .mcp.json</h4>
+<p>Open your new <code>.mcp.json</code> in any plain text editor, TextEdit, Notepad, VS Code, whatever's on your machine already. Find each <code>"..."</code> and replace it with the real value you just copied. For example, the SalesLoft block goes from:</p>
+<pre><code>"env": { "SALESLOFT_API_KEY": "..." }</code></pre>
+<p>to:</p>
+<pre><code>"env": { "SALESLOFT_API_KEY": "sk_live_your_actual_key_here" }</code></pre>
+<p>Do the same for HubSpot, Lusha, Gong (two values), Brave Search, and the Filesystem path at the very bottom. Leave any <code>"..."</code> in place for a server you're not using yet, Claude Code just skips it. Save the file when you're done.</p>
+
+<h4>Step 5 — Tell Claude to load it</h4>
+<p>Back in Claude Code, send this message:</p>
+<blockquote><p><em>"I've filled in my MCP credentials in .mcp.json. Please confirm which servers connected and test each one."</em></p></blockquote>
+<p>If Slack hasn't been authorised yet, this is also the point where an OAuth popup will appear, log into your company's Slack workspace and approve it, you only do this once per machine. Claude will run through Filesystem, Lusha, SalesLoft, HubSpot, Slack, Gong, and Brave Search and tell you plainly which ones are live and which ones need attention, no separate test prompts required on your end, that's what "so you load it for them" means in practice.</p>
+
+<h4>Troubleshooting</h4>
+<ul>
+<li><strong>A server shows as not connected:</strong> double check you saved <code>.mcp.json</code> (not <code>.mcp.json.example</code>) and that the value has no stray quote marks or extra spaces. Ask Claude to re-check after you fix it.</li>
+<li><strong>SalesLoft key rejected:</strong> confirm your SalesLoft admin has actually enabled the Agentic package first, this is the most common blocker and it's an org setting, not something you can fix on your own key.</li>
+<li><strong>Filesystem can't find the vault:</strong> double-check the path in <code>.mcp.json</code> is the full absolute path (starts with <code>/</code> on Mac) to the <code>Sapia-Sales-Vault</code> folder itself, not its parent folder, and that there are no typos.</li>
+<li><strong>Slack keeps re-prompting for auth:</strong> the OAuth grant may have expired or been revoked on Slack's side, just go through the popup again, it's harmless to repeat.</li>
+</ul>
+
+<h3>Why not Claude Desktop?</h3>
+<p>Claude Desktop is a genuinely easier product if someone truly cannot use a terminal at all, its Connectors panel is point-and-click with zero typing. But it can't run this system as built: there's no equivalent to <code>.claude/agents/</code> or <code>CLAUDE.md</code>, so there's no orchestrator automatically dispatching the 8 specialists in parallel, that has to be done by hand, pasting between separate Projects one at a time. It's not the same stack running on a different app, it's a materially more manual process. For a team that needs to work consistently, that outweighs the one-click terminal step Claude Code asks for via <code>start.command</code>. If you still need the Desktop path for a specific person, <code>claude_desktop_config_template.json</code> is in the repo and uses the same API keys from the table above, just pasted into that file instead and placed at <code>~/Library/Application Support/Claude/claude_desktop_config.json</code> (Mac) or <code>%APPDATA%\Claude\claude_desktop_config.json</code> (Windows), then restart Claude Desktop.</p>
+
+<hr />
+<h2>Sharing with Your Peers</h2>
+<p>The <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/README.md">README.md</a> is a complete standalone onboarding guide for new team members. Just share the git repo, <code>.mcp.json.example</code> is checked in and holds no secrets, cloning the repo is the whole "install." Each peer then does their own Steps 1-5 from the Detailed MCP Connection Setup above: duplicate <code>.mcp.json.example</code> into their own <code>.mcp.json</code>, paste in their own keys.</p>
+<p><strong>What each peer needs to do independently:</strong></p>
+<ul>
+<li>Set up their own MCP credentials in their own <code>.mcp.json</code> (personal, never shared, never committed)</li>
+<li>Fill in their own Voice Profile in <code>04-Brand_Voice/Sender_Voice_Profiles/</code></li>
+</ul>
+<p><strong>What they get from the shared repo:</strong></p>
+<ul>
+<li>All 8 specialist agents, already wired as native Claude Code subagents, no manual Project setup</li>
+<li>The full Knowledge Vault, including the 155-account target list and the continually-updated Lookalike Discoveries table</li>
+<li>The README setup guide and this walkthrough</li>
+</ul>
+<hr />
+<h2>Best Practice Guide: Ongoing Operations</h2>
+<p>This guide provides operational workflows and copy-paste prompts to run the agent team smoothly. One thing to be clear on before any of this: <strong>you talk to a single Claude Code session, one conversation, one "Sales Director."</strong> There's no separate Project per agent to paste into anymore (that was the old Claude Desktop model), the Sales Director reads its identity from <code>CLAUDE.md</code> automatically and dispatches the right specialist itself when your prompt calls for it. Your job is to tell it what outcome you want, clearly enough that it knows which agents to involve.</p>
+
+<h3>1. Core Prompts You'll Actually Use</h3>
+<p>These are the same trigger prompts from the Tuesday &amp; Thursday Cadence Schedule above, collected in one place for quick reference, plus the two lower-priority signal workflows.</p>
+
+<h4>A. Monday Planning</h4>
+<blockquote><p><em>"Let's kick off new research. Review the Trigger Events log, run any lookalike discovery we need, and get every candidate account through the ICP Scorer, don't use any legacy score from the target list, only your own current score. Then build the week's outreach plan, capped at 100 unique companies per send day, split across Tuesday and Thursday."</em></p></blockquote>
+
+<h4>B. Drafting a Send-Day Batch</h4>
+<blockquote><p><em>"Draft today's [Tuesday/Thursday] batch. Use the accounts from Monday's plan, run the Copywriter in sessions of 25, and post the Morning Digest to Slack once every email passes the 8-point audit."</em></p></blockquote>
+
+<h4>C. Checking Approvals &amp; Enrolling in SalesLoft</h4>
+<blockquote><p><em>"Check Slack for my approval on today's digest and stage the approved contacts in SalesLoft."</em></p></blockquote>
+<p>This enrols approved contacts into their cadence automatically, it does not send anything. You still open SalesLoft and start the cadence yourself when you're ready, that's the final manual step.</p>
+
+<h4>D. Twice Monthly: Signal Review, Job Movers &amp; Newsletter Engagers (Lower Priority)</h4>
+<p>Deliberately separate from the Monday/Wednesday research routine, run this on its own roughly every 1-2 weeks:</p>
+<blockquote><p><em>"Run a HubSpot newsletter engagement pull. Only flag contacts whose company is in my own Target_Account_List.csv, exclude anything outside my territory, and route any ICP-matched engager to the Warm Engagement workflow."</em></p></blockquote>
+<blockquote><p><em>"I've dropped this month's LinkedIn Sales Nav export at [file path]. Process it for Champion Movers, flag anyone who's moved from a Sapia customer or existing prospect to a new company, and queue new ICP-matched contacts for enrichment."</em></p></blockquote>
+<p>Anything flagged here rolls into the next Monday/Wednesday's Account Prioritisation step automatically, no need to run it as its own send day.</p>
+
+<h4>E. Resuming a Stuck Session</h4>
+<blockquote><p><em>"We got interrupted. Read the latest file status in Sapia-Sales-Vault/ to work out where we left off, give me a brief status summary, and tell me what the next step is before you run any tools."</em></p></blockquote>
+
+<p>General rule for all of these: be explicit about the outcome and any constraint that matters (a cap, a cadence, a rule to enforce), a vague prompt like "let's do Monday stuff" won't reliably trigger the full workflow, the Sales Director isn't guessing your intent, it's following what you actually asked for.</p>
+<h3>2. Setting Up Slack Notifications &amp; Approvals</h3>
+<p>Reps do not need to check Claude Code constantly. The Sales Director and Reply Handler can push digests and alerts directly to your personal Slack DM or a dedicated channel, and read your response to continue.</p>
+<h4>Step 1: Authorize Slack</h4>
+<p>Covered in "Detailed MCP Connection Setup → Step 5" above, Slack connects via a one-time OAuth popup the first time an agent tries to use it. Nothing further to do here once that's done.</p>
+<h4>Step 2: Retrieve your Channel or User ID</h4>
+<ul>
+<li><strong>For a channel:</strong> Open Slack, right-click the channel name (e.g. <code>#sapia-digest</code>), select <strong>View channel details</strong>, and copy the <strong>Channel ID</strong> at the bottom (starts with <code>C</code>, e.g., <code>C1234567890</code>).</li>
+<li><strong>For personal DMs:</strong> Click your own profile picture in Slack, select <strong>Profile</strong>, click the three dots (<code>...</code>), select <strong>Copy member ID</strong> (starts with <code>U</code>, e.g., <code>U1234567890</code>).</li>
+</ul>
+<h4>Step 3: Tell the Sales Director where to post</h4>
+<p>No file editing needed for this one, just tell Claude in chat, e.g. <em>"Post the Morning Digest to channel C1234567890 and DM me at U1234567890 as well."</em> It'll use that going forward for the session.</p>
+<h4>Step 4: The Slack-First Approval Loop</h4>
+<p>Once you kick off a session in Claude Code:</p>
+<ol>
+<li>The Sales Director posts the <strong>Morning Digest</strong> (the drafted emails) to your Slack channel.</li>
+<li>Review the drafts on your phone or Slack client.</li>
+<li><strong>Approve directly in Slack:</strong>
+  <ul>
+    <li>Reply <code>APPROVE</code> to send the whole batch.</li>
+    <li>Reply <code>HOLD</code> to pause.</li>
+    <li>Reply <code>3 EDIT: Change Woolworths hook to focus on retail growth</code> to revise individual emails.</li>
+  </ul>
+</li>
+<li>Back in Claude Code, simply type: <blockquote><p><code>"Check Slack approvals and run."</code><br />The agent will read the Slack channel history via the Slack MCP, see your approval or edits, update the drafts, and instruct the Prospect Hunter to stage them in SalesLoft.</p></blockquote></li>
+</ol>
+<h3>3. Full Guardrail Reference</h3>
+<p>Every automated check currently built into the system, grouped by what it protects. This is the complete list, not a sample, if it's not here, the agents aren't enforcing it yet.</p>
+
+<h4>Human-in-the-Loop &amp; Send Control</h4>
+<table>
+<thead><tr><th>Guardrail</th><th>Owner</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td><strong>No autonomous sends, ever</strong></td><td>Sales Director / all agents</td><td>No agent ever calls a "send" action, full stop. The rep always sends, manually, inside SalesLoft.</td></tr>
+<tr><td><strong>Auto-enrol after Slack approval</strong> <em>(new)</em></td><td>Prospect Hunter</td><td>Once the rep replies <code>APPROVE</code> in Slack for a batch, approved contacts are staged and enrolled into their SalesLoft cadence automatically, no second confirmation needed. Enrolling ≠ sending, they're different SalesLoft actions. <strong>Prerequisite:</strong> the rep's SalesLoft cadence steps must be set to Manual email type, not Automatic, confirmed once before this is relied on.</td></tr>
+<tr><td><strong>No auto-reply</strong></td><td>Reply Handler</td><td>Drafts every response, never sends. The human rep always sends.</td></tr>
+<tr><td><strong>Unsubscribe / Negative = immediate stop</strong></td><td>Reply Handler</td><td>Cadence stopped instantly, contact marked, <strong>no reply is sent</strong>. No second chances, this one is irreversible by design.</td></tr>
+</tbody>
+</table>
+
+<h4>Volume &amp; Batch Caps</h4>
+<table>
+<thead><tr><th>Guardrail</th><th>Owner</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td><strong>Weekly batch cap</strong></td><td>Sales Director</td><td>Max 100 contacts per rep per send day. Overflow queues for the next session.</td></tr>
+<tr><td><strong>Unique company limit</strong></td><td>Sales Director / Prospect Hunter</td><td>Strictly 1 contact per company per batch, the 100 contacts must come from 100 different companies.</td></tr>
+<tr><td><strong>Copywriter session size</strong></td><td>Copywriter</td><td>Runs in sessions of 25 emails, not one session of 100, to manage token limits.</td></tr>
+<tr><td><strong>Research session size</strong></td><td>Research Analyst</td><td>Max 50 accounts per discovery/monitoring session.</td></tr>
+<tr><td><strong>Brief session size</strong></td><td>Company Researcher</td><td>Max 10 company briefs per session, deep web research is token-heavy.</td></tr>
+<tr><td><strong>Enrichment session size</strong></td><td>Prospect Hunter</td><td>Max 100 contacts per session, processed in subsets of 25.</td></tr>
+</tbody>
+</table>
+
+<h4>Anti-Spam / Contact &amp; Company Cooldowns</h4>
+<table>
+<thead><tr><th>Guardrail</th><th>Owner</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td><strong>90-day contact cooldown</strong></td><td>Prospect Hunter</td><td>Never re-stage a contact emailed in the last 90 days, regardless of whether they replied. Checked against SalesLoft and <code>Outreach_History_Log.csv</code>.</td></tr>
+<tr><td><strong>21-day company cooldown</strong> <em>(new)</em></td><td>Prospect Hunter</td><td>Never stage a <em>different</em> contact at a company touched in the last 21 days, even if the earlier contact never replied. Measured from the most recent touch, not the first, so a contact's full 4-touch sequence (~24 days) finishes before anyone else at that company is approached.</td></tr>
+<tr><td><strong>One active cadence per company</strong></td><td>Prospect Hunter</td><td>Only one contact per company may be mid-sequence at any time, independent of the day-count above.</td></tr>
+</tbody>
+</table>
+
+<h4>Lusha Credit Protection</h4>
+<table>
+<thead><tr><th>Guardrail</th><th>Owner</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td><strong>Score-before-enrich</strong></td><td>Prospect Hunter</td><td>Never run a Lusha lookup on a company that hasn't been scored Tier A or B by the ICP Scorer.</td></tr>
+<tr><td><strong>Email-only lookups</strong></td><td>Prospect Hunter</td><td>Lusha queries fetch email addresses only. Phone number scraping is strictly prohibited, not just discouraged.</td></tr>
+<tr><td><strong>No re-enrichment</strong></td><td>Prospect Hunter</td><td>If a contact already has a verified email in SalesLoft, don't spend a credit looking it up again.</td></tr>
+<tr><td><strong>No phone fallback</strong></td><td>Prospect Hunter</td><td>If email verification fails, the contact is flagged HOLD, never enriched with unverified data.</td></tr>
+<tr><td><strong>200 credits/rep/week budget</strong></td><td>Prospect Hunter / Sales Director</td><td>Tracked weekly. Alert posted before any run would push the week's total over budget.</td></tr>
+</tbody>
+</table>
+
+<h4>ICP Quality Gate</h4>
+<table>
+<thead><tr><th>Guardrail</th><th>Owner</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td><strong>Consistent rubric, no quota-fitting</strong></td><td>ICP Scorer</td><td>Every company scored the same way regardless of how badly a batch "needs" more accounts.</td></tr>
+<tr><td><strong>Boundary ties round down</strong></td><td>ICP Scorer</td><td>A score that lands exactly on a tier boundary (e.g. 75, 50) defaults to the lower tier.</td></tr>
+<tr><td><strong>Never re-prospect a customer</strong></td><td>ICP Scorer / Research Analyst</td><td>Cross-checked against the confirmed customer list before any account is scored or proposed.</td></tr>
+<tr><td><strong>DEI floor</strong></td><td>ICP Scorer</td><td>Never scores 0 or excludes a company solely for missing DEI evidence, minimum 4/10 on that dimension regardless.</td></tr>
+<tr><td><strong>Unknown ATS = neutral</strong></td><td>ICP Scorer</td><td>Unconfirmed ATS scores at the midpoint (5/10), not penalised for a data gap.</td></tr>
+</tbody>
+</table>
+
+<h4>Research Integrity — No Fabrication</h4>
+<table>
+<thead><tr><th>Guardrail</th><th>Owner</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td><strong>Strict UNKNOWN rule</strong></td><td>Company Researcher / Research Analyst</td><td>Missing data is written as <code>UNKNOWN</code>. Never fabricated, guessed, or extrapolated.</td></tr>
+<tr><td><strong>Cite every claim</strong></td><td>All research agents</td><td>Every fact needs a source URL and a pull date, no exceptions.</td></tr>
+<tr><td><strong>No unverified ATS claims</strong></td><td>Research Analyst</td><td>Never states a company uses a specific ATS unless confirmed via Lusha or a credible public source.</td></tr>
+<tr><td><strong>Only verified Sapia capabilities</strong></td><td>Copywriter</td><td>Only cites features and results that appear in <code>Product_Overview.md</code> / <code>ROI_Data_Points.md</code>. Never invents a feature, a result, or a timeframe that isn't in the source, this includes not attaching an extra qualifier (like an invented timeframe) to an otherwise-real, verified stat.</td></tr>
+<tr><td><strong>No personal social links</strong></td><td>Research agents</td><td>LinkedIn and company profiles only, Facebook/Instagram are banned as sources.</td></tr>
+</tbody>
+</table>
+
+<h4>Copywriting Standards (8-Point Audit)</h4>
+<p>See the full checklist under "Outbound Email Copywriting Standards" above. Every email is checked against it before it reaches the rep.</p>
+
+<h4>Lookalike &amp; Target List Hygiene <em>(new)</em></h4>
+<table>
+<thead><tr><th>Guardrail</th><th>Owner</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td><strong>Mandatory write-back</strong></td><td>Research Analyst</td><td>Every lookalike candidate found gets written into <code>Target_Account_Analysis.md</code>'s Lookalike Discoveries table and <code>Target_Account_List.csv</code> before the session ends, not just reported. This is what stops the same companies being "discovered" again next week.</td></tr>
+<tr><td><strong>Never propose an existing customer</strong></td><td>Research Analyst</td><td>Checked against the confirmed client list before any lookalike is surfaced.</td></tr>
+</tbody>
+</table>
+
+<h4>Reply Handling</h4>
+<table>
+<thead><tr><th>Guardrail</th><th>Owner</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td><strong>5-minute escalation</strong></td><td>Reply Handler</td><td>Positive replies (INTERESTED / INTERESTED-LATER) alerted to the rep within 5 minutes during business hours.</td></tr>
+<tr><td><strong>Quote, don't paraphrase</strong></td><td>Reply Handler</td><td>Slack alerts always include the prospect's literal words.</td></tr>
+<tr><td><strong>No follow-up to "not interested"</strong></td><td>Reply Handler</td><td>A clear decline gets no automated response.</td></tr>
+<tr><td><strong>Ambiguous replies escalate, don't act</strong></td><td>Reply Handler</td><td>When classification is unclear, it's flagged to the rep with reasoning rather than the agent guessing and acting unilaterally.</td></tr>
+</tbody>
+</table>
+
+<h4>Data &amp; Credential Protection</h4>
+<table>
+<thead><tr><th>Guardrail</th><th>Owner</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td><strong>Salesforce excluded</strong></td><td>System-wide</td><td>Deliberately left out of every agent prompt and config until your IT team has reviewed and approved it, prevents unreviewed customer-data exposure.</td></tr>
+<tr><td><strong>Gong filtered by sender email</strong></td><td>Copywriter</td><td>Voice calibration queries are strictly filtered to the requesting rep's own calls, never another rep's transcripts.</td></tr>
+<tr><td><strong>Secrets never committed</strong> <em>(new)</em></td><td>System-wide</td><td><code>.mcp.json.example</code> holds only placeholder values and is safe to commit. Real keys live only in each rep's own <code>.mcp.json</code>, which is gitignored and never leaves their machine.</td></tr>
+</tbody>
+</table>
+
+<h4>Brand &amp; Language Standards</h4>
+<table>
+<thead><tr><th>Guardrail</th><th>Owner</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td><strong>Australian English only</strong></td><td>System-wide</td><td>-ise not -ize, -our not -or, per <code>.agents/AGENTS.md</code>.</td></tr>
+<tr><td><strong>No "HEXACO"</strong></td><td>Copywriter</td><td>Say "Sapia's competency framework" in any prospect-facing copy.</td></tr>
+<tr><td><strong>No "first mile"</strong></td><td>Copywriter</td><td>Plain "screening and shortlisting" language instead, American buzzword avoided for an ANZ/APAC audience.</td></tr>
+<tr><td><strong>Zero em/en dashes</strong></td><td>Copywriter, all agents</td><td>Commas, colons, periods, or parentheses instead, applies to every document in the workspace, not just outbound copy.</td></tr>
 </tbody>
 </table>
 <hr />
@@ -553,7 +815,7 @@
 <li><strong>Keep cadences clean:</strong> If a contact replies positively, double-check that the Reply Handler successfully paused their SalesLoft cadence.</li>
 <li><strong>Empty the spam traps:</strong> Review bounces or opt-outs flagged by the Reply Handler once a week to ensure your domain health remains high.</li>
 <li><strong>Log the wins:</strong> When an email books a meeting, copy the body text and paste it into <code>Sapia-Sales-Vault/03-Outreach/Email_Winners/Cold_Winners.md</code> so the Copywriter continually learns from what succeeds.</li>
-<li><strong>Clear cache weekly:</strong> If Claude Desktop runs slowly, close the app and restart to clear the filesystem and MCP connection logs.</li>
+<li><strong>Restart weekly:</strong> If Claude Code feels slow or an MCP connector seems stuck, close the session and relaunch (double-click <code>start.command</code> again) to clear connection state.</li>
 <li><strong>Lusha Budget Lock:</strong> Respect the 200-credit weekly cap. If the Prospect Hunter triggers a warning alert, verify the target list quality before authorizing the override.</li>
 </ul>
 </body>

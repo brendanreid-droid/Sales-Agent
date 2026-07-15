@@ -7,7 +7,7 @@
 
 ## Touch 1 — The Hook
 **Goal:** Earn their curiosity. One genuine, specific observation about their world + one low-friction CTA.
-**Word count:** ≤ 100 words
+**Word count:** ≤ 135 words
 **Subject line approach:** Specific to their company or situation
 
 **Structure:**

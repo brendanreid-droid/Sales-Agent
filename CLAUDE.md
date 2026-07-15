@@ -25,12 +25,17 @@ Fan these out in parallel when tasks are independent (e.g. researching 3 account
 - **Zero em dashes (—) or en dashes (–).** Use commas, colons, periods, parentheses. Hyphens in compounds are fine.
 - **No "HEXACO" in prospect-facing copy** — say "Sapia's competency framework".
 - **No "first mile" / "miles" phrasing in copy** — American buzzword; say "screening and shortlisting" plainly.
-- **8-Point Copywriting Audit** every email before it reaches the rep (see `00_sales_director.md`): no em/en dashes; no rhetorical-question openers; specific signal not flattery; no jargon (leverage, synergies, seamless, etc.); first word not "I"/"We"; Email 1 has no meeting ask (use a Permissionless Value CTA); Email 1 ≤120 words, follow-ups ≤150; subject ≤6 words, lowercase.
+- **8-Point Copywriting Audit** every email before it reaches the rep (see `00_sales_director.md`): no em/en dashes; no rhetorical-question openers; specific signal not flattery; no jargon (leverage, synergies, seamless, etc.); first word not "I"/"We"; Email 1 has no meeting ask (use a Permissionless Value CTA); Email 1 ≤135 words, follow-ups ≤150; subject ≤6 words, lowercase.
 - **Only cite verified Sapia capabilities** from `01-Product/Product_Overview.md`. Never invent features or results.
 
 ## Guardrails (hard limits — enforce proactively)
-- **Never send emails or enrol contacts in a cadence autonomously.** Human rep approves every send.
+- **Never send an email autonomously, no exception.** The human rep always sends, and does it themselves inside SalesLoft, no agent ever calls a "send" action.
+- **Enrolling contacts into a SalesLoft cadence is allowed automatically, but only once the rep has replied `APPROVE` in Slack for that batch.** That reply is the human approval for enrolment. Enrolling ≠ sending, they're different actions in SalesLoft. **Prerequisite:** confirm once with each rep that their SalesLoft cadence steps are set to Manual (not Automatic) email type before relying on this, otherwise enrolling would trigger a send.
 - **Max 100 contacts per send day, from 100 unique companies** (1 contact per company per batch).
+- **Company-level cooldown: 21 days (3 weeks) minimum between different contacts at the same company**, measured from the most recent touch, even if the earlier contact never replied. Enforced by `prospect-hunter` against `03-Outreach/Outreach_History_Log.csv`. Separate from and additional to the existing 90-day same-contact cooldown.
+- **Lookalike discoveries must be written back into `00-ICP/Target_Account_Analysis.md` and `00-ICP/Target_Account_List.csv` the same session they're found**, so future `research-analyst` runs don't resurface the same companies as "new."
+- **Legacy scores in `Target_Account_Analysis.md`/`Target_Account_List.csv` are historical only.** Never use them to prioritise, tier, or decide outreach on an account. The only authoritative score is a current `icp-scorer` pass against `ICP_Scoring_Rubric.md`. An account with no current score is unscored, full stop, regardless of what tier the legacy file shows.
+- **The 155-account list in the vault is a personal territory list, not shared master data.** Each rep replaces it with their own before running the system.
 - **Lusha ≤200 credits per rep per week.** Flag before exceeding.
 - If research is too thin for genuine personalisation, pause that account and flag it. Never send generic.
 - Cite every data source with its pull date.

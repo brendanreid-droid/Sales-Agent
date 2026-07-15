@@ -2,20 +2,23 @@
 *Sourced from: 2026 Territory Planning — Consolidated Target List.csv*
 *155 accounts | Owner: Brendan (all accounts) | Last updated: July 2026*
 
+> [!IMPORTANT]
+> **This is Brendan's personal territory list, not a shared master list.** Every rep should replace this file (and `Target_Account_List.csv`) with their own territory before running the system, see the README's "Individual AE Setup" step. Leaving another rep's list in place risks prioritising accounts you don't own and duplicating outreach to companies someone else is already working.
+
 ---
 
 ## How to Use This File
 
-This document is the **single source of truth for account prioritisation** in 2026. The agents in this system use it to:
+This document is a **firmographic reference and lookalike-exclusion list**, not a scoring source. The agents in this system use it to:
 
-- **Research Analyst** — cross-references new prospects against this list before adding them (avoids duplication). **Also re-scores any account it researches using `ICP_Scoring_Rubric.md`** to ensure all scores are consistent. When an account is re-scored, the agent will produce a breakdown by dimension and flag any tier changes.
-- **ICP Scorer** — uses this file as a starting point; re-scores with full rubric when additional firmographic data is available
+- **Research Analyst** — cross-references new prospects against this list AND the "Lookalike Discoveries" table below before proposing any lookalike as new (avoids duplication and re-surfacing). **Must append every new lookalike candidate to the Lookalike Discoveries table (and to `Target_Account_List.csv`) at the end of the same session it is found** — do not just report a candidate and leave it undocumented, since an undocumented candidate has no protection against being "rediscovered" as new on the next run. **Always re-scores any account it researches using `ICP_Scoring_Rubric.md`** — see the scoring-authority note below.
+- **ICP Scorer** — uses this file only for company identity/firmographics (headcount, industry, ATS) as a lookup starting point. **Never reuses the legacy Score/Tier columns below as the account's tier.**
 - **Copywriter** — references the Case Study Match table to select the most relevant proof point per account automatically
-- **Company Researcher** — prioritises Tier 1 accounts for deep-dive research first; uses ATS and buyer/champion data to focus its investigation
-- **GTM Action Thinker** — uses tier to set urgency; Tier 1 accounts get immediate outreach recommendations, Tier 3 get trigger-watch recommendations
+- **Company Researcher** — uses this file's firmographic data (ATS, buyer/champion presence) to focus its investigation; prioritisation order comes from current ICP Scorer output, not this file's legacy tier
+- **GTM Action Thinker** — uses the account's current ICP Scorer tier (not this file's legacy tier) to set urgency
 
-> [!NOTE]
-> **Scores in this file are sourced from the original 2026 Territory Planning CSV** and reflect that spreadsheet's methodology. They should be treated as a **starting point only**. The Research Analyst will re-score accounts against `ICP_Scoring_Rubric.md` as it researches them, ensuring full consistency across the vault. Re-scored accounts will show a dimension breakdown alongside the updated score.
+> [!IMPORTANT] Scoring authority
+> **The Score and Tier columns in this file are historical only, sourced from the original 2026 Territory Planning CSV, and must never be used to prioritise, tier, or decide outreach on any account.** The only authoritative score is whatever the ICP Scorer agent produces when it scores an account against `ICP_Scoring_Rubric.md`. An account with no current ICP Scorer score has not been qualified yet, regardless of what legacy score appears here, treat it as unscored, not as its old tier. This keeps every account's priority consistent and traceable to one rubric, rather than mixing two different scoring methodologies.
 
 When an account moves status (Prospect → Meeting Booked → Client), update the Status column in the CSV and note it here.
 
@@ -206,6 +209,20 @@ When an account moves status (Prospect → Meeting Booked → Client), update th
 | Vocus | 60.3 | Very small telco | Brendan |
 | FedEx (AU ops) | 66.6 | No buyer in region | Brendan |
 | UPS (AU ops) | 56.6 | No buyer in region | Brendan |
+
+---
+
+## Lookalike Discoveries (Research Analyst — Continually Updated)
+
+**Purpose:** every company the Research Analyst surfaces through Lookalike Discovery gets logged here permanently, whether or not it is ever contacted. This table is the exclusion list that prevents the same lookalike being "found" again in a future discovery run. **Research Analyst must check this table (in addition to the 155-account list above) before proposing any candidate as new, and must add any newly-confirmed candidate here before ending its session.**
+
+| Company | Score | Tier | Industry | Geography | ATS | Date Added | Source | Brief |
+|---------|-------|------|----------|-----------|-----|-------------|--------|-------|
+| Jollibee Foods Corporation | 95.5 | 1 | Quick-service restaurants (hospitality/F&B) | Philippines | SAP SuccessFactors (native) | 14 July 2026 | Lookalike Discovery (web search only, Lusha not authorised) | `02-Accounts/Jollibee_Brief.md` |
+| Australia Post | 90.5 | 1 | Public sector / logistics | Australia | Avature (native) | 14 July 2026 | Lookalike Discovery (web search only, Lusha not authorised) | `02-Accounts/AustraliaPost_Brief.md` |
+| Apollo Hospitals Enterprise Ltd | 90.5 | 1 | Healthcare (private hospitals) | India | Oracle Fusion Cloud HCM (native) | 14 July 2026 | Lookalike Discovery (web search only, Lusha not authorised) | `02-Accounts/ApolloHospitals_Brief.md` |
+| Globe Telecom, Inc. | 83.5 | 2 | Telecommunications | Philippines | Workday (native) | 14 July 2026 | Lookalike Discovery (web search only, Lusha not authorised) — flagged as trigger-watch, not immediate priority, given an entrenched incumbent vendor | `02-Accounts/GlobeTelecom_Brief.md` |
+| FairPrice Group (NTUC FairPrice) | 78 | 3 | Retail / grocery | Singapore | x0pa.ai (niche, non-native) | 14 July 2026 | Lookalike Discovery (web search only, Lusha not authorised) | `02-Accounts/FairPrice_Brief.md` |
 
 ---
 
