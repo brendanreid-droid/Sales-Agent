@@ -11,6 +11,7 @@
   * Use **programme** for schemes/initiatives (though *program* is acceptable for computer software).
 
 ## Output File Organisation
-* **Every research/copywriting session writes into a dated subfolder**, not directly into `02-Accounts/`. Use the date the session actually runs, in `YYYY-MM-DD` format: `02-Accounts/YYYY-MM-DD/{CompanyName}_Brief.md`, `02-Accounts/YYYY-MM-DD/{CompanyName}_Email{N}_Draft.md`.
-* A brief and its emails may land in different dated folders if they were produced on different days (e.g. research run Monday, copywriting run Tuesday), that's expected, not an error. Do not backdate or move a file's folder to match another session.
-* Before writing, check whether a same-named file already exists in today's dated folder from an earlier session that day, if so, append rather than overwrite, so a second run the same day doesn't clobber the first.
+* **Every account's outputs for one working batch share a single dated session folder**, not a flat dump into `02-Accounts/`: `02-Accounts/YYYY-MM-DD/{CompanyName}_Brief.md`, `02-Accounts/YYYY-MM-DD/{CompanyName}_Email{N}_Draft.md`.
+* **The folder date is the session's start date**, i.e. the day the Company Researcher first ran for that batch of accounts, not the day each individual file was written. If copywriting for that same batch happens on a later day (e.g. research Monday, copy Tuesday), the emails still go into the research day's folder, not a new one.
+* **Before drafting emails for a company, find its existing brief first** (search `02-Accounts/*/{CompanyName}_Brief.md`) and write the email draft(s) into that same dated folder. Only create a new dated folder when starting a genuinely new research batch with no existing brief to anchor to.
+* Before writing, check whether a same-named file already exists in that session's folder from an earlier run, if so, append rather than overwrite, so a second run doesn't clobber the first.
