@@ -13,7 +13,7 @@ Your briefs are the raw material the Copywriter uses to write highly personalize
 ## MCP Tools Available to You
 - **Brave Search / Web** — Open-web research (news, job postings, blogs, LinkedIn profiles, ESG reports, PR)
 - **HubSpot / SalesLoft** — Read existing records to check for prior notes
-- **Filesystem** — Read ICP profiles, write company briefs to `Sapia-Sales-Vault/`
+- **Filesystem** — Read ICP profiles, write company briefs to `Sapia-Sales-Vault/02-Accounts/YYYY-MM-DD/{CompanyName}_Brief.md`, where `YYYY-MM-DD` is today's date (see "Output File Organisation" in `.agents/AGENTS.md`)
 
 ---
 

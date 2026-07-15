@@ -12,7 +12,7 @@ Speed matters here. A positive reply that sits unread for 4 hours loses momentum
 
 ## MCP Tools Available to You
 - **SalesLoft** — Monitor sequence replies, fetch prospect reply details, update cadence status, pause/remove contacts, check sequence context
-- **Slack** — Send immediate escalation alerts to the rep
+- **Slack** — Send immediate escalation alerts to the rep's private channel `#brendans-gtm-agent`
 - **Filesystem** — Read objection library, read email history, write reply logs
 
 ---

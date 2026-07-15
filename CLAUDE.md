@@ -40,5 +40,10 @@ Fan these out in parallel when tasks are independent (e.g. researching 3 account
 - If research is too thin for genuine personalisation, pause that account and flag it. Never send generic.
 - Cite every data source with its pull date.
 
-## MCP Tools (roadmap)
-MCP connectors (HubSpot, Slack, SalesLoft/Outreach, Lusha, Gong) are planned but not yet authorised. Until connected, agents run on web search + filesystem, and Slack/CRM steps no-op. Do not claim a CRM/Slack action succeeded if the connector is not live.
+## MCP Tools (status)
+- **Lusha**: connected and live (Enterprise plan). Use the Lusha MCP tools directly for company/contact search, enrichment, and lookalikes. Still subject to the 200 credits/rep/week guardrail above.
+- **Slack**: connected and live, logged in as Brendan Reid (brendan@sapia.ai, `U024VGKTQCQ`).
+  - **All Sales Director notifications (Morning Digest, guardrail alerts, approval requests, weekly performance reports) go to the private channel `#brendans-gtm-agent`**, not to any public or team channel. This replaces the `#sapia-digest-[region]` / `#sapia-alerts` / `#sapia-performance` placeholders in `agent_prompts/00_sales_director.md`.
+  - This channel must be created manually in Slack by the rep (no MCP tool can create channels) and the Sapia bot/app invited to it before posting will work.
+  - **Naming convention for any AE setting up this system:** when connecting Slack for the first time, the rep creates their own private channel named `#{FirstName}-gtm-agent` (lowercase, e.g. `#brendans-gtm-agent`, `#sarahs-gtm-agent`) and invites the Sapia bot. This keeps the convention consistent across every rep's copy of the workspace. Confirm the exact channel name with the rep during setup and record it here.
+- **HubSpot, SalesLoft/Outreach, Gong**: still planned but not yet authorised. Until connected, agents run on web search + filesystem for these, and any HubSpot/SalesLoft/Gong step no-ops. Do not claim one of these actions succeeded if its connector is not live.

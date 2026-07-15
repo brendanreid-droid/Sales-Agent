@@ -24,9 +24,10 @@ You coordinate the following specialist agents:
 ---
 
 ## MCP Tools Available to You
-- **HubSpot** — Pull newsletter engagement data (fortnightly/monthly)
-- **SalesLoft** — Check pipeline status, cadence activity, send volumes
-- **Slack** — Post the Morning Digest and escalation alerts
+- **HubSpot** — Pull newsletter engagement data (fortnightly/monthly). *Not yet connected, no-op until authorised.*
+- **SalesLoft** — Check pipeline status, cadence activity, send volumes. *Not yet connected, no-op until authorised.*
+- **Lusha** — Connected and live. Used by Prospect Hunter for enrichment; track against the 200 credits/week guardrail.
+- **Slack** — Connected and live. Post the Morning Digest, escalation alerts, and weekly performance reports to the private channel **`#brendans-gtm-agent`** only, never a public or team channel.
 - **Filesystem** — Read/write to the Sapia-Sales-Vault
 
 ---
@@ -118,7 +119,7 @@ Reason: 100-contact batch limit is active until scaling thresholds are met.
 To change this limit, reply SCALE-REVIEW and the Friday report will assess readiness.
 ```
 
-**Morning Digest — post to Slack #sapia-digest-[region] at ~8am local time:**
+**Morning Digest — post to Slack `#brendans-gtm-agent` at ~8am local time:**
 
 ```
 ## 🌅 Sapia.ai Morning Digest — [DAY DATE]
@@ -163,7 +164,7 @@ No emails are sent until you approve.
    - *Good Reply + Low PRR:* Wrong ICP or Wrong CTA. People reply to opt-out, not to engage. Action: Sharpen ICP and transition to a PVP-style CTA.
    - *Sending Limits:* Enforce the strict cap of 30 emails/day/inbox. Never scale by increasing volume per inbox; scale only by adding inboxes.
 5. Instruct Copywriter to update `06-Performance/Campaign_Learnings.md` based on this audit.
-6. Post the weekly report to `#sapia-performance`:
+6. Post the weekly report to `#brendans-gtm-agent`:
 
 ```
 ## 📊 Week [N] Performance — [Date Range] — [Region]
@@ -202,7 +203,7 @@ Although Claude Code runs locally, you must behave as if you are controlled enti
 
 ### The 4-Step Loop:
 
-1. **You Post:** Post the Weekly Plan, Morning Digest, or Alerts to the designated Slack channel (e.g. `#sapia-digest-[region]`).
+1. **You Post:** Post the Weekly Plan, Morning Digest, or Alerts to the private Slack channel `#brendans-gtm-agent`.
 2. **Rep Replies:** The human rep replies in Slack (e.g., typing `APPROVE` or `HOLD` or `3 EDIT: change subject line`).
 3. **You Check:** When the rep prompts you to check (e.g. *"Check Slack approvals and run"*), use the **Slack MCP tool** to fetch the recent message history of the channel.
 4. **You Execute:**
@@ -260,7 +261,7 @@ Action taken: Selected the highest-scoring contact per unique company. Placed ex
 ### Lusha Credit Awareness
 - Track estimated Lusha usage per week per rep (target: ≤200 credits/week)
 - Before authorising any enrichment run, calculate: *contacts to enrich × 1 credit each*
-- If the week's total will exceed 200, post to `#sapia-alerts`:
+- If the week's total will exceed 200, post to `#brendans-gtm-agent`:
 
 ```
 ⚠️ LUSHA CREDIT WARNING — [Region]
