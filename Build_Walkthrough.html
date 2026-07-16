@@ -89,14 +89,14 @@
 
 <rect x="450" y="46" width="250" height="34" rx="17" fill="#16213e"/>
 <text x="575" y="61" text-anchor="middle" class="start-label">2x Monthly: Signal Review</text>
-<text x="575" y="74" text-anchor="middle" class="start-label" style="font-weight:400;font-size:10px;">HubSpot + Sales Nav, territory-filtered</text>
+<text x="575" y="74" text-anchor="middle" class="start-label" style="font-weight:400;font-size:10px;">HubSpot + Sales Nav + Trigger Events, territory-filtered</text>
 
 <line x1="235" y1="80" x2="360" y2="120" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="575" y1="80" x2="460" y2="120" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowMuted)"/>
 
 <rect x="200" y="124" width="420" height="54" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
 <text x="410" y="146" text-anchor="middle" class="node-title" fill="#0f3460">Research Analyst</text>
-<text x="410" y="164" text-anchor="middle" class="node-sub" fill="#334155">Lookalike discovery + trigger events</text>
+<text x="410" y="164" text-anchor="middle" class="node-sub" fill="#334155">Lookalike discovery (research &amp; outbounding only)</text>
 
 <line x1="410" y1="178" x2="410" y2="204" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
 
@@ -115,13 +115,13 @@
 
 <rect x="200" y="334" width="420" height="54" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
 <text x="410" y="356" text-anchor="middle" class="node-title" fill="#0f3460">Company Researcher</text>
-<text x="410" y="374" text-anchor="middle" class="node-sub" fill="#334155">1-page brief: pain points, ATS, org map</text>
+<text x="410" y="374" text-anchor="middle" class="node-sub" fill="#334155">Brief: Full (1:1) or Lean (batched, weekly cadence)</text>
 
 <line x1="410" y1="388" x2="410" y2="414" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
 
 <rect x="200" y="418" width="420" height="54" rx="8" fill="#f0f4ff" stroke="#0f3460" stroke-width="1.5"/>
 <text x="410" y="440" text-anchor="middle" class="node-title" fill="#0f3460">Sales Director</text>
-<text x="410" y="458" text-anchor="middle" class="node-sub" fill="#334155">Weekly plan, capped at 100 companies/day</text>
+<text x="410" y="458" text-anchor="middle" class="node-sub" fill="#334155">Weekly plan, capped at 10/day, 20/week</text>
 
 <line x1="410" y1="472" x2="410" y2="498" stroke="#0f3460" stroke-width="1.5" marker-end="url(#arrow)"/>
 
@@ -286,11 +286,11 @@
 </tr>
 <tr>
 <td><code>.mcp.json.example</code></td>
-<td>MCP server template, no secrets, checked into git, shared automatically when the team clones the repo.</td>
+<td>MCP server template for services without a pre-built connector (Path B). No secrets, checked into git, shared automatically when the team clones the repo. Not needed for Slack or Lusha, those connect via <code>claude.ai/customize/connectors</code> instead (Path A).</td>
 </tr>
 <tr>
 <td><code>.mcp.json</code></td>
-<td>Your personal copy with real keys pasted in. Gitignored, never committed, never shared. You create this by duplicating the file above.</td>
+<td>Your personal copy with real keys pasted in, only for Path B services. Gitignored, never committed, never shared. You create this by duplicating the file above.</td>
 </tr>
 <tr>
 <td><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/claude_desktop_config_template.json">claude_desktop_config_template.json</a></td>
@@ -315,7 +315,7 @@
 <li><strong>Replace the target list with your own</strong> — <code>00-ICP/Target_Account_Analysis.md</code> and <code>Target_Account_List.csv</code> currently hold one rep's personal 155-account territory, not shared company data. Swap in your own accounts, same file format, before running anything.</li>
 <li><strong><a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/03-Outreach/Email_Winners/Cold_Winners.md">Cold_Winners.md</a></strong> — AEs add 3–5 of their best-performing personal cold emails (remove prospect names).</li>
 <li><strong>Voice Profiles</strong> — Each rep fills in their <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault/04-Brand_Voice/Sender_Voice_Profiles/Voice_Profile_Template.md">Voice_Profile_Template.md</a> and saves it as <code>[FirstName]_Voice.md</code> inside <code>Sender_Voice_Profiles/</code>.</li>
-<li><strong>Connect your MCP servers</strong> — duplicate <code>.mcp.json.example</code>, rename the copy to <code>.mcp.json</code>, paste in your real keys, save. No terminal needed. Full step-by-step below in <strong>"Detailed MCP Connection Setup."</strong></li>
+<li><strong>Connect your MCP servers</strong> — start with the pre-built connectors at <code>claude.ai/customize/connectors</code> (Slack, Lusha, no keys, no file editing), then fall back to duplicating <code>.mcp.json.example</code> into <code>.mcp.json</code> only for whatever doesn't have one yet. No terminal needed either way. Full step-by-step below in <strong>"Detailed MCP Connection Setup."</strong></li>
 </ol>
 <blockquote>
 <p><strong>On scoring:</strong> whatever ICP score sits in your target list spreadsheet is historical only, ignore it from here on. The only score that counts is what the ICP Scorer agent produces against <code>00-ICP/ICP_Scoring_Rubric.md</code>. This keeps every account's priority traceable to one consistent rubric instead of mixing old spreadsheet math with the current one, an account with no ICP Scorer pass yet is unscored, not "whatever the old sheet said."</p>
@@ -328,7 +328,7 @@
 <li><strong>🎯 Sales Director (SAPIA-SD):</strong> The orchestrator. Coordinates the weekly send schedule, runs the Monday signal harvests, audits Copywriter drafts against the <strong>8-Point Copywriting Checklist</strong>, posts the Slack Morning Digest for approval, and benchmarks Friday performance against real-world metrics.</li>
 <li><strong>🔍 Research Analyst (SAPIA-RA):</strong> The scout. Pulls HubSpot newsletter clicks, monitors job transitions, runs Brave Search lookalike scans to discover net-new companies, and flags triggers.</li>
 <li><strong>📊 ICP Scorer (SAPIA-ICP):</strong> The qualifier. Automatically scores and tiers prospect accounts (Tier 1/2/3/4) based on a custom 7-dimension rubric to filter out poor-fit leads. Re-scores existing accounts from the target list for consistency.</li>
-<li><strong>🔍 Company Researcher (SAPIA-CR):</strong> The profiler. Gathers deep target intel from open-web sources to build 1-page briefs mapping ATS/HRIS technologies, 4-layer pain points, and competitor positioning.</li>
+<li><strong>🔍 Company Researcher (SAPIA-CR):</strong> The profiler. Builds briefs in two formats, Full (all 10 sections: ATS/HRIS, 4-layer pain points, competitor positioning, the works, for a handful of confirmed Tier A accounts) or Lean (5 sections, batched 3-5 companies per dispatch, for the ongoing weekly research cadence). See "Two Types of Company Research" under Wednesday's cadence step for when to use which.</li>
 <li><strong>✍️ Copywriter (SAPIA-CW):</strong> The writer. Voice-matches to your reps' profiles and Gong call transcripts, drafting tailored email sequences (Touch 1-4) with high-reply PVP CTAs.</li>
 <li><strong>🏹 Prospect Hunter (SAPIA-PH):</strong> The loader. Enriches contacts with verified email and LinkedIn URLs using Lusha (strictly email-only to protect credit limits), checks 90-day cooldowns, and stages records.</li>
 <li><strong>💬 Reply Handler (SAPIA-RH):</strong> The closer. Monitors replies natively via SalesLoft, triages intent into 12 buckets, scores BANT criteria, and pushes AE Slack briefs for warm handoffs.</li>
@@ -345,8 +345,8 @@
 <h3>Monday: New Research &amp; Planning</h3>
 <p><strong>Goal:</strong> Set the week's accounts and verify targets.</p>
 <p><strong>You open Claude Code and send:</strong></p>
-<blockquote><p><em>"Let's kick off new research. Review the Trigger Events log, run any lookalike discovery we need, and get every candidate account through the ICP Scorer, don't use any legacy score from the target list, only your own current score. Then build the week's outreach plan, capped at 100 unique companies per send day, split across Tuesday and Thursday."</em></p></blockquote>
-<p>This single prompt is what triggers the Sales Director to dispatch Research Analyst (new lookalikes only, no newsletter/job-mover pull) and ICP Scorer (qualify every candidate) in sequence, then assemble the Weekly Outreach Plan. Deliberately kept simple, newsletter engagers and job movers are handled separately (see "Twice Monthly" below), not bundled into every run. It won't happen from a shorter prompt like "good morning", be explicit about what you want done.</p>
+<blockquote><p><em>"Let's kick off new research. Run any lookalike discovery we need, and get every candidate account through the ICP Scorer, don't use any legacy score from the target list, only your own current score. Then build the week's outreach plan, capped at 20 unique companies per week, 10 per send day, split across Tuesday and Thursday."</em></p></blockquote>
+<p>This single prompt is what triggers the Sales Director to dispatch Research Analyst (new lookalikes only) and ICP Scorer (qualify every candidate) in sequence, then assemble the Weekly Outreach Plan. Deliberately kept simple and purely about research and outbounding: newsletter engagers, job movers, and Trigger Events log review are all handled separately (see "Twice Monthly" below), not bundled into every run, for now. It won't happen from a shorter prompt like "good morning", be explicit about what you want done.</p>
 
 <h3>Tuesday: Outreach Day 1</h3>
 <p><strong>Goal:</strong> Approve and enrol the first email batch. (Sending itself is a separate, final step you do in SalesLoft, see below.)</p>
@@ -359,18 +359,38 @@
 
 <h3>Wednesday: Deep Profiling (and New Research, if running it twice a week)</h3>
 <p>Two different things can happen on a Wednesday, don't confuse them:</p>
-<p><strong>1. New Research (optional repeat of Monday), if you want the pipeline topped up mid-week:</strong> exactly the same prompt as Monday's "New Research & Planning" above, word for word, same trigger events / lookalike discovery / ICP scoring step. It's not a different activity that happens to fall on a Wednesday, it's literally Monday's step run again.</p>
+<p><strong>1. New Research (optional repeat of Monday), if you want the pipeline topped up mid-week:</strong> exactly the same prompt as Monday's "New Research & Planning" above, word for word, same lookalike discovery / ICP scoring step. It's not a different activity that happens to fall on a Wednesday, it's literally Monday's step run again.</p>
 <p><strong>2. Deep Profiling (the actual Wednesday-specific step, always runs):</strong></p>
-<p><strong>Goal:</strong> Build rich briefings for the second send day.</p>
-<blockquote><p><em>"Build 1-page briefs for Thursday's accounts, 4-layer pain points, ATS/tech stack, org map, the works. Flag any account where the research is too thin for a genuinely personalised email rather than forcing a generic draft."</em></p></blockquote>
-<p>If you're doing both, run New Research first, then Deep Profiling on whatever the Weekly Outreach Plan now includes for Thursday.</p>
+<p><strong>Goal:</strong> Build the research briefs for the second send day. There are two different brief formats, pick the right one, see below.</p>
+
+<h4>Two Types of Company Research — pick the right one</h4>
+<p>Using the wrong format either wastes budget on an account that doesn't need it, or under-researches one that does. Confirmed by live testing on 2026-07-15:</p>
+<table>
+<thead><tr><th></th><th>Full (Tailored 1:1)</th><th>Lean (Continuous / Bulk)</th></tr></thead>
+<tbody>
+<tr><td><strong>Use for</strong></td><td>A handful of confirmed Tier A accounts entering a real send this week, across all 4 touches</td><td>The standing 20-company/week research cadence, exploratory or discovery-stage accounts</td></tr>
+<tr><td><strong>What's in it</strong></td><td>All 10 sections: snapshot, trigger, ATS/tech stack, full org map (buyer + champion + blocker), 4-layer pain points, competitor mapping, leadership stance, the ONE signal, opener angle</td><td>5 sections: snapshot, the single best trigger (not three), buyer/champion (title only unless a contact is already supplied), a one-line pain angle, opener angle</td></tr>
+<tr><td><strong>Contact & headcount</strong></td><td>Company Researcher researches these directly</td><td>Never re-derived by Company Researcher. Supplied as "Given Firmographics" from Prospect Hunter's pre-pull, or marked UNKNOWN and left for Prospect Hunter</td></tr>
+<tr><td><strong>Dispatch pattern</strong></td><td>One company at a time is fine, quality over throughput</td><td><strong>Always batch 3-5 companies into one dispatch, never one at a time</strong>, that's where most of the token saving comes from</td></tr>
+<tr><td><strong>Confirmed cost</strong></td><td>~54k tokens/company (solo)</td><td>~18k tokens/company (batched 3-5 per dispatch)</td></tr>
+<tr><td><strong>Session cap</strong></td><td>Max 10 briefs/session</td><td>Max 20 briefs/session, run as 4-6 batched dispatches, not 20 individual ones</td></tr>
+</tbody>
+</table>
+
+<p><strong>Full-format prompt</strong> (a few high-priority accounts, one at a time is fine):</p>
+<blockquote><p><em>"Build a Full-format brief for Woolworths Group, this is a confirmed Tier A account going into this week's send. Give me the complete 10-section format, snapshot, trigger, tech stack, full org map with buyer, champion and blocker, 4-layer pain points, competitor mapping, leadership stance, the works. Flag anything too thin for genuine personalisation rather than forcing it."</em></p></blockquote>
+
+<p><strong>Lean-format prompt</strong> (the ongoing weekly cadence, always batched):</p>
+<blockquote><p><em>"Build Lean-format briefs for these 5 companies in one batch: [Company A], [Company B], [Company C], [Company D], [Company E]. Read the knowledge base once and reuse it across all five, don't re-read it per company. For headcount and a candidate contact, use whatever I've supplied below as Given Firmographics, and don't re-search for anything I've already given you, if I haven't supplied a contact for one of them, state the target title only and mark the name UNKNOWN for Prospect Hunter to resolve. Spend your search budget on finding the single best trigger per company and the pain/opener synthesis only, don't shop around for a better trigger once you've found one that clears the bar."</em></p></blockquote>
+
+<p>If you're doing both New Research and Deep Profiling on the same Wednesday, run New Research first, then Deep Profiling (in whichever format fits) on whatever the Weekly Outreach Plan now includes for Thursday.</p>
 
 <h3>Thursday: Outreach Day 2</h3>
 <p>Same two prompts as Tuesday, swap "Tuesday" for "Thursday" in the first one.</p>
 
 <h3>Friday: Audit, Learn &amp; Rubric Calibration</h3>
 <p><strong>Goal:</strong> Collect performance metrics and feed learnings back to the agents.</p>
-<blockquote><p><em>"Pull this week's SalesLoft stats, sends, opens, replies, bookings, run the Outbound Analyst Benchmark check, and post the diagnostic verdict to #sapia-performance. Then update Campaign_Learnings.md with what worked and what didn't."</em></p></blockquote>
+<blockquote><p><em>"Pull this week's SalesLoft stats, sends, opens, replies, bookings, run the Outbound Analyst Benchmark check, and post the diagnostic verdict to #brendans-gtm-agent. Then update Campaign_Learnings.md with what worked and what didn't."</em></p></blockquote>
 <hr />
 <h2>Setup Sequence</h2>
 <p>No "create a Project per agent" step here, the 8 specialists are already wired as native Claude Code subagents in <code>.claude/agents/</code>. This is meant to move fast, a rep with their vault populated and MCP servers connected can be running a real batch the same week, most of this is a single afternoon of setup plus one validation pass. No fixed week numbers below, just do them in order.</p>
@@ -379,7 +399,7 @@
 <ol>
 <li>Replace the target list with your own territory (<code>00-ICP/Target_Account_Analysis.md</code> + <code>Target_Account_List.csv</code>)</li>
 <li>Fill in the rest of the knowledge vault (Cold_Winners.md, other priority files above)</li>
-<li>Connect MCP servers, SalesLoft and Lusha first since those two matter most to get a batch moving, see Detailed MCP Connection Setup below</li>
+<li>Connect Slack and Lusha via the pre-built connectors at <code>claude.ai/customize/connectors</code> (Path A below), SalesLoft too if it's listed there for you. These matter most to get a batch moving. See Detailed MCP Connection Setup below.</li>
 <li>Fill in your Voice Profile</li>
 <li>Validate: ask the Sales Director to dispatch Research Analyst, then ICP Scorer, on 1-2 accounts you already know well, check the output quality before trusting it on the full list</li>
 <li>Run your first full batch: 5-10 emails through the full pipeline → human approval → SalesLoft send</li>
@@ -405,11 +425,11 @@
 
 <h3>Optional: Automate the Monday/Wednesday Research Kickoff</h3>
 <p>You don't have to open Claude Code and type the research prompt yourself every Monday and Wednesday, Claude Code can schedule a recurring cloud routine that does it for you. This isn't a settings panel to click through, you set it up by asking Claude to do it in a normal chat message.</p>
-<p><strong>What it does:</strong> runs the "new research" step (Trigger Events review, Lookalike Discovery, ICP Scorer on every candidate) automatically at a set time, writes the results straight into your vault, then posts a short summary to Slack so you know it's ready.</p>
+<p><strong>What it does:</strong> runs the "new research" step (Lookalike Discovery, ICP Scorer on every candidate) automatically at a set time, writes the results straight into your vault, then posts a short summary to Slack so you know it's ready. Purely research and outbounding prep, Trigger Events, job movers, and newsletter engagers are deliberately kept out of this, see "Twice Monthly" above.</p>
 <p><strong>What it deliberately does not do:</strong> draft any emails, post a Morning Digest, enrol anyone in SalesLoft, or send anything. Those all still need you to open Claude Code and give an explicit prompt, per "Nothing on this page runs by itself" above. This routine only feeds the pipeline, it doesn't act on it.</p>
 <h4>How to set it up</h4>
 <p>Open a Claude Code session in this repo and send a prompt like:</p>
-<blockquote><p><em>"Schedule a recurring routine that runs every Monday and Wednesday at 9am Sydney time. It should act as the Sales Director and do the 'new research' step only: review the Trigger Events log, run Lookalike Discovery, and get every new or existing candidate through the ICP Scorer, ignoring any legacy score in the target list. Do not draft emails, do not post a Morning Digest, do not touch SalesLoft. When it's done, post a short summary to [your Slack channel, e.g. #sapia-alerts or a DM] with how many new lookalikes were found and how many accounts were scored."</em></p></blockquote>
+<blockquote><p><em>"Schedule a recurring routine that runs every Monday and Wednesday at 9am Sydney time. It should act as the Sales Director and do the 'new research' step only: run Lookalike Discovery, and get every new or existing candidate through the ICP Scorer, ignoring any legacy score in the target list. Keep this purely to research and outbounding prep, don't touch Trigger Events, job movers, or newsletter engagers, those are handled separately. Do not draft emails, do not post a Morning Digest, do not touch SalesLoft. When it's done, post a short summary to [your Slack channel, e.g. #brendans-gtm-agent or a DM] with how many new lookalikes were found and how many accounts were scored."</em></p></blockquote>
 <p>Claude Code will confirm the schedule back to you before it's active. A few things worth knowing:</p>
 <ul>
 <li><strong>This is per-rep.</strong> Each rep sets up their own routine pointing at their own vault and territory, there's no shared/central schedule.</li>
@@ -549,36 +569,47 @@
 </table>
 <hr />
 <h2>Detailed MCP Connection Setup</h2>
-<p>This is the step-by-step guide to connecting all 7 MCP servers on Claude Code. No terminal commands anywhere in it except opening the app itself, everything else is editing one file and sending one chat message.</p>
+<p>There are two different ways a service gets connected here, and most reps will only ever need the first one. <strong>Check the pre-built connector path first</strong>, it's what most people actually use, the manual <code>.mcp.json</code> path is a fallback for whatever doesn't have one yet.</p>
+<blockquote>
+<p><strong>Confirmed 2026-07-15:</strong> Slack and Lusha connect as pre-built connectors, no API key, no <code>.mcp.json</code> editing. SalesLoft may need the manual path below, depending on whether a pre-built SalesLoft connector exists on your account when you get to it, check Step A first either way.</p>
+</blockquote>
+
+<h3>Path A — Pre-built connectors (Slack, Lusha, and check for others)</h3>
+<p>Anthropic hosts and manages these directly. They're connected once, at your claude.ai account level, not inside this repo, and they then work automatically in every Claude Code session and every project you open, no per-repo setup, no keys to copy.</p>
+<h4>Step 1 — Open claude.ai/customize/connectors</h4>
+<p>In a browser, go to <code>claude.ai/customize/connectors</code> (log in with the same account you use for Claude Code). You'll see a list of available connectors.</p>
+<h4>Step 2 — Connect Slack and Lusha</h4>
+<p>Find each one in the list, click <strong>Connect</strong>, and follow the on-screen OAuth sign-in, log into your Slack workspace / Lusha account and approve. No key to generate, nothing to paste anywhere.</p>
+<h4>Step 3 — Check for SalesLoft too</h4>
+<p>Search for SalesLoft on the same page. If it's listed, connect it exactly the same way, no manual setup needed. If it's <em>not</em> listed, that's when you drop down to Path B below for SalesLoft specifically.</p>
+<blockquote><p><strong>Team / Enterprise plans:</strong> connecting a pre-built connector at the account level may require admin permissions. If a connector you need isn't showing up, ask your workspace admin to add it rather than assuming it's broken.</p></blockquote>
+<h4>Step 4 — Confirm it's live</h4>
+<p>Open Claude Code (double-click <code>start.command</code>, or type <code>claude</code> in a terminal opened to this folder) and send:</p>
+<blockquote><p><em>"Run /mcp and tell me which connectors are live, and which ones are labelled as coming from claude.ai versus set up locally in this project."</em></p></blockquote>
+<p>Anything connected via Path A shows up labelled <strong>"from claude.ai"</strong>, that's the pre-built, account-level kind. Anything else in that list came from Path B below, set up specifically for this repo.</p>
+
+<h3>Path B — Manual setup (for anything without a pre-built connector)</h3>
+<p>As of 2026-07-15 this means SalesLoft (if it's not listed in Path A when you check), and optionally HubSpot, Gong, and Brave Search, none of which are required to run a first batch. This is the older, per-repo, API-key style of connecting, edit one file, no terminal commands beyond opening the app.</p>
 <blockquote>
 <p><strong>One thing to get right before you start:</strong> never paste a real API key into <code>.mcp.json.example</code> or commit it to git. Real keys only ever go in your own <code>.mcp.json</code> (no ".example"), which is gitignored, stays on your machine, and is never shared with the team.</p>
 </blockquote>
 
-<h4>Step 1 — Open Claude Code</h4>
-<p>Double-click <code>start.command</code> in the repo root. A terminal window opens by itself and Claude Code starts. (First time only: macOS may show a security prompt, right-click <code>start.command</code> and choose <strong>Open</strong> instead of double-clicking, then it'll never ask again.) If you'd rather not use <code>start.command</code>, opening a terminal yourself and typing <code>claude</code> from this folder does the same thing.</p>
+<h4>Step 1 — Create your personal credentials file</h4>
+<p>In Finder (or your file browser), find <code>.mcp.json.example</code> in the repo root. Duplicate it (right-click → Duplicate, or copy/paste), and rename the copy to exactly <code>.mcp.json</code> (drop the ".example"). That's it, no command needed. This new file is already listed in <code>.gitignore</code>, so it will never be committed or shared, it's yours alone. Only add entries here for services you're actually setting up this way, don't duplicate Slack or Lusha into this file, they're already handled by Path A.</p>
 
-<h4>Step 2 — Create your personal credentials file</h4>
-<p>In Finder (or your file browser), find <code>.mcp.json.example</code> in the repo root. Duplicate it (right-click → Duplicate, or copy/paste), and rename the copy to exactly <code>.mcp.json</code> (drop the ".example"). That's it, no command needed. This new file is already listed in <code>.gitignore</code>, so it will never be committed or shared, it's yours alone.</p>
-
-<h4>Step 3 — Get each API key</h4>
-<p>Work through this list. You don't need all 7 on day one, SalesLoft and Lusha are the two that matter most to get an outbound batch moving, the rest can follow.</p>
+<h4>Step 2 — Get each API key</h4>
 <table>
 <thead><tr><th>Service</th><th>Where to get your key</th><th>Notes</th></tr></thead>
 <tbody>
 <tr>
 <td><strong>SalesLoft</strong></td>
 <td>Your SalesLoft <strong>Admin</strong> must first enable the <strong>Agentic package</strong> (Settings → Agentic → Enable). This is an org-wide, one-time step, ask your SalesLoft admin to do this before anyone on the team tries to connect. Once enabled, each rep generates their own key: <strong>Settings → API → Create API Key</strong>.</td>
-<td>Org-level prerequisite. Without it, the key you generate won't authenticate.</td>
+<td>Org-level prerequisite. Without it, the key you generate won't authenticate. Check Path A first, a pre-built SalesLoft connector may exist on your account by the time you set this up.</td>
 </tr>
 <tr>
 <td><strong>HubSpot</strong></td>
 <td><strong>Settings → Integrations → Private Apps → Create a private app.</strong> Name it something like "Sapia GTM Agent." Under Scopes, grant read access to Marketing Email and Contacts (for newsletter engagement data). Copy the generated Access Token.</td>
-<td>Needs a HubSpot admin if you don't have private-app creation rights.</td>
-</tr>
-<tr>
-<td><strong>Lusha</strong></td>
-<td><strong>Lusha API Hub → API → Manage API Keys → Generate New Key.</strong></td>
-<td>Track your own usage, 200-credit/week budget per rep is enforced by the Prospect Hunter agent, not by Lusha itself.</td>
+<td>Needs a HubSpot admin if you don't have private-app creation rights. Lower priority, see "Lower Priority" in Setup Sequence.</td>
 </tr>
 <tr>
 <td><strong>Gong</strong></td>
@@ -591,11 +622,6 @@
 <td>Optional. Web search still works without it via Claude's built-in search, this just adds Brave as an extra source.</td>
 </tr>
 <tr>
-<td><strong>Slack</strong></td>
-<td>No key needed. You'll authenticate via an OAuth popup the first time an agent tries to use Slack, see Step 5 below.</td>
-<td>Nothing to fill in for this one.</td>
-</tr>
-<tr>
 <td><strong>Filesystem</strong></td>
 <td>Not an API key, it's the absolute path to your local copy of <code>Sapia-Sales-Vault</code>, e.g. <code>/Users/yourname/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault</code>.</td>
 <td>Find it by right-clicking the folder → Get Info (Mac) or Properties (Windows) and copying the path.</td>
@@ -603,24 +629,28 @@
 </tbody>
 </table>
 
-<h4>Step 4 — Fill in .mcp.json</h4>
+<h4>Step 3 — Fill in .mcp.json</h4>
 <p>Open your new <code>.mcp.json</code> in any plain text editor, TextEdit, Notepad, VS Code, whatever's on your machine already. Find each <code>"..."</code> and replace it with the real value you just copied. For example, the SalesLoft block goes from:</p>
 <pre><code>"env": { "SALESLOFT_API_KEY": "..." }</code></pre>
 <p>to:</p>
 <pre><code>"env": { "SALESLOFT_API_KEY": "sk_live_your_actual_key_here" }</code></pre>
-<p>Do the same for HubSpot, Lusha, Gong (two values), Brave Search, and the Filesystem path at the very bottom. Leave any <code>"..."</code> in place for a server you're not using yet, Claude Code just skips it. Save the file when you're done.</p>
+<p>Do the same for HubSpot, Gong (two values), Brave Search, and the Filesystem path at the very bottom. Leave any <code>"..."</code> in place for a server you're not using yet, Claude Code just skips it. Save the file when you're done.</p>
+<p><strong>Alternative to editing the file by hand:</strong> Claude Code can add one of these servers for you from a chat message instead, useful if a service supports OAuth sign-in rather than a static key:</p>
+<blockquote><p><em>"Add the SalesLoft MCP server, then run /mcp so I can sign in."</em></p></blockquote>
+<p>That's the <code>claude mcp add</code> command running under the hood, followed by an <code>/mcp</code> browser sign-in, you never have to type the command yourself.</p>
 
-<h4>Step 5 — Tell Claude to load it</h4>
+<h4>Step 4 — Tell Claude to load it</h4>
 <p>Back in Claude Code, send this message:</p>
 <blockquote><p><em>"I've filled in my MCP credentials in .mcp.json. Please confirm which servers connected and test each one."</em></p></blockquote>
-<p>If Slack hasn't been authorised yet, this is also the point where an OAuth popup will appear, log into your company's Slack workspace and approve it, you only do this once per machine. Claude will run through Filesystem, Lusha, SalesLoft, HubSpot, Slack, Gong, and Brave Search and tell you plainly which ones are live and which ones need attention, no separate test prompts required on your end, that's what "so you load it for them" means in practice.</p>
+<p>Claude will run through Filesystem, SalesLoft, HubSpot, Gong, and Brave Search (whichever you've filled in) and tell you plainly which ones are live and which ones need attention, no separate test prompts required on your end.</p>
 
 <h4>Troubleshooting</h4>
 <ul>
-<li><strong>A server shows as not connected:</strong> double check you saved <code>.mcp.json</code> (not <code>.mcp.json.example</code>) and that the value has no stray quote marks or extra spaces. Ask Claude to re-check after you fix it.</li>
-<li><strong>SalesLoft key rejected:</strong> confirm your SalesLoft admin has actually enabled the Agentic package first, this is the most common blocker and it's an org setting, not something you can fix on your own key.</li>
+<li><strong>A pre-built connector (Slack, Lusha) isn't showing up in Claude Code:</strong> check <code>claude.ai/customize/connectors</code> directly, confirm it shows as connected there first. On Team/Enterprise plans, only an admin can add one, ask them rather than trying to work around it with a manual API key.</li>
+<li><strong>A manually-configured server shows as not connected:</strong> double check you saved <code>.mcp.json</code> (not <code>.mcp.json.example</code>) and that the value has no stray quote marks or extra spaces. Ask Claude to re-check after you fix it.</li>
+<li><strong>SalesLoft key rejected (Path B):</strong> confirm your SalesLoft admin has actually enabled the Agentic package first, this is the most common blocker and it's an org setting, not something you can fix on your own key.</li>
 <li><strong>Filesystem can't find the vault:</strong> double-check the path in <code>.mcp.json</code> is the full absolute path (starts with <code>/</code> on Mac) to the <code>Sapia-Sales-Vault</code> folder itself, not its parent folder, and that there are no typos.</li>
-<li><strong>Slack keeps re-prompting for auth:</strong> the OAuth grant may have expired or been revoked on Slack's side, just go through the popup again, it's harmless to repeat.</li>
+<li><strong>A connector keeps re-prompting for auth:</strong> the OAuth grant may have expired or been revoked on the service's side, just go through the sign-in again, it's harmless to repeat.</li>
 </ul>
 
 <h3>Why not Claude Desktop?</h3>
@@ -628,7 +658,7 @@
 
 <hr />
 <h2>Sharing with Your Peers</h2>
-<p>The <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/README.md">README.md</a> is a complete standalone onboarding guide for new team members. Just share the git repo, <code>.mcp.json.example</code> is checked in and holds no secrets, cloning the repo is the whole "install." Each peer then does their own Steps 1-5 from the Detailed MCP Connection Setup above: duplicate <code>.mcp.json.example</code> into their own <code>.mcp.json</code>, paste in their own keys.</p>
+<p>The <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/README.md">README.md</a> is a complete standalone onboarding guide for new team members. Just share the git repo, <code>.mcp.json.example</code> is checked in and holds no secrets, cloning the repo is the whole "install." Each peer then does their own connector setup from the Detailed MCP Connection Setup above: Path A (their own account-level Slack/Lusha connectors at <code>claude.ai/customize/connectors</code>, no shared secrets involved at all) and, if needed, Path B (their own <code>.mcp.json</code>, their own keys, for anything without a pre-built connector).</p>
 <p><strong>What each peer needs to do independently:</strong></p>
 <ul>
 <li>Set up their own MCP credentials in their own <code>.mcp.json</code> (personal, never shared, never committed)</li>
@@ -648,7 +678,7 @@
 <p>These are the same trigger prompts from the Tuesday &amp; Thursday Cadence Schedule above, collected in one place for quick reference, plus the two lower-priority signal workflows.</p>
 
 <h4>A. Monday Planning</h4>
-<blockquote><p><em>"Let's kick off new research. Review the Trigger Events log, run any lookalike discovery we need, and get every candidate account through the ICP Scorer, don't use any legacy score from the target list, only your own current score. Then build the week's outreach plan, capped at 100 unique companies per send day, split across Tuesday and Thursday."</em></p></blockquote>
+<blockquote><p><em>"Let's kick off new research. Run any lookalike discovery we need, and get every candidate account through the ICP Scorer, don't use any legacy score from the target list, only your own current score. Then build the week's outreach plan, capped at 20 unique companies per week, 10 per send day, split across Tuesday and Thursday."</em></p></blockquote>
 
 <h4>B. Drafting a Send-Day Batch</h4>
 <blockquote><p><em>"Draft today's [Tuesday/Thursday] batch. Use the accounts from Monday's plan, run the Copywriter in sessions of 25, and post the Morning Digest to Slack once every email passes the 8-point audit."</em></p></blockquote>
@@ -670,10 +700,10 @@
 <h3>2. Setting Up Slack Notifications &amp; Approvals</h3>
 <p>Reps do not need to check Claude Code constantly. The Sales Director and Reply Handler can push digests and alerts directly to your personal Slack DM or a dedicated channel, and read your response to continue.</p>
 <h4>Step 1: Authorize Slack</h4>
-<p>Covered in "Detailed MCP Connection Setup → Step 5" above, Slack connects via a one-time OAuth popup the first time an agent tries to use it. Nothing further to do here once that's done.</p>
+<p>Covered in "Detailed MCP Connection Setup → Path A" above, Slack connects as a pre-built connector at <code>claude.ai/customize/connectors</code>, a one-time OAuth sign-in at the account level. Nothing further to do here once that's done, and nothing to configure inside this repo.</p>
 <h4>Step 2: Retrieve your Channel or User ID</h4>
 <ul>
-<li><strong>For a channel:</strong> Open Slack, right-click the channel name (e.g. <code>#sapia-digest</code>), select <strong>View channel details</strong>, and copy the <strong>Channel ID</strong> at the bottom (starts with <code>C</code>, e.g., <code>C1234567890</code>).</li>
+<li><strong>For a channel:</strong> Open Slack, right-click your private channel name (e.g. <code>#brendans-gtm-agent</code>, or <code>#[firstname]-gtm-agent</code> for your own), select <strong>View channel details</strong>, and copy the <strong>Channel ID</strong> at the bottom (starts with <code>C</code>, e.g., <code>C1234567890</code>).</li>
 <li><strong>For personal DMs:</strong> Click your own profile picture in Slack, select <strong>Profile</strong>, click the three dots (<code>...</code>), select <strong>Copy member ID</strong> (starts with <code>U</code>, e.g., <code>U1234567890</code>).</li>
 </ul>
 <h4>Step 3: Tell the Sales Director where to post</h4>
@@ -714,7 +744,7 @@
 <tr><td><strong>Unique company limit</strong></td><td>Sales Director / Prospect Hunter</td><td>Strictly 1 contact per company per batch, the 100 contacts must come from 100 different companies.</td></tr>
 <tr><td><strong>Copywriter session size</strong></td><td>Copywriter</td><td>Runs in sessions of 25 emails, not one session of 100, to manage token limits.</td></tr>
 <tr><td><strong>Research session size</strong></td><td>Research Analyst</td><td>Max 50 accounts per discovery/monitoring session.</td></tr>
-<tr><td><strong>Brief session size</strong></td><td>Company Researcher</td><td>Max 10 company briefs per session, deep web research is token-heavy.</td></tr>
+<tr><td><strong>Brief session size</strong></td><td>Company Researcher</td><td>Full format: max 10/session. Lean format: max 20/session, run as 4-6 batched dispatches of 3-5 companies each, never one company per dispatch, see "Two Types of Company Research."</td></tr>
 <tr><td><strong>Enrichment session size</strong></td><td>Prospect Hunter</td><td>Max 100 contacts per session, processed in subsets of 25.</td></tr>
 </tbody>
 </table>
@@ -811,7 +841,7 @@
 <hr />
 <h3>4. Daily Hygiene Checklist</h3>
 <ul>
-<li><strong>Check Slack first:</strong> Look at <code>#sapia-alerts</code> and <code>#sapia-digest-[region]</code> at 9:00 AM local time on Tuesdays and Thursdays.</li>
+<li><strong>Check Slack first:</strong> Look at <code>#brendans-gtm-agent</code> (or your own rep's equivalent private channel) at 9:00 AM local time on Tuesdays and Thursdays.</li>
 <li><strong>Keep cadences clean:</strong> If a contact replies positively, double-check that the Reply Handler successfully paused their SalesLoft cadence.</li>
 <li><strong>Empty the spam traps:</strong> Review bounces or opt-outs flagged by the Reply Handler once a week to ensure your domain health remains high.</li>
 <li><strong>Log the wins:</strong> When an email books a meeting, copy the body text and paste it into <code>Sapia-Sales-Vault/03-Outreach/Email_Winners/Cold_Winners.md</code> so the Copywriter continually learns from what succeeds.</li>
