@@ -2,7 +2,7 @@
 ## DRAFT EMAIL
 **To:** Stephanie Sevilla, Head of Talent Acquisition, PLDT Inc.
 **From:** Brendan Reid
-**Subject:** best employer brand, one screening question (46 chars)
+**Subject:** PLDT / Sapia.Ai - Best employer brand, one screening question (46 chars)
 **Sequence:** Cold Outreach, Touch 1 (Permissionless Value Promise)
 **Hook source:** PLDT_Brief.md, Sections 3, 8 and 9 — PLDT and Smart winning Best Employer Brand and an AI Learning Champion finalist nod at the LinkedIn Talent Awards Philippines roughly a week before the brief's pull date, with no public evidence of AI reaching the screening step itself
 **Word count:** 101 words (body only)
@@ -18,7 +18,13 @@ Curious whether that AI-forward story has reached the screening step yet, or if 
 Happy to send through a short note on how TA teams reclaim that time without adding headcount, if that's useful?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

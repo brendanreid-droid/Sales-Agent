@@ -2,7 +2,7 @@
 ## DRAFT EMAIL
 **To:** Elisa Clements, Group Executive Talent and Culture, ANZ Group Holdings
 **From:** Brendan Reid
-**Subject:** your first data and AI hire (28 chars)
+**Subject:** ANZ / Sapia.Ai - Your first data and AI hire (28 chars)
 **Sequence:** Cold Outreach, Touch 1 (Permissionless Value Promise)
 **Hook source:** ANZ_Brief.md, Sections 3, 8 and 9 — Kai Yang's appointment as ANZ's first-ever Chief Data and AI Officer (April 2026), CEO Nuno Matos's public "disciplined, performance-driven culture" mandate, and the internal cross-reference that Suncorp (an existing Sapia customer) now sits inside the ANZ Group
 **Word count:** 114 words (body only)
@@ -18,7 +18,13 @@ That combination usually means the Talent and Culture team is expected to show t
 I've put together a short note on how banks make graduate and frontline screening consistent and explainable at scale. Happy to send it through, if you think it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

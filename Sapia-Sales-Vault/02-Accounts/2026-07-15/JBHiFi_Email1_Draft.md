@@ -2,7 +2,7 @@
 ## DRAFT EMAIL
 **To:** Dana Forte, Group Human Resources Director, JB Hi-Fi
 **From:** Brendan Reid
-**Subject:** three growing banners, one shared ATS (37 chars)
+**Subject:** JB Hi-Fi / Sapia.Ai - Three growing banners, one shared ATS (37 chars)
 **Sequence:** Cold Outreach, Touch 1 (Permissionless Value Promise)
 **Hook source:** JBHiFi_Brief.md, Sections 3, 4 and 9 — confirmed shared SmartRecruiters ATS across JB Hi-Fi, JB Hi-Fi NZ and The Good Guys, plus record HY26 group sales (A$6.1bn, +7.3%) and NZ comparable sales up 20.2%
 **Word count:** 91 words (body only)
@@ -18,7 +18,13 @@ Curious how much of that volume still runs through manual CV and phone screening
 Happy to send through a short benchmark on how similar multi-banner retailers handle it, if that's useful?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

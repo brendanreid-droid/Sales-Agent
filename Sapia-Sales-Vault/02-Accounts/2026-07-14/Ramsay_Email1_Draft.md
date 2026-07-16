@@ -7,7 +7,7 @@
 ## DRAFT EMAIL
 **To:** Colleen Harris, Group Executive People, Ramsay Health Care Limited
 **From:** Brendan
-**Subject:** three hiring waves, one deadline (5 words)
+**Subject:** Ramsay Health Care / Sapia.Ai - Three hiring waves, one deadline (5 words)
 **Sequence:** Cold Outreach, Touch 1
 **Hook source:** Brief Sections 3, 6, 9 and 10 — the collision of the National Capital Private Hospital workforce transition (from the Healthscope receivership, ACCC-approved 13 February 2026, completing Q1 FY27), the two newly opened/expanded sites (Northern Private Hospital and the Joondalup expansion, both February 2026), and the NSW Nurses and Midwives Enterprise Agreement re-entering bargaining from its 30 June 2026 expiry, all landing on a recruiting stack Ramsay has just consolidated onto SmartRecruiters (Section 4).
 **Word count:** 115 words (body only, excludes greeting and sign-off)
@@ -23,7 +23,13 @@ Regis Aged Care faced a similar squeeze across 74 homes and used a structured ch
 Sapia already integrates natively with SmartRecruiters. Happy to send through how Regis structured the rollout, if you think it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

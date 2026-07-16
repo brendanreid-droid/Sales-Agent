@@ -7,7 +7,7 @@
 ## DRAFT EMAIL
 **To:** Renato "Ato" Jiao, Chief Human Resource Officer, Globe Telecom, Inc.
 **From:** Brendan
-**Subject:** philippine npc guidance on ai screening (6 words)
+**Subject:** Globe Telecom / Sapia.Ai - Philippine NPC guidance on AI screening (6 words)
 **Sequence:** Cold Outreach, Touch 1
 **Hook source:** Brief Sections 3, 4, 6, 9 and 10, specifically the L&E Global legal briefing (25 February 2026) on Philippine National Privacy Commission Advisory No. 2024-04 and Advisory Opinion No. 2024-002, which places direct, vendor-independent employer accountability for bias audits and human review of AI recruitment decisions on any employer using AI recruitment tools, combined with Globe's confirmed, publicised use of a video-based AI screening tool.
 **Word count:** 111 words (body only, excludes greeting and sign-off)
@@ -23,7 +23,13 @@ Sapia's assessment is text-only, no video, no audio, no resumes scored, so it si
 Happy to send through a short summary of what the guidance actually requires and how the audit trail works, if you think it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

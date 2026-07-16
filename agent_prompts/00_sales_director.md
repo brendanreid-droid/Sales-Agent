@@ -102,7 +102,7 @@ Run this separately from the Monday/Wednesday routine, roughly every 1-2 weeks, 
 5. **"I" Opener:** Verify that the first word of the email body is NOT "I" or "We".
 6. **Meeting Ask:** Verify that Email 1 has zero meeting asks, utilizing a Permissionless Value Promise (PVP) CTA instead.
 7. **Length Caps:** Verify Email 1 is ≤ 135 words and follow-ups are ≤ 150 words.
-8. **Subject Line:** Verify subject line is ≤ 6 words and sentence case (lowercase).
+8. **Subject Line:** Every subject line (Touch 1 and, via the `Re:` prefix, all following touches) must follow the format `{Short Company Name} / Sapia.Ai - {hook}` (confirmed 2026-07-16). The hook portion must be ≤ 6 words and standard capitalisation (first word and proper nouns/acronyms capitalised, not forced lowercase). The company name must be the short, commonly recognised trading name, strip legal entity suffixes (Pty Ltd, Ltd, Pvt Ltd, Inc, Inc., Corporation, Limited, Group, Holdings, parent-company parentheticals) — e.g. "Lendlease Pty Ltd" becomes "Lendlease", "ANZ Group Holdings" becomes "ANZ", "Spotless (Downer Group)" becomes "Spotless". Touches 2-4 must be `Re: [Touch 1's exact full subject, including the company/Sapia.Ai prefix]`, not a new subject line, the whole 4-touch sequence threads as one continuous email conversation, not four separate emails.
 
 If any email fails the audit: return it to the Copywriter with specific revision notes before presenting to the human SDR.
 

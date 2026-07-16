@@ -7,7 +7,7 @@
 ## DRAFT EMAIL
 **To:** Romeo B. Rivera, Head, Global Talent Acquisition, Jollibee Foods Corporation
 **From:** Brendan
-**Subject:** 1,200 new stores, frozen headcount (5 words)
+**Subject:** Jollibee / Sapia.Ai - 1,200 new stores, frozen headcount (5 words)
 **Sequence:** Cold Outreach, Touch 1
 **Hook source:** Brief Section 9 (the ONE sourcing/buying signal) and Section 3 — the confirmed 1,200 to 1,300 new stores guided for 2026 (on top of a record 2025 opening year) landing directly against a confirmed Q4 2025 corporate-level headcount freeze and active 2026 cost review triggered by a 38.8% Q1 profit decline. No precise Jollibee headcount figure is cited anywhere in the copy, per the brief's explicit recommendation (Section 1) given the unreconciled conflicting sources.
 **Word count:** 117 words (body only, excludes greeting and sign-off)
@@ -23,7 +23,13 @@ What we're seeing at Starbucks Australia is a useful comparison: adding a struct
 Happy to send through the breakdown of how they did it, if you think it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

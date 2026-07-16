@@ -7,7 +7,7 @@
 ## DRAFT EMAIL
 **To:** Zhao Tongwen, Chief Corporate and People Officer, FairPrice Group
 **From:** Brendan
-**Subject:** grocer genie and your screening gap (35 chars)
+**Subject:** FairPrice / Sapia.Ai - Grocer Genie and your screening gap (35 chars)
 **Sequence:** Cold Outreach, Touch 1
 **Hook source:** Brief Sections 3, 4, 9 and 10 — the live, Google Cloud-backed "Store of Tomorrow" AI programme (Grocer Genie, rolling to all 48 Singapore supermarkets by end of 2026), Group CEO Vipul Chawla's public recognition as CEO of the Year, Singapore, at the Retail Asia Awards 2026, set against the confirmed x0pa.ai recruitment platform, which the brief found has no equivalent structured, AI-led screening layer.
 **Word count:** 119 words (body only, excludes greeting and sign-off)
@@ -25,7 +25,13 @@ Woolworths made a similar shift: replacing manual screening with a structured ch
 Happy to send the breakdown, if you think it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

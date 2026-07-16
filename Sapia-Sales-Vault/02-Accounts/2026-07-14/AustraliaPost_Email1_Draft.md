@@ -7,7 +7,7 @@
 ## DRAFT EMAIL
 **To:** Susan Davies, Executive General Manager, People & Culture, Australia Post
 **From:** Brendan
-**Subject:** eliminate, simplify, automate: christmas hiring (5 words)
+**Subject:** Australia Post / Sapia.Ai - Eliminate, simplify, automate: christmas hiring (5 words)
 **Sequence:** Cold Outreach, Touch 1
 **Hook source:** Brief Sections 3, 4, 6 and 9 — CEO Paul Graham's internal "Post30" address this week (mid July 2026) instructing 60,000+ staff to "eliminate, simplify, or automate" every process using AI, landing directly on top of a confirmed Avature ATS with no visible AI screening layer and a Talent Acquisition function running a seasonal surge of up to 5,000 Christmas casual hires in a 12-week window (Section 6, Surface Pain).
 **Word count:** 113 words (body only, excludes greeting and sign-off)
@@ -23,7 +23,13 @@ What we're seeing at Woolworths is a close parallel: automating first-stage scre
 Happy to send the breakdown through, if you think it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

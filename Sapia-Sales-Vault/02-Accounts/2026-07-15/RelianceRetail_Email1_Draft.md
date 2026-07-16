@@ -2,7 +2,7 @@
 ## DRAFT EMAIL
 **To:** Rakesh Ravindran, SVP & CHRO, Reliance Retail Limited
 **From:** Brendan Reid
-**Subject:** past 20,000 stores and still hiring (36 chars)
+**Subject:** Reliance Retail / Sapia.Ai - Past 20,000 stores and still hiring (36 chars)
 **Sequence:** Cold Outreach, Touch 1 (Permissionless Value Promise)
 **Hook source:** RelianceRetail_Brief.md, Sections 3 and 9 — Isha Ambani's 19 June 2026 AGM disclosure that Reliance Retail crossed 20,000 stores and that JioMart now runs India's largest quick commerce network (3,100+ stores, 600+ dark stores, 1,200+ cities)
 **Word count:** 95 words (body only)
@@ -18,7 +18,13 @@ That kind of scale means store associate, greeter and delivery-node hiring never
 Happy to send through a short breakdown of how large retail operators keep screening consistent at that scale, if it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

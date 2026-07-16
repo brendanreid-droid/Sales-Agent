@@ -2,7 +2,7 @@
 ## DRAFT EMAIL
 **To:** Jan O'Neill, Chief People Officer, Downer Group
 **From:** Brendan Reid
-**Subject:** staffing up for the Stockland contract (39 chars)
+**Subject:** Spotless / Sapia.Ai - Staffing up for the Stockland contract (39 chars)
 **Sequence:** Cold Outreach, Touch 1 (Permissionless Value Promise)
 **Hook source:** Spotless_Brief.md, Section 9/10 — the A$500m Stockland IFM contract commencing 1 August 2026, landing inside Downer's active cost-to-serve/restructuring programme (A$16.1m transformation costs, 1H26 results)
 **Word count:** 110 words (body only)
@@ -18,7 +18,13 @@ Regis Aged Care used a quick chat-based screening step to cut screening time by 
 I've put together a short breakdown of how frontline operators handle a mobilisation like this without extra recruiter headcount. Happy to send it through, if you think it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

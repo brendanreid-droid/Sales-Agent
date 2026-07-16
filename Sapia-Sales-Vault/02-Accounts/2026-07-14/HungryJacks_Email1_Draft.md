@@ -7,7 +7,7 @@
 ## DRAFT EMAIL
 **To:** Jenny McKie, Chief People Officer, Hungry Jack's Pty Ltd
 **From:** Brendan
-**Subject:** the next chapter after 10,000 applications (6 words)
+**Subject:** Hungry Jack's / Sapia.Ai - The next chapter after 10,000 applications (6 words)
 **Sequence:** Cold Outreach, Touch 1
 **Hook source:** Brief Sections 3, 6 and 9 to 10: Hungry Jack's own public Workday case study numbers (weekly applications up 300% to 10,000+, time-to-hire cut from 3 to 4 weeks down to 24 hours), Jenny McKie's own on-record statement that the next priority is AI-enabled recruitment quality and an ABA Employer of Choice ambition, and the confirmed absence of any structured screening layer on top of Workday's intake pipeline (Section 6, Root Cause).
 **Word count:** 120 words (body only, excludes greeting and sign-off)
@@ -25,7 +25,13 @@ At Starbucks Australia, adding a structured, text-based screening step ahead of 
 Happy to send the breakdown of how Starbucks did it, if you think it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

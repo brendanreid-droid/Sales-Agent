@@ -2,7 +2,7 @@
 ## DRAFT EMAIL
 **To:** Jackie Donnan, Director of Global HR, Fortescue
 **From:** Brendan Reid
-**Subject:** running two hiring motions at once (35 chars)
+**Subject:** Fortescue / Sapia.Ai - Running two hiring motions at once (35 chars)
 **Sequence:** Cold Outreach, Touch 1 (Permissionless Value Promise)
 **Hook source:** Fortescue_Brief.md, Sections 3 and 9 — roughly 700 role cuts across Fortescue Zero (green hydrogen/EV) alongside 53+ live openings across Pilbara mining, engineering and technical roles, both current as of the careers site pull on 2026-07-15
 **Word count:** 112 words (body only)
@@ -18,7 +18,13 @@ That's redeployment and new-hire screening running side by side on remote Pilbar
 I've put together a short breakdown of how mining and resources teams manage both motions without adding recruiter headcount. Happy to send it through, if you think it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

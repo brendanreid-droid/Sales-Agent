@@ -7,7 +7,7 @@
 ## DRAFT EMAIL
 **To:** Mayank Rautela, Group Chief Human Resources Officer, Apollo Hospitals Enterprise Limited
 **From:** Brendan
-**Subject:** 35% turnover behind a growing network (6 words)
+**Subject:** Apollo Hospitals / Sapia.Ai - 35% turnover behind a growing network (6 words)
 **Sequence:** Cold Outreach, Touch 1
 **Hook source:** Brief Sections 6 and 9, Apollo's own BRSR FY2023-24 disclosure of 35% permanent employee turnover (38% female vs 33% male), landing against an active FY26 expansion of four new hospitals and roughly 855 beds plus a further 4,400-bed five-year pipeline, all staffed through walk-in interviews behind the Oracle Fusion Cloud HCM Recruiting careers portal (Brief Section 4) with no visible structured screening layer.
 **Word count:** 120 words (body only, excludes greeting and sign-off)
@@ -25,7 +25,13 @@ Regis Aged Care faced a similar high-churn frontline workforce. A structured cha
 Happy to send the breakdown through, if you think it's worth a look?
 
 Kind regards,
-Brendan
+
+Brendan Reid
+Senior Account Executive, Enterprise APAC | EMEA
++61 413 340 703
+brendan@sapia.ai
+216 Lower Heidelberg Rd, Ivanhoe East, Victoria 3079, Australia
+sapia.ai
 
 ---
 **Quality checklist (8-Point Copywriting Audit):**

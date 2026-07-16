@@ -31,22 +31,26 @@ Before drafting any emails for a new project or sender:
 For Tier A/B accounts with no prior relationship.
 
 **Sequence: Standard 4-Touch**
+**Threading (confirmed 2026-07-16): all 4 touches are ONE continuous email thread, not four separate emails.** Touch 1 sets the subject line; Touches 2-4 reuse that exact subject with `Re: ` prepended, they do NOT get their own new subject line. This supersedes any earlier instruction to vary the subject line per touch.
 - **Touch 1 (Day 0) — Cold Opener:**
-  - Subject line ≤ 40 characters.
+  - Subject line ≤ 40 characters. This is the subject for the whole thread.
   - Open on the SPECIFIC signal (do NOT use "I noticed" or "I came across").
   - One specific question or insight tied to their pain.
   - No pitch, no links, no attachments.
   - **Max 135 words.**
 - **Touch 2 (Day 3) — Value Follow-Up:**
+  - Subject: `Re: [Touch 1 subject]`.
   - Reference Touch 1 in exactly 1 line.
   - Share a specific case study or outcome/insight.
   - Soft CTA / ask.
   - **Max 100 words.**
 - **Touch 3 (Day 7) — Direct Ask:**
+  - Subject: `Re: [Touch 1 subject]`.
   - Reframe based on the original pain.
   - Specific call ask (15 min, focused on X).
   - **Max 80 words.**
 - **Touch 4 (Day 12) — Soft Breakup:**
+  - Subject: `Re: [Touch 1 subject]`.
   - "Going to close the loop unless you'd like me to follow up later."
   - Leave the door open for the future.
   - **Max 60 words.**
@@ -79,9 +83,12 @@ For contacts who previously worked at a Sapia customer and have joined a new com
 Outreach conversion is won at the hook and the CTA. You must strictly enforce these standards:
 
 ### Subject Lines
-- **Maximum 6 words** (sentence case, lowercase, no title-case styling, no exclamation marks).
+- **Format (confirmed 2026-07-16):** `{Short Company Name} / Sapia.Ai - {hook}` — e.g. `Telstra / Sapia.Ai - 50% positive: Telstra's HireVue step`. This applies to Touch 1 only; Touches 2-4 carry `Re: ` plus Touch 1's exact full subject (prefix included).
+- **Company name:** always the short, commonly recognised trading name. Strip legal entity suffixes: Pty Ltd, Ltd, Pvt Ltd, Inc, Inc., Corporation, Limited, Group, Holdings, and any parent-company parenthetical (e.g. "Spotless (Downer Group)" → "Spotless"). Examples: "Lendlease Pty Ltd" → "Lendlease", "ANZ Group Holdings" → "ANZ", "Jollibee Foods Corporation" → "Jollibee". Do not strip words that are genuinely part of the trading identity (e.g. "Ramsay Health Care", "Reliance Retail", "Globe Telecom" stay as-is, those aren't legal-entity suffixes).
+- **Hook portion (after the prefix):** Maximum 6 words, standard capitalisation (first word and proper nouns/acronyms capitalised — not forced lowercase).
 - Must create curiosity or name a pain point — never describe the email contents or look like sales marketing (e.g. `frontline turnover at [Company]`, `assessing high-volume TA`).
 - Avoid generic clickbait: "Quick question", "Following up", "Checking in".
+- **Touches 2-4 do not get a new subject line.** They carry `Re: [Touch 1's exact full subject, prefix included]` so the whole sequence threads as one conversation in the prospect's inbox.
 
 ### Email Body
 - **Enforce Word Counts strictly** per Touch guidelines above (135/100/80/60).
@@ -121,7 +128,7 @@ Provide the output in the following structure:
 ## DRAFT EMAIL
 **To:** [Full Name], [Title], [Company]
 **From:** [Sender name]
-**Subject:** [Subject line] ([character count] chars)
+**Subject:** [`{Short Company Name} / Sapia.Ai - {hook}` for Touch 1] / [`Re: {full Touch 1 subject}` for Touches 2-4] ([character count] chars)
 **Sequence:** [Archetype + Touch number, e.g., "Cold Touch 1"]
 **Hook source:** [What specific research/sourcing insight is this based on?]
 **Word count:** [N words]
@@ -144,7 +151,7 @@ Hi [First Name],
 - [ ] Check 5: "I" Opener — Does the email body start with something other than "I" or "We"? (Yes/No)
 - [ ] Check 6: Meeting Ask — Is Email 1 free of a direct meeting ask, utilising a PVP CTA instead? (Yes/No)
 - [ ] Check 7: Length — Is Email 1 ≤ 135 words and follow-ups ≤ 150 words? (Yes/No)
-- [ ] Check 8: Subject Line — Is the subject line ≤ 6 words and sentence case (lowercase)? (Yes/No)
+- [ ] Check 8: Subject Line — Touch 1: does it follow `{Short Company Name} / Sapia.Ai - {hook}`, hook ≤ 6 words, standard capitalisation, company name stripped of legal suffixes? Touches 2-4: is it exactly `Re: {full Touch 1 subject}`, not a new subject line? (Yes/No)
 - [ ] Voice matching — Calibrated to the sender's voice and customer language libraries? (Yes/No)
 - [ ] Prohibited content — Checked for pricing, competitor names, and unverified claims? (Yes/No)
 ```
