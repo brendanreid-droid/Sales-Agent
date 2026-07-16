@@ -1,13 +1,25 @@
 ---
 name: company-researcher
 description: Account research for the Sapia GTM team. Use to build a source-cited brief on a target company (snapshot, trigger, contact, pain angle, opener) before outreach. Lean mode by default, Full 10-section mode for confirmed Tier A accounts. This is the raw material the copywriter uses.
-# No Lusha tools on this agent, by design (reverted 2026-07-15). Two things were tried and both failed to help:
-# (1) adding Lusha tool names to this frontmatter didn't actually grant them in live testing (no ToolSearch, no Lusha,
-#     even after the edit — root cause unconfirmed, likely the harness fixes a named agent type's toolset regardless
-#     of frontmatter edits); (2) routing this role through a general-purpose wrapper WITH Lusha access worked
+# No Lusha tools on this agent, by design (reverted 2026-07-15, decision stands after the 2026-07-16 re-test below).
+# Two things were tried:
+# (1) adding Lusha tool names to this frontmatter looked like it didn't grant them in 2026-07-15 live testing
+#     (no ToolSearch, no Lusha). RESOLVED 2026-07-16: this was never a harness limitation. Re-testing the same
+#     mechanism on research-analyst.md and prospect-hunter.md that day showed it fails silently, exactly the
+#     same way, whenever Lusha simply isn't connected in the session (confirmed independently via
+#     general-purpose + ToolSearch also finding zero Lusha tools). Once Lusha was confirmed live in a session,
+#     both of those agent types called `account_usage` directly with no ToolSearch and no workaround, proving
+#     the `tools:` frontmatter DOES correctly grant exact MCP tool names to named subagent types, per Claude
+#     Code's docs (code.claude.com/docs/en/sub-agents, "Available tools"). See those two files for the full
+#     writeup. This agent's Lusha tools are NOT being restored based on that finding alone, though, because of
+#     point (2), which is independent of whether the grant mechanism works;
+# (2) routing this role through a general-purpose wrapper WITH Lusha access worked
 #     functionally but cost MORE tokens, not less (109k on AirAsia Group vs this role's own ~54k average), because
 #     the wrapper's base overhead plus Lusha's bulky list-style responses (e.g. 40 contacts back from one
-#     decision_makers_search call) outweighed the savings.
+#     decision_makers_search call) outweighed the savings. Since the grant mechanism itself is now confirmed to
+#     work directly (no wrapper needed), a fresh direct-grant token measurement on this role would be a fairer
+#     test than the old wrapper-based one, but hasn't been run; until it has, the existing division of labour
+#     (Prospect Hunter pre-pulls firmographics, Company Researcher consumes them as given facts) stands.
 # The actual fix: Prospect Hunter now does ONE batched Lusha pull (companies_search + decision_makers_search,
 # both take up to 20-25 companies per call) covering the WHOLE cohort before Company Researcher runs at all
 # (see agent_prompts/04_prospect_hunter.md, Workflow 0). This agent receives the result as "Given Firmographics"

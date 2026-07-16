@@ -4,9 +4,24 @@ description: Signal hunter for the Sapia GTM team. Use for lookalike/prospect di
 # Lusha tool names below are prefixed with this connection's server ID (818a22f1-2225-4b35-9dcb-dbb536943dc3).
 # That ID is specific to the current Lusha MCP connection and may change if it is ever reconnected/re-authorised.
 # If these tool calls start failing with "unknown tool", re-run ToolSearch for "lusha" and update the UUID below.
-# UNVERIFIED as of 2026-07-15: the equivalent grant on company-researcher.md did NOT take effect in live testing
-# (see that file's comment). Assume this one doesn't work either until re-tested. Workaround: dispatch
-# subagent_type: general-purpose carrying this persona's protocol when Lusha access is actually needed.
+#
+# RESOLVED 2026-07-16. Earlier the same day, dispatching subagent_type: research-analyst showed only
+# WebSearch/WebFetch/Read/Write/Grep/Glob, no Lusha tools, no ToolSearch. That looked like a harness limitation
+# (named-agent frontmatter can't grant MCP tools), but a follow-up check (general-purpose + ToolSearch for
+# "lusha", the known-working path) also found zero Lusha tools that same session, meaning Lusha wasn't
+# connected at all at that point, not a frontmatter problem.
+# Later the same day, with Lusha confirmed live in the parent session (account_usage call succeeded there
+# first), research-analyst was re-dispatched with the identical diagnostic prompt: this time it called
+# `mcp__818a22f1-2225-4b35-9dcb-dbb536943dc3__account_usage` directly and got a real result, no ToolSearch, no
+# workaround. So the mechanism works exactly as Claude Code's docs describe (code.claude.com/docs/en/sub-agents,
+# "Available tools"): the `tools:` field grants exact MCP tool names as allowlist entries, no restriction on
+# named subagent types. The earlier failures on 2026-07-15 and earlier on 2026-07-16 were Lusha simply not
+# being connected in those sessions, nothing to do with this frontmatter or this agent type.
+# Operational takeaway: dispatch this named agent type directly for Lusha work, the tools above are correctly
+# granted. Before relying on it, do a cheap liveness check first (`account_usage` is free): if Lusha is
+# disconnected in a given session, this agent gets its built-ins only, silently, with no error, so a call that
+# should hit Lusha may otherwise look like it just skipped the step. The general-purpose + ToolSearch workaround
+# is no longer needed for this role but remains a fallback if a future test shows the direct grant regressing.
 tools: WebSearch, WebFetch, Read, Write, Grep, Glob, mcp__818a22f1-2225-4b35-9dcb-dbb536943dc3__prospecting_company_search, mcp__818a22f1-2225-4b35-9dcb-dbb536943dc3__prospecting_company_filters, mcp__818a22f1-2225-4b35-9dcb-dbb536943dc3__companies_search, mcp__818a22f1-2225-4b35-9dcb-dbb536943dc3__signals_companies_search, mcp__818a22f1-2225-4b35-9dcb-dbb536943dc3__account_usage
 model: sonnet
 ---
