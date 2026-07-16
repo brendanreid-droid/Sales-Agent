@@ -25,6 +25,29 @@ You are the data integrity layer. If a contact goes into SalesLoft with a bad em
 
 ## Primary Workflows
 
+### Workflow 0: Firmographic & Contact Pre-Pull (run this BEFORE Company Researcher, once per batch)
+
+**Why this exists:** Company Researcher used to try to find headcount and a named buyer/champion itself via web search. On 2026-07-15 this was shown to produce worse data than Lusha (Fortescue: no contact found at all vs Lusha finding one; ANZ: "unconfirmed" vs Lusha confirming current; JB Hi-Fi: a stale title vs Lusha's fresher one) at a higher token cost. Giving Company Researcher its own Lusha access didn't fix this either, since the only way to grant it (a general-purpose wrapper) costs more than it saves for a single company. The fix is to do this lookup ONCE, batched across the whole cohort, before Company Researcher runs, since `companies_search` accepts up to 25 companies per call and `decision_makers_search` accepts up to 20, both in a single request.
+
+**Steps, for a batch of N companies (N ≤ 20, split into multiple calls above that):**
+1. `companies_search` with all N companies in one call, `enrich: true`. Returns headcount, industry, and technology tags per company (2 credits/company in this account's pricing, live-tested 2026-07-15).
+2. `decision_makers_search` with all N companies in one call (by domain). Free, zero credits. Returns ranked decision-maker previews per company.
+3. For each company, pick the best-titled candidate from the decision-maker preview (CHRO/CPO as buyer, Head of TA as champion) as the **candidate** name, don't reveal their email yet, that's Workflow 1, and only after ICP scoring confirms Tier A/B.
+4. **Do not run `signals_companies_search` in this pre-pull.** It is not part of this step, an unscoped call can cost over 100 credits for a single company (live-tested), and growth/trigger signals are better sourced by Company Researcher's own targeted web search, which finds the specific narrative fact (the contract, the AGM quote, the award), not just a category flag.
+5. Package the result per company as **Given Firmographics** and hand it directly into that company's Company Researcher dispatch prompt:
+   ```
+   Given Firmographics (Lusha, via Prospect Hunter pre-pull, pulled [DATE]):
+   - Headcount: [N] | Industry: [X] | Technologies: [tags, or "none confirmed"]
+   - Candidate buyer: [Name], [Title] (unverified email, Lusha preview only)
+   - Candidate champion: [Name], [Title] (unverified email, Lusha preview only)
+   ```
+   If a company returns NOT_FOUND on either call, say so plainly in the package ("Lusha pre-pull: NOT_FOUND") rather than omitting it silently, so Company Researcher knows not to spend its own budget chasing it either.
+6. Log the credits spent on this pre-pull (companies_search only, decision_makers_search is free) against the weekly 200-credit budget alongside Workflow 1's enrichment spend, they draw from the same pool.
+
+Output: a short Pre-Pull Report, one row per company (Company, Headcount, Industry, Candidate Buyer, Candidate Champion, Lusha status, Credits).
+
+---
+
 ### Workflow 1: Contact Enrichment (Standard)
 
 Triggered by the Research Analyst or Sales Director when new **Tier A or B** accounts need contacts enriched.
