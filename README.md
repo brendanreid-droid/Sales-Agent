@@ -15,13 +15,13 @@ This folder contains everything your team needs to run an autonomous, AI-powered
 
 Two steps, no git commands to memorise.
 
-**Step 1: open Claude Code once, anywhere.** Terminal → `claude` from your home folder or Documents. Already have a session open? Skip to Step 2.
+**Step 1: start a Claude Code session, once, anywhere.** Most of the team will do this from inside **Claude Desktop's own Claude Code feature**, it's the same engine as the terminal version, just launched from the app instead of a terminal window. Open a new Claude Code session there. (Prefer a terminal? `claude` from your home folder or Documents works identically.) Already have a session open? Skip to Step 2.
 
 **Step 2: prompt it to clone the repo for you:**
 
 > *"Clone https://github.com/brendanreid-droid/Sales-Agent.git into my Documents folder, then tell me exactly where it landed."*
 
-Claude runs the clone and confirms the folder path. **One thing this can't skip:** a Claude Code session is tied to the folder it started in, so this session won't automatically become the Sales Director. Close it, then reopen Claude Code from inside the new folder, either double-click `start.command` there, or type `claude` in a terminal opened to that folder. That second launch is what boots the Sales Director and wires up the 7 specialist agents.
+Claude runs the clone and confirms the folder path. **One thing this can't skip:** a Claude Code session is tied to the folder it started in, so this session won't automatically become the Sales Director. Close it, then start a **new** Claude Code session pointed at the newly cloned folder, either through Claude Desktop again (open a new Claude Code session there, pointed at that folder), or by double-clicking `start.command` inside it, or by typing `claude` in a terminal opened to that folder. That second launch is what boots the Sales Director and wires up the 7 specialist agents.
 
 This is a private repo. If the clone fails on a permission error, ask Brendan to add you as a collaborator first (GitHub → repo → Settings → Collaborators).
 
@@ -29,13 +29,13 @@ This is a private repo. If the clone fails on a permission error, ask Brendan to
 
 ## Runs on Claude Code
 
-This stack runs on **Claude Code**, not Claude Desktop. That's not a preference, it's a requirement: the agents are wired as native Claude Code subagents (`.claude/agents/`) with `CLAUDE.md` auto-loading the Sales Director identity every session, that's what lets one orchestrator dispatch 7 specialists in parallel automatically. Claude Desktop has no equivalent, it would mean manually pasting each agent's prompt into a separate Project and copying between them by hand, a fundamentally weaker, manual version of this system. See "Why not Claude Desktop?" at the bottom if you want the full reasoning.
+This stack runs on **Claude Code**, the same engine whether you launch it from a terminal or from **Claude Desktop's own Claude Code feature** (most of the team will use the latter), both wire up `.claude/agents/` and auto-load `CLAUDE.md` identically. That's not a preference, it's a requirement: the agents are wired as native Claude Code subagents with `CLAUDE.md` auto-loading the Sales Director identity every session, that's what lets one orchestrator dispatch 7 specialists in parallel automatically. What this can't run on is the older, separate **Claude Desktop Projects** mode (pasting a static prompt into its own Project per agent), that has no equivalent, it would mean manually pasting each agent's prompt into a separate Project and copying between them by hand, a fundamentally weaker, manual version of this system. See "Claude Code vs Claude Desktop Projects" at the bottom if you want the full reasoning.
 
 - `CLAUDE.md` — loads the Sales Director identity + all standards automatically every session.
 - `.claude/agents/` — the 7 specialists, dispatchable by name (`company-researcher`, `copywriter`, etc.).
 - `agent_prompts/` — the full role prompts each agent reads (single source of truth).
 
-**Quickstart:** open this folder in Claude Code (or double-click `start.command`, see below) and say *"You're the Sales Director. Research my top 3 Tier 1 accounts, then draft outreach."* Claude boots as the orchestrator and routes to the specialists.
+**Quickstart:** open this folder in a Claude Code session (via Claude Desktop's Claude Code feature, `start.command`, or a terminal, see below) and say *"You're the Sales Director. Research my top 3 Tier 1 accounts, then draft outreach."* Claude boots as the orchestrator and routes to the specialists.
 
 **Engine vs data (important for sharing):**
 - **Engine (shared):** `CLAUDE.md`, `.claude/agents/`, `agent_prompts/`, `.agents/AGENTS.md`, ICP rubric, product, case studies, `.mcp.json.example` (server definitions only, no secrets).
@@ -201,13 +201,15 @@ Full guardrail list (anti-spam cooldowns, Lusha budget protection, copywriting s
 
 ---
 
-## Why not Claude Desktop?
+## Claude Code vs Claude Desktop Projects
 
-Claude Desktop can technically hold static copies of each agent's prompt in separate Projects, and it does have a nicer point-and-click Connectors panel for MCP setup with zero terminal use at all. If someone on your team genuinely cannot use a terminal, even once, that's the honest tradeoff to weigh.
+Worth being precise here, since "Claude Desktop" means two different things:
 
-But Desktop can't run this system as designed. There's no equivalent to `.claude/agents/` or `CLAUDE.md`, so there's no orchestrator automatically dispatching specialists in parallel, no shared task tracking, no single Sales Director coordinating a Monday plan into a Tuesday digest. A rep on Desktop would be manually copying context between Projects by hand, a materially different, slower, more error-prone process, not the same stack running elsewhere. For a team that needs everyone working the same way, this matters more than the small one-time terminal step Claude Code asks for.
+**Claude Desktop's Claude Code feature (recommended, what most of the team will use):** this is a real Claude Code session, launched from inside the Desktop app instead of a terminal window. It's the exact same engine, `.claude/agents/`, `CLAUDE.md`, the orchestrator dispatching all 7 specialists in parallel, all of it works identically. If your team is using this, you're already on the right path, nothing in this README needs a terminal.
 
-If a rep is uncomfortable opening a terminal: `start.command` reduces that to a single double-click, and the whole rest of the setup (Step 3-4 above) is plain point-and-click connector sign-in, no commands to type at all.
+**Claude Desktop Projects (not supported, don't use this for the GTM system):** the older mode of pasting a static copy of each agent's prompt into its own separate Project. It has no equivalent to `.claude/agents/` or `CLAUDE.md`, so there's no orchestrator automatically dispatching specialists in parallel, no shared task tracking, no single Sales Director coordinating a Monday plan into a Tuesday digest. A rep on Projects would be manually copying context between them by hand, a materially different, slower, more error-prone process, not the same stack running elsewhere.
+
+If a rep is uncomfortable opening a terminal at all: Claude Desktop's Claude Code feature (above) or `start.command` both reduce that to zero typing, and the whole rest of the setup (Step 3-4 above) is plain point-and-click connector sign-in either way.
 
 ---
 

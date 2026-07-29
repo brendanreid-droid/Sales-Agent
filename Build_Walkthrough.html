@@ -43,10 +43,10 @@
 
 <div style="background:#f0f4ff; border:1.5px solid #0f3460; border-radius:10px; padding:18px 22px; margin:16px 0 24px 0;">
 <p style="margin-top:0;"><strong>Get the repo</strong> — two short steps, no memorising git commands.</p>
-<p><strong>Step 1: open Claude Code once, anywhere</strong> (e.g. Terminal → type <code>claude</code> from your home folder or Documents). If you already have a session open, skip to Step 2.</p>
+<p><strong>Step 1: start a Claude Code session, once, anywhere.</strong> Most reps will do this from inside <strong>Claude Desktop's own Claude Code feature</strong>, same engine as the terminal version, just launched from the app. (Prefer a terminal? <code>claude</code> from your home folder or Documents works identically.) If you already have a session open, skip to Step 2.</p>
 <p><strong>Step 2: prompt it to clone the repo for you:</strong></p>
 <blockquote style="margin:8px 0;"><p><em>"Clone https://github.com/brendanreid-droid/Sales-Agent.git into my Documents folder, then tell me exactly where it landed."</em></p></blockquote>
-<p style="margin-bottom:0;">Claude runs the clone and confirms the folder path. <strong>One thing this can't skip:</strong> a Claude Code session is tied to the folder it started in, so this session won't automatically "become" the Sales Director. Close it, then reopen Claude Code from inside the new folder, double-click <code>start.command</code> there, or type <code>claude</code> in a terminal opened to that folder. That second launch is what boots the Sales Director and wires up the 7 specialist agents.</p>
+<p style="margin-bottom:0;">Claude runs the clone and confirms the folder path. <strong>One thing this can't skip:</strong> a Claude Code session is tied to the folder it started in, so this session won't automatically "become" the Sales Director. Close it, then start a <strong>new</strong> Claude Code session pointed at the new folder, either through Claude Desktop again (pointed at that folder), or by double-clicking <code>start.command</code> there, or by typing <code>claude</code> in a terminal opened to that folder. That second launch is what boots the Sales Director and wires up the 7 specialist agents.</p>
 </div>
 <p style="font-size:9.5pt; color:#4a5568; margin-top:-14px;">This is a private repo. If the clone fails with a permission error, ask Brendan to add you as a collaborator in GitHub first (repo → Settings → Collaborators).</p>
 
@@ -576,7 +576,7 @@
 <blockquote><p><strong>Team / Enterprise plans:</strong> connecting a pre-built connector at the account level may require admin permissions. If a connector you need isn't showing up, ask your workspace admin to add it rather than assuming it's broken.</p></blockquote>
 <blockquote><p><strong>Slack needs one more manual step before it can post anything:</strong> connecting the app is not the same as having somewhere for it to post. You still need to create your own private channel and invite the Sapia bot to it, see "Setting Up Slack Notifications &amp; Approvals" below, no MCP tool can do this part for you.</p></blockquote>
 <h4>Step 3 — Confirm it's live</h4>
-<p>Open Claude Code (double-click <code>start.command</code>, or type <code>claude</code> in a terminal opened to this folder) and send:</p>
+<p>Open a Claude Code session (via Claude Desktop, double-click <code>start.command</code>, or type <code>claude</code> in a terminal opened to this folder) and send:</p>
 <blockquote><p><em>"Run /mcp and tell me which connectors are live."</em></p></blockquote>
 <p>Confirm Slack, Lusha, and Gmail all show as connected. That's the whole setup, nothing else to do here.</p>
 
@@ -589,8 +589,10 @@
 <li><strong>A connector keeps re-prompting for auth:</strong> the OAuth grant may have expired or been revoked on the service's side, just go through the sign-in again, it's harmless to repeat.</li>
 </ul>
 
-<h3>Why not Claude Desktop?</h3>
-<p>Claude Desktop is a genuinely easier product if someone truly cannot use a terminal at all, its Connectors panel is point-and-click with zero typing. But it can't run this system as built: there's no equivalent to <code>.claude/agents/</code> or <code>CLAUDE.md</code>, so there's no orchestrator automatically dispatching the 7 specialists in parallel, that has to be done by hand, pasting between separate Projects one at a time. It's not the same stack running on a different app, it's a materially more manual process. For a team that needs to work consistently, that outweighs the one-click terminal step Claude Code asks for via <code>start.command</code>. If you still need the Desktop path for a specific person, <code>claude_desktop_config_template.json</code> is in the repo and takes the same credentials, just pasted into that file instead and placed at <code>~/Library/Application Support/Claude/claude_desktop_config.json</code> (Mac) or <code>%APPDATA%\Claude\claude_desktop_config.json</code> (Windows), then restart Claude Desktop.</p>
+<h3>Claude Code vs Claude Desktop Projects</h3>
+<p>Worth being precise here, since "Claude Desktop" means two different things:</p>
+<p><strong>Claude Desktop's Claude Code feature (recommended, what most of the team will use):</strong> this is a real Claude Code session, launched from inside the Desktop app instead of a terminal window. Same engine, <code>.claude/agents/</code>, <code>CLAUDE.md</code>, the orchestrator dispatching all 7 specialists in parallel, all of it works identically. If your team is using this, nothing in this guide needs a terminal at all.</p>
+<p><strong>Claude Desktop Projects (not supported, don't use this for the GTM system):</strong> the older mode of pasting a static copy of each agent's prompt into its own separate Project. It can't run this system as built: there's no equivalent to <code>.claude/agents/</code> or <code>CLAUDE.md</code>, so there's no orchestrator automatically dispatching the 7 specialists in parallel, that has to be done by hand, pasting between separate Projects one at a time. It's not the same stack running on a different app, it's a materially more manual process. If you genuinely need this path for a specific person, <code>claude_desktop_config_template.json</code> is in the repo and takes the same credentials, just pasted into that file instead and placed at <code>~/Library/Application Support/Claude/claude_desktop_config.json</code> (Mac) or <code>%APPDATA%\Claude\claude_desktop_config.json</code> (Windows), then restart Claude Desktop. Be aware this gets you individual chat with tools, not the orchestrated agent team.</p>
 
 <hr />
 <h2>Sharing with Your Peers</h2>
