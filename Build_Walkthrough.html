@@ -386,7 +386,7 @@
 <ol>
 <li>Replace the target list with your own territory (<code>00-ICP/Target_Account_Analysis.md</code> + <code>Target_Account_List.csv</code>)</li>
 <li>Fill in the rest of the knowledge vault (Cold_Winners.md, other priority files above)</li>
-<li>Connect Slack, Lusha, and Gmail via the pre-built connectors at <code>claude.ai/customize/connectors</code> (Path A below). These three are all you need to get a batch moving, no keys, no file editing. See Detailed MCP Connection Setup below.</li>
+<li>Connect Slack, Lusha, and Gmail via the pre-built connectors at <code>claude.ai/customize/connectors</code>. These three are all you need to get a batch moving, no keys, no file editing. See Detailed MCP Connection Setup below.</li>
 <li>Fill in your Voice Profile</li>
 <li>Validate: ask the Sales Director to dispatch Research Analyst, then ICP Scorer, on 1-2 accounts you already know well, check the output quality before trusting it on the full list</li>
 <li>Run your first full batch: 5-10 emails through the full pipeline → human approval → Gmail send</li>
@@ -562,12 +562,12 @@
 </table>
 <hr />
 <h2>Detailed MCP Connection Setup</h2>
-<p>There are two different ways a service gets connected here, and most reps will only ever need the first one. <strong>Check the pre-built connector path first</strong>, it's what most people actually use, the manual <code>.mcp.json</code> path is a fallback for whatever doesn't have one yet.</p>
+<p>Everything you need for a first batch connects the same simple way, no API key, no file editing.</p>
 <blockquote>
-<p><strong>Confirmed 2026-07-15, still current:</strong> Slack, Lusha, and Gmail all connect as pre-built connectors, no API key, no <code>.mcp.json</code> editing. These three are all a rep needs to run a real batch. SalesLoft, HubSpot, and Gong are not yet authorised org-wide at all, connecting them yourself won't make those steps live, see "Optional, Not Needed Yet" below.</p>
+<p><strong>Confirmed 2026-07-15, still current:</strong> Slack, Lusha, and Gmail all connect as pre-built connectors. SalesLoft, HubSpot, and Gong are not yet authorised org-wide at all, there's nothing to set up for them yet, if that changes, README.md's "Optional, Not Needed Yet" section has the short version of how to connect one manually when the time comes.</p>
 </blockquote>
 
-<h3>Path A — Pre-built connectors (Slack, Lusha, Gmail)</h3>
+<h3>Pre-built connectors (Slack, Lusha, Gmail)</h3>
 <p>Anthropic hosts and manages these directly. They're connected once, at your claude.ai account level, not inside this repo, and they then work automatically in every Claude Code session and every project you open, no per-repo setup, no keys to copy.</p>
 <h4>Step 1 — Check what's already connected</h4>
 <p>Open Claude Code and send: <em>"Run /mcp and tell me which connectors are already live."</em> Slack is sometimes already connected at the workspace level, if it's already showing as live, you can skip straight to Step 3.</p>
@@ -577,84 +577,27 @@
 <blockquote><p><strong>Slack needs one more manual step before it can post anything:</strong> connecting the app is not the same as having somewhere for it to post. You still need to create your own private channel and invite the Sapia bot to it, see "Setting Up Slack Notifications &amp; Approvals" below, no MCP tool can do this part for you.</p></blockquote>
 <h4>Step 3 — Confirm it's live</h4>
 <p>Open Claude Code (double-click <code>start.command</code>, or type <code>claude</code> in a terminal opened to this folder) and send:</p>
-<blockquote><p><em>"Run /mcp and tell me which connectors are live, and which ones are labelled as coming from claude.ai versus set up locally in this project."</em></p></blockquote>
-<p>Anything connected via Path A shows up labelled <strong>"from claude.ai"</strong>, that's the pre-built, account-level kind. Anything else in that list came from Path B below, set up specifically for this repo.</p>
+<blockquote><p><em>"Run /mcp and tell me which connectors are live."</em></p></blockquote>
+<p>Confirm Slack, Lusha, and Gmail all show as connected. That's the whole setup, nothing else to do here.</p>
 
-<h3>Path B — Manual setup, optional, not needed for a first batch</h3>
-<p>This covers SalesLoft, HubSpot, Gong, and Brave Search, none of which are authorised org-wide yet (see MCP Integration Directory above), and none of which are required to run a first batch, or any batch, right now. Skip this whole section unless you're specifically told one of these has been switched on. This is the older, per-repo, API-key style of connecting, edit one file, no terminal commands beyond opening the app.</p>
-<blockquote>
-<p><strong>One thing to get right before you start:</strong> never paste a real API key into <code>.mcp.json.example</code> or commit it to git. Real keys only ever go in your own <code>.mcp.json</code> (no ".example"), which is gitignored, stays on your machine, and is never shared with the team.</p>
-</blockquote>
-
-<h4>Step 1 — Create your personal credentials file</h4>
-<p>In Finder (or your file browser), find <code>.mcp.json.example</code> in the repo root. Duplicate it (right-click → Duplicate, or copy/paste), and rename the copy to exactly <code>.mcp.json</code> (drop the ".example"). That's it, no command needed. This new file is already listed in <code>.gitignore</code>, so it will never be committed or shared, it's yours alone. Only add entries here for services you're actually setting up this way, don't duplicate Slack, Lusha, or Gmail into this file, they're already handled by Path A.</p>
-
-<h4>Step 2 — Get each API key</h4>
-<table>
-<thead><tr><th>Service</th><th>Where to get your key</th><th>Notes</th></tr></thead>
-<tbody>
-<tr>
-<td><strong>SalesLoft</strong></td>
-<td>Your SalesLoft <strong>Admin</strong> must first enable the <strong>Agentic package</strong> (Settings → Agentic → Enable). This is an org-wide, one-time step, ask your SalesLoft admin to do this before anyone on the team tries to connect. Once enabled, each rep generates their own key: <strong>Settings → API → Create API Key</strong>.</td>
-<td>Not authorised org-wide as of this update, this whole row is future setup. Don't spend time on it until someone tells you the org-wide Agentic package is enabled, Gmail is the working channel until then.</td>
-</tr>
-<tr>
-<td><strong>HubSpot</strong></td>
-<td><strong>Settings → Integrations → Private Apps → Create a private app.</strong> Name it something like "Sapia GTM Agent." Under Scopes, grant read access to Marketing Email and Contacts (for newsletter engagement data). Copy the generated Access Token.</td>
-<td>Needs a HubSpot admin if you don't have private-app creation rights. Lower priority, see "Lower Priority" in Setup Sequence.</td>
-</tr>
-<tr>
-<td><strong>Gong</strong></td>
-<td><strong>Gong → Company Settings → API → Create API Key</strong> (generates both an Access Key and a Secret, you need both).</td>
-<td>Optional. Only used by the Copywriter for voice calibration against your own past calls, calls are filtered strictly by your own email.</td>
-</tr>
-<tr>
-<td><strong>Brave Search</strong></td>
-<td><a href="https://brave.com/search/api">brave.com/search/api</a> → sign up → API key on your dashboard.</td>
-<td>Optional. Web search still works without it via Claude's built-in search, this just adds Brave as an extra source.</td>
-</tr>
-<tr>
-<td><strong>Filesystem</strong></td>
-<td>Not an API key, it's the absolute path to your local copy of <code>Sapia-Sales-Vault</code>, e.g. <code>/Users/yourname/Documents/Sales/Claude Sale Agent/Sapia-Sales-Vault</code>.</td>
-<td>Find it by right-clicking the folder → Get Info (Mac) or Properties (Windows) and copying the path.</td>
-</tr>
-</tbody>
-</table>
-
-<h4>Step 3 — Fill in .mcp.json</h4>
-<p>Open your new <code>.mcp.json</code> in any plain text editor, TextEdit, Notepad, VS Code, whatever's on your machine already. Find each <code>"..."</code> and replace it with the real value you just copied. For example, the SalesLoft block goes from:</p>
-<pre><code>"env": { "SALESLOFT_API_KEY": "..." }</code></pre>
-<p>to:</p>
-<pre><code>"env": { "SALESLOFT_API_KEY": "sk_live_your_actual_key_here" }</code></pre>
-<p>Do the same for HubSpot, Gong (two values), Brave Search, and the Filesystem path at the very bottom. Leave any <code>"..."</code> in place for a server you're not using yet, Claude Code just skips it. Save the file when you're done.</p>
-<p><strong>Alternative to editing the file by hand:</strong> Claude Code can add one of these servers for you from a chat message instead, useful if a service supports OAuth sign-in rather than a static key:</p>
-<blockquote><p><em>"Add the SalesLoft MCP server, then run /mcp so I can sign in."</em></p></blockquote>
-<p>That's the <code>claude mcp add</code> command running under the hood, followed by an <code>/mcp</code> browser sign-in, you never have to type the command yourself.</p>
-
-<h4>Step 4 — Tell Claude to load it</h4>
-<p>Back in Claude Code, send this message:</p>
-<blockquote><p><em>"I've filled in my MCP credentials in .mcp.json. Please confirm which servers connected and test each one."</em></p></blockquote>
-<p>Claude will run through Filesystem, SalesLoft, HubSpot, Gong, and Brave Search (whichever you've filled in) and tell you plainly which ones are live and which ones need attention, no separate test prompts required on your end.</p>
+<blockquote><p><strong>SalesLoft, HubSpot, and Gong:</strong> not authorised org-wide yet, so there's nothing to connect for them right now. When one of them is switched on, README.md's "Optional, Not Needed Yet" section has the short version of how to connect it manually, don't spend time on it before then.</p></blockquote>
 
 <h4>Troubleshooting</h4>
 <ul>
 <li><strong>A pre-built connector (Slack, Lusha, Gmail) isn't showing up in Claude Code:</strong> check <code>claude.ai/customize/connectors</code> directly, confirm it shows as connected there first. On Team/Enterprise plans, only an admin can add one, ask them rather than trying to work around it with a manual API key.</li>
 <li><strong>Prospect Hunter or Research Analyst return nothing from Lusha when you dispatch them directly by name:</strong> this is a known dispatch quirk, not a broken connection, named specialist agents don't always get tool access from their profile alone. Ask the Sales Director to handle it (it already knows the workaround) rather than dispatching that specialist solo.</li>
-<li><strong>A manually-configured server shows as not connected:</strong> double check you saved <code>.mcp.json</code> (not <code>.mcp.json.example</code>) and that the value has no stray quote marks or extra spaces. Ask Claude to re-check after you fix it.</li>
-<li><strong>SalesLoft key rejected (Path B):</strong> confirm your SalesLoft admin has actually enabled the Agentic package first, this is the most common blocker and it's an org setting, not something you can fix on your own key.</li>
-<li><strong>Filesystem can't find the vault:</strong> double-check the path in <code>.mcp.json</code> is the full absolute path (starts with <code>/</code> on Mac) to the <code>Sapia-Sales-Vault</code> folder itself, not its parent folder, and that there are no typos.</li>
 <li><strong>A connector keeps re-prompting for auth:</strong> the OAuth grant may have expired or been revoked on the service's side, just go through the sign-in again, it's harmless to repeat.</li>
 </ul>
 
 <h3>Why not Claude Desktop?</h3>
-<p>Claude Desktop is a genuinely easier product if someone truly cannot use a terminal at all, its Connectors panel is point-and-click with zero typing. But it can't run this system as built: there's no equivalent to <code>.claude/agents/</code> or <code>CLAUDE.md</code>, so there's no orchestrator automatically dispatching the 7 specialists in parallel, that has to be done by hand, pasting between separate Projects one at a time. It's not the same stack running on a different app, it's a materially more manual process. For a team that needs to work consistently, that outweighs the one-click terminal step Claude Code asks for via <code>start.command</code>. If you still need the Desktop path for a specific person, <code>claude_desktop_config_template.json</code> is in the repo and uses the same API keys from the table above, just pasted into that file instead and placed at <code>~/Library/Application Support/Claude/claude_desktop_config.json</code> (Mac) or <code>%APPDATA%\Claude\claude_desktop_config.json</code> (Windows), then restart Claude Desktop.</p>
+<p>Claude Desktop is a genuinely easier product if someone truly cannot use a terminal at all, its Connectors panel is point-and-click with zero typing. But it can't run this system as built: there's no equivalent to <code>.claude/agents/</code> or <code>CLAUDE.md</code>, so there's no orchestrator automatically dispatching the 7 specialists in parallel, that has to be done by hand, pasting between separate Projects one at a time. It's not the same stack running on a different app, it's a materially more manual process. For a team that needs to work consistently, that outweighs the one-click terminal step Claude Code asks for via <code>start.command</code>. If you still need the Desktop path for a specific person, <code>claude_desktop_config_template.json</code> is in the repo and takes the same credentials, just pasted into that file instead and placed at <code>~/Library/Application Support/Claude/claude_desktop_config.json</code> (Mac) or <code>%APPDATA%\Claude\claude_desktop_config.json</code> (Windows), then restart Claude Desktop.</p>
 
 <hr />
 <h2>Sharing with Your Peers</h2>
-<p>The <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/README.md">README.md</a> is a complete standalone onboarding guide for new team members. Just share the git repo, <code>.mcp.json.example</code> is checked in and holds no secrets, cloning the repo is the whole "install." Each peer then does their own connector setup from the Detailed MCP Connection Setup above: Path A (their own account-level Slack/Lusha/Gmail connectors at <code>claude.ai/customize/connectors</code>, no shared secrets involved at all, and no file editing needed at all for a first batch). Path B (their own <code>.mcp.json</code>, their own keys) only matters later, once SalesLoft/HubSpot/Gong are actually authorised.</p>
+<p>The <a href="file:///Users/staff/Documents/Sales/Claude Sale Agent/README.md">README.md</a> is a complete standalone onboarding guide for new team members. Just share the git repo, <code>.mcp.json.example</code> is checked in and holds no secrets, cloning the repo is the whole "install." Each peer then does their own connector setup from the Detailed MCP Connection Setup above: their own account-level Slack/Lusha/Gmail connectors at <code>claude.ai/customize/connectors</code>, no shared secrets involved at all, and no file editing needed at all for a first batch.</p>
 <p><strong>What each peer needs to do independently:</strong></p>
 <ul>
-<li>Connect their own Slack, Lusha, and Gmail via Path A (a few clicks, no file editing)</li>
+<li>Connect their own Slack, Lusha, and Gmail (a few clicks, no file editing)</li>
 <li>Fill in their own Voice Profile in <code>04-Brand_Voice/Sender_Voice_Profiles/</code></li>
 </ul>
 <p><strong>What they get from the shared repo:</strong></p>
@@ -693,7 +636,7 @@
 <h3>2. Setting Up Slack Notifications &amp; Approvals</h3>
 <p>Reps do not need to check Claude Code constantly. The Sales Director and Reply Handler can push digests and alerts directly to your personal Slack DM or a dedicated channel, and read your response to continue.</p>
 <h4>Step 1: Authorize Slack</h4>
-<p>Covered in "Detailed MCP Connection Setup → Path A" above, Slack connects as a pre-built connector at <code>claude.ai/customize/connectors</code>, a one-time OAuth sign-in at the account level. It's sometimes already connected at the workspace level, check with <code>/mcp</code> first before assuming you need to click Connect yourself. Either way, nothing to configure inside this repo.</p>
+<p>Covered in "Detailed MCP Connection Setup" above, Slack connects as a pre-built connector at <code>claude.ai/customize/connectors</code>, a one-time OAuth sign-in at the account level. It's sometimes already connected at the workspace level, check with <code>/mcp</code> first before assuming you need to click Connect yourself. Either way, nothing to configure inside this repo.</p>
 <h4>Step 2: Create your private channel and invite the Sapia bot</h4>
 <p>Connecting the app is not the same as having somewhere for it to post, this step is what actually makes posting work, and no MCP tool can do it for you:</p>
 <ul>
