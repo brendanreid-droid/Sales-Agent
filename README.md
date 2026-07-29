@@ -109,9 +109,10 @@ Each Account Executive (AE) must complete their personal configuration files:
 
 **Everything you actually need is a pre-built connector, no keys, no `.mcp.json`.**
 
-1. In a browser, go to `claude.ai/customize/connectors` (log in with the same account you use for Claude Code).
-2. Find **Slack**, **Lusha**, and **Gmail** in the list. Click **Connect** on each, and sign in via the OAuth prompt (your Slack workspace, your Lusha account, your Google account). Nothing to generate, nothing to paste.
-3. Back in Claude Code, send: *"Run /mcp and tell me which connectors are live."* Confirm all three show as connected.
+1. Back in Claude Code, first ask: *"Run /mcp and tell me which connectors are already live."* Slack is sometimes already connected at the workspace level, if it's already showing as live, skip straight to step 3 below.
+2. For anything not already connected, go to `claude.ai/customize/connectors` in a browser (log in with the same account you use for Claude Code). Find **Slack**, **Lusha**, and **Gmail** in the list, click **Connect** on whichever isn't already live, and sign in via the OAuth prompt (your Slack workspace, your Lusha account, your Google account). Nothing to generate, nothing to paste.
+3. **Create your own private Slack channel and invite the Sapia bot.** Name it `#[yourfirstname]-gtm-agent`, lowercase (e.g. `#sarah-gtm-agent`), and invite the Sapia bot/app to it. No MCP tool can do this step for you, it's a one-time manual step inside Slack itself, and nothing will post until it's done. See "Setting Up Slack Notifications & Approvals" in `Build_Walkthrough.html` for the exact clicks.
+4. Back in Claude Code, send: *"Run /mcp and tell me which connectors are live."* Confirm Slack, Lusha, and Gmail all show as connected.
 
 That's it, that's the whole setup required to run a real batch. Slack carries approvals and alerts, Lusha does contact enrichment, and **Gmail is the actual send and reply-tracking channel today** (not SalesLoft, see the note below).
 
