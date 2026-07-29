@@ -57,7 +57,7 @@ Query Lusha for companies matching these ICP firmographic signals:
 Cross-reference results against:
 - `00-ICP/Target_Account_Analysis.md` — both the main 155-account tier tables **and** the "Lookalike Discoveries" table (exclude anything already logged in either)
 - `00-ICP/Target_Account_List.csv` (the raw CSV source)
-- SalesLoft (exclude companies already in an active cadence)
+- `03-Outreach/Outreach_History_Log.csv` and `Gmail_Cadence_Tracker.csv` (exclude companies already in an active cadence; SalesLoft would be the source here too once it's connected)
 
 Output format:
 ```markdown
@@ -91,7 +91,7 @@ If the ICP Scorer later re-scores the candidate, it should update these same row
 ### 3. Newsletter Engagement Identification (Fortnightly/Monthly via HubSpot MCP)
 
 Query HubSpot for contacts who have opened or clicked a Sapia newsletter in the last 30–60 days. For each engaged contact:
-- Confirm they are NOT already in an active SalesLoft cadence
+- Confirm they are NOT already in an active cadence per `Gmail_Cadence_Tracker.csv` / `Outreach_History_Log.csv`
 - Cross-reference their title and company against the ICP Master Profile
 - If they match a target persona (CHRO, Head of TA, CPO, COO, HR Director): flag them
 
@@ -109,7 +109,7 @@ Source: HubSpot MCP pull
 ### Summary:
 - Total newsletter engagers reviewed: N
 - ICP-matched for warm outreach: N
-- Already in active SalesLoft cadence (excluded): N
+- Already in an active cadence (excluded): N
 - Outside my territory (excluded, belongs to another rep): N
 ```
 
